@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ristori.Views.LoginView">
+    <ContentPage.Content>
+        <Grid Padding="20" VerticalOptions="Center">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0" VerticalOptions="Center">
+                <Label Text="Login Form"
+                   TextColor="DarkCyan"
+                   FontSize="40"
+                   FontFamily="CabinSketch" 
+                HorizontalOptions="Center" />
+            </StackLayout>
+
+            <StackLayout Grid.Row="1" Spacing="10">
+                <Entry Placeholder="Enter Username" Text="{Binding Username}" />
+                <Entry Placeholder="Enter Password" Text="{Binding Password}" IsPassword="True" />
+
+                <Button Text="Login" HorizontalOptions="Center" BackgroundColor="DarkCyan"
+                    TextColor="White" WidthRequest="200" HeightRequest="60" CornerRadius="20" />
+
+                <Label Text="Register?"/>
+
+                <Button Text="Register" HorizontalOptions="Center" BackgroundColor="DarkCyan"
+                    TextColor="White" WidthRequest="200" HeightRequest="60" CornerRadius="20" />
+
+            </StackLayout>
+        </Grid>
+        
+    </ContentPage.Content>
+</ContentPage>
