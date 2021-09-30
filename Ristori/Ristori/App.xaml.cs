@@ -13,8 +13,8 @@ namespace Ristori
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
-            MainPage = new AppShell();
+            //MainPage = new LoginView();
+            MainPage = new NavigationPage(new SettingsPage());
         }
 
         protected override void OnStart()

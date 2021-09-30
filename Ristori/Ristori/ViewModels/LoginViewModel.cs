@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Ristori.Services;
+using Ristori.Views;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace Ristori.ViewModels
@@ -50,6 +53,20 @@ namespace Ristori.ViewModels
             }
         }
 
+        private bool _Result;
+        public bool Result
+        {
+            set
+            {
+                this._Result = value;
+                OnPropertyChanged();
+            }
+            get
+            {
+                return this._Result;
+            }
+        }
+
         public Command LoginCommand { get; set; }
         public Command RegisterCommand { get; set; }
         public LoginViewModel()
@@ -65,6 +82,12 @@ namespace Ristori.ViewModels
             try
             {
                 IsBusy = true;
+                var operatorService = new OperatorService();
+                Result = await operatorService.RegisterOperator(Username, Password);
+                if (Result)
+                    await Application.Current.MainPage.DisplayAlert("Success", "Operator Registered", "OK");
+                else
+                    await Application.Current.MainPage.DisplayAlert("Error", "Operator already exists with this credentials", "OK");
             }
             catch (Exception ex)
             {
@@ -78,7 +101,32 @@ namespace Ristori.ViewModels
 
         private async Task LoginCommandAsync()
         {
-            throw new NotImplementedException();
+            if (IsBusy)
+                return;
+            try
+            {
+                IsBusy = true;
+                var operatorService = new OperatorService();
+                Result = await operatorService.LoginOperator(Username, Password);
+                if(Result)
+                {
+                    Preferences.Set("Username", Username);
+                    await Application.Current.MainPage.Navigation.PushModalAsync(new ProductsView());
+                }
+                else
+                {
+                    await Application.Current.MainPage.DisplayAlert("Error", "Invalid username or password", "OK");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
     }
 }
