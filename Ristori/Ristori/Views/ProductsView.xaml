@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:helpers="clr-namespace:Ristori.Helpers"
              xmlns:vm="clr-namespace:Ristori.ViewModels"
-             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" x:DataType="vm:LoginViewModel"
              ios:Page.UseSafeArea="True"
              x:Class="Ristori.Views.ProductsView">
     <ContentPage.Content>
@@ -14,6 +14,82 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
+
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Benvenuto" Grid.Row="0" Grid.Column="0" TextColor="Silver" />
+                <Label Text="{Binding OperatorName}" Grid.Row="1" Grid.Column="0" FontSize="20"
+                       FontAttributes="Bold" />
+                <ImageButton Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"
+                             Source="{FontImage FontFamily=FontAwesome,
+                                     Size=40, Color=Red}"
+                                    Margin="0,0,10,0" HorizontalOptions="End" />
+                <!--Glyph={x:Static Helpers:IconFont.ViewList}-->
+                <Label Text="{Binding OperatorCartProductsCount}" FontSize="Subtitle"
+                       Grid.Row="0" Grid.Column="2" Grid.RowSpan="2"
+                       HorizontalTextAlignment="End" VerticalTextAlignment="Start" />
+
+                <ImageButton Grid.Row="0" Grid.Column="2" Grid.RowSpan="2"
+                             Source="{FontImage FontFamily=FontAwesome,
+                                     Size=40, Color=Green}"
+                                    Margin="0,0,10,0" HorizontalOptions="End" 
+                                    Command="{Binding ViewCartCommand}" />
+                <!--Glyph={x:Static Helpers:IconFont.Shopping},-->
+                <ImageButton Grid.Row="0" Grid.Column="3" Grid.RowSpan="2"
+                             Source="{FontImage FontFamily=FontAwesome,
+                                    Size=40, Color=Red}"
+                                    Margin="0,0,10,0" HorizontalOptions="End" 
+                                    Command="{Binding LogoutCommand}" />
+                <!--Glyph={x:Static Helpers:IconFont.Logout},-->
+            </Grid>
+
+            <Grid Grid.Row="1" Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <SearchBar Grid.Column="0" Placeholder="Cerca Prodotto"
+                           BackgroundColor="Transparent" HorizontalOptions="Fill"/>
+
+                <ImageButton Grid.Column="1" Source="{FontImage FontFamily=FontAwesome,
+                                     Size=40, Color=Red}"
+                                    Margin="0,0,10,0" HorizontalOptions="End" />
+                <!--Glyph={x:Static Helpers:IconFont.SearchWeb},-->
+            </Grid>
+
+            <CollectionView ItemsSource="{Binding Categories}"
+                            Margin="0,20"
+                            HeightRequest="125" VerticalOptions="FillAndExpand"
+                            HorizontalScrollBarVisibility="Never"
+                            ItemsLayout="HorizontalList"
+                            SelectionChanged="CollectionView_SelectioChanged"
+                            SelectionMode="Single"
+                            Grid.Row="2">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="0,0,15,0">
+                            <Frame HeightRequest="50" HasShadow="False" BackgroundColor="#feeee8" CornerRadius="10">
+                                <!--<Image Source="{Binding ImageUrl}"/>-->
+                            </Frame>
+                            <Label Text="{Binding CategoryName}" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
