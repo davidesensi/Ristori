@@ -78,7 +78,7 @@ namespace Ristori.ViewModels
         {
             var data = await new CategoryDataService().GetCategoriesAsync();
             Categories.Clear();
-            foreach(var product in data)
+            foreach (var product in data)
             {
                 Categories.Add(product);
             }

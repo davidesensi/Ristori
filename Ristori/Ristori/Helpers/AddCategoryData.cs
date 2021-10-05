@@ -20,15 +20,21 @@ namespace Ristori.Helpers
             {
                 new Category(){
                 CategoryID = 1,
-                    CategoryName = "Fritti"
+                    CategoryName = "Fritti",
+                    CategoryPoster = "MainPizza.png",
+                    ImageUrl = "Pizza.png"
                 },
                 new Category(){
                  CategoryID = 2,
-                 CategoryName = "Pizze"
+                 CategoryName = "Pizze",
+                 CategoryPoster = "MainPizza.png",
+                    ImageUrl = "Pizza.png"
                 },
                 new Category(){
                  CategoryID = 3,
-                 CategoryName = "Dolci"
+                 CategoryName = "Dolci",
+                 CategoryPoster = "MainPizza.png",
+                    ImageUrl = "Pizza.png"
                 }
             };            
         }
@@ -42,7 +48,10 @@ namespace Ristori.Helpers
                     await client.Child("Categories").PostAsync(new Category()
                     {
                         CategoryID = category.CategoryID,
-                        CategoryName = category.CategoryName
+                        CategoryName = category.CategoryName,
+                        CategoryPoster = category.CategoryPoster,
+                        ImageUrl = category.ImageUrl
+                        
                     });
                 }
 

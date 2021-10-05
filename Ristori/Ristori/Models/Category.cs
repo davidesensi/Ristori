@@ -8,7 +8,7 @@ namespace Ristori.Models
     {
         public int CategoryID { get; set; }
         public string CategoryName { get; set; }
-        /*public string CategoryPoster { get; set; }
-        public string ImageUrl { get; set; }*/
+        public string CategoryPoster { get; set; }
+        public string ImageUrl { get; set; }
     }
 }

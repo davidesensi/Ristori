@@ -2,8 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:helpers="clr-namespace:Ristori.Helpers"
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:vm="clr-namespace:Ristori.ViewModels"
-             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" x:DataType="vm:LoginViewModel"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" x:DataType="vm:ProductsViewModel"
              ios:Page.UseSafeArea="True"
              x:Class="Ristori.Views.ProductsView">
     <ContentPage.BindingContext>
@@ -13,6 +14,10 @@
         <Grid Margin="20,0,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
@@ -22,9 +27,6 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -34,7 +36,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Label Text="Benvenuto" Grid.Row="0" Grid.Column="0" TextColor="Silver" />
-                <Label Text="{Binding Username}" Grid.Row="1" Grid.Column="0" FontSize="20"
+                <Label Text="{Binding UserName}" Grid.Row="1" Grid.Column="0" FontSize="20"
                        FontAttributes="Bold" />
                 <ImageButton Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"
                              Source="{FontImage FontFamily=FontAwesome,
@@ -79,20 +81,23 @@
                             HeightRequest="125" VerticalOptions="FillAndExpand"
                             HorizontalScrollBarVisibility="Never"
                             ItemsLayout="HorizontalList"
-                            SelectionChanged="CollectionView_SelectioChanged"
+                            SelectionChanged="CollectionView_SelectionChanged"
                             SelectionMode="Single"
                             Grid.Row="2">
+                
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout Padding="0,0,15,0">
                             <Frame HeightRequest="50" HasShadow="False" BackgroundColor="#feeee8" CornerRadius="10">
-                                <!--<Image Source="{Binding ImageUrl}"/>-->
+                                <!--<Image Source="{Binding ImageUrl}"/>--> 
                             </Frame>
-                            <Label Text="{Binding CategoryName}" HorizontalOptions="Center"/>
+                            <!--<Label Text="{Binding CategoryName}" HorizontalOptions="Center"/>-->
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+            
+            
         </Grid>
     </ContentPage.Content>
 </ContentPage>

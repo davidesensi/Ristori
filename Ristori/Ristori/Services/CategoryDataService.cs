@@ -26,7 +26,9 @@ namespace Ristori.Services
                 .Select(c => new Category
                 {
                     CategoryID = c.Object.CategoryID,
-                    CategoryName = c.Object.CategoryName
+                    CategoryName = c.Object.CategoryName,
+                    CategoryPoster = c.Object.CategoryPoster,
+                    ImageUrl = c.Object.ImageUrl
                 }).ToList();
             return categories;
         }
