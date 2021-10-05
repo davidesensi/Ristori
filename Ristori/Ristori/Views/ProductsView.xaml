@@ -6,6 +6,9 @@
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" x:DataType="vm:LoginViewModel"
              ios:Page.UseSafeArea="True"
              x:Class="Ristori.Views.ProductsView">
+    <ContentPage.BindingContext>
+        <vm:ProductsViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <Grid Margin="20,0,0,0">
             <Grid.RowDefinitions>
@@ -31,7 +34,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Label Text="Benvenuto" Grid.Row="0" Grid.Column="0" TextColor="Silver" />
-                <Label Text="{Binding OperatorName}" Grid.Row="1" Grid.Column="0" FontSize="20"
+                <Label Text="{Binding Username}" Grid.Row="1" Grid.Column="0" FontSize="20"
                        FontAttributes="Bold" />
                 <ImageButton Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"
                              Source="{FontImage FontFamily=FontAwesome,
