@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:helpers="clr-namespace:Ristori.Helpers"
              xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             x:Class="Ristori.Views.Page1">
+             x:Class="Ristori.Views.CategoryView">
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -31,6 +31,55 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Text="{Binding TotalProducts, StringFormat='{0} Prodotti Totali'}"
+                           FontAttributes="Bold" FontSize="18" />
+                    <Image Grid.Row="0" Grid.Column="1" Source="More" />
+
+                    <CollectionView ItemsSource="{Binding ProductsByCategory}"
+                                    VerticalOptions="Start"
+                                    VerticalScrollBarVisibility="Never"
+                                    Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                                    SelectionMode="Single"
+                                    SelectionChanged="CollectionView_SelectionChanged">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Frame HasShadow="False" BackgroundColor="#fef6f2" HeightRequest="90"
+                                           CornerRadius="20" Margin="0,10">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+                                            <pancake:PancakeView Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                                                                 CornerRadius="12" Margin="0,0,10,0">
+                                                <Image Source="{Binding ImageUrl}" HeightRequest="100"
+                                                       WidthRequest="95" Aspect="AspectFill" />
+                                            </pancake:PancakeView>
+
+                                            <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"
+                                                   Text="{Binding Name}" FontSize="15" FontAttributes="Bold" />
+                                            <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
+                                                   Text="{Binding Description}" FontSize="15" TextColor="#a4a7b6" />
+                                            <Image Grid.Row="2" Grid.Column="1" Source="Star"
+                                                   HorizontalOptions="Start" WidthRequest="20" />
+
+                                            <Image Grid.Row="0" Grid.Column="2" Source="{Binding HomeSelected}"
+                                                   HeightRequest="15" />
+
+                                        </Grid>
+                                    </Frame>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
                 </Grid>
             </pancake:PancakeView>
         </Grid>

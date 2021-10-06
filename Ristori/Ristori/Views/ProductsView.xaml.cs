@@ -18,15 +18,15 @@ namespace Ristori.Views
             InitializeComponent();
         }
 
-        /*async*/ void CollectionView_SelectionChanged(System.Object sender, Xamarin.Forms.SelectionChangedEventArgs eventArgs)
+        async void CollectionView_SelectionChanged(System.Object sender, Xamarin.Forms.SelectionChangedEventArgs eventArgs)
         {
-            /*var category = eventArgs.CurrentSelection.FirstOrDefault() as Category;
+            var category = eventArgs.CurrentSelection.FirstOrDefault() as Category;
             if (category == null)
                 return;
 
             await Navigation.PushModalAsync(new CategoryView(category));
 
-            ((CollectionView)sender).SelectedItem = null;*/
+            ((CollectionView)sender).SelectedItem = null;
 ;        }
     }
 }

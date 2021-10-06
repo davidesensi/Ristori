@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Ristori.Models;
+using Ristori.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,16 +12,28 @@ using Xamarin.Forms.Xaml;
 namespace Ristori.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Page1 : ContentPage
+    public partial class CategoryView : ContentPage
     {
-        public Page1()
+        CategoryViewModel cvm;
+        public CategoryView(Category category)
         {
             InitializeComponent();
+            cvm = new CategoryViewModel(category);
+            this.BindingContext = cvm;
         }
 
-        private void ImageButton_Clicked(object sender, EventArgs e)
+        async void ImageButton_Clicked(object sender, EventArgs e)
         {
+            await Navigation.PopModalAsync();
+        }
 
+        async void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedProduct = e.CurrentSelection.FirstOrDefault() as Product;
+            if (selectedProduct == null)
+                return;
+            await Navigation.PushModalAsync(new ProductDetailsView(selectedProduct));
+            ((CollectionView)sender).SelectedItem = null;
         }
     }
 }
