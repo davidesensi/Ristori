@@ -40,25 +40,25 @@
                        FontAttributes="Bold" />
                 <ImageButton Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"
                              Source="{FontImage FontFamily=FontAwesome,
-                                     Size=40, Color=Red}"
+                                     Glyph={x:Static helpers:IconFont.ViewList}, Size=40, Color=Red}"
                                     Margin="0,0,10,0" HorizontalOptions="End" />
-                <!--Glyph={x:Static Helpers:IconFont.ViewList}-->
+                
                 <Label Text="{Binding OperatorCartProductsCount}" FontSize="Subtitle"
                        Grid.Row="0" Grid.Column="2" Grid.RowSpan="2"
                        HorizontalTextAlignment="End" VerticalTextAlignment="Start" />
 
                 <ImageButton Grid.Row="0" Grid.Column="2" Grid.RowSpan="2"
                              Source="{FontImage FontFamily=FontAwesome,
-                                     Size=40, Color=Green}"
+                                     Glyph={x:Static helpers:IconFont.Shopping}, Size=40, Color=Green}"
                                     Margin="0,0,10,0" HorizontalOptions="End" 
                                     Command="{Binding ViewCartCommand}" />
-                <!--Glyph={x:Static Helpers:IconFont.Shopping},-->
+                
                 <ImageButton Grid.Row="0" Grid.Column="3" Grid.RowSpan="2"
                              Source="{FontImage FontFamily=FontAwesome,
-                                    Size=40, Color=Red}"
+                                    Glyph={x:Static helpers:IconFont.Logout}, Size=40, Color=Red}"
                                     Margin="0,0,10,0" HorizontalOptions="End" 
                                     Command="{Binding LogoutCommand}" />
-                <!--Glyph={x:Static Helpers:IconFont.Logout},-->
+                
             </Grid>
 
             <Grid Grid.Row="1" Grid.Column="0">
@@ -71,9 +71,9 @@
                            BackgroundColor="Transparent" HorizontalOptions="Fill"/>
 
                 <ImageButton Grid.Column="1" Source="{FontImage FontFamily=FontAwesome,
-                                     Size=40, Color=Red}"
+                                     Glyph={x:Static helpers:IconFont.SearchWeb}, Size=40, Color=Red}"
                                     Margin="0,0,10,0" HorizontalOptions="End" />
-                <!--Glyph={x:Static Helpers:IconFont.SearchWeb},-->
+                
             </Grid>
 
             <CollectionView ItemsSource="{Binding Categories}"
@@ -89,7 +89,7 @@
                     <DataTemplate>
                         <StackLayout Padding="0,0,15,0">
                             <Frame HeightRequest="50" HasShadow="False" BackgroundColor="#feeee8" CornerRadius="10">
-                                <!--<Image Source="{Binding ImageUrl}"/>--> 
+                                <!--<Image Source="{Binding ImageUrl}"/>-->
                             </Frame>
                             <!--<Label Text="{Binding CategoryName}" HorizontalOptions="Center"/>-->
                         </StackLayout>

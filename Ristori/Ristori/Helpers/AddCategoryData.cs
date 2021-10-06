@@ -28,13 +28,13 @@ namespace Ristori.Helpers
                  CategoryID = 2,
                  CategoryName = "Pizze",
                  CategoryPoster = "MainPizza.png",
-                    ImageUrl = "Pizza.png"
+                 ImageUrl = "Pizza.png"
                 },
                 new Category(){
                  CategoryID = 3,
                  CategoryName = "Dolci",
                  CategoryPoster = "MainPizza.png",
-                    ImageUrl = "Pizza.png"
+                 ImageUrl = "Pizza.png"
                 }
             };            
         }

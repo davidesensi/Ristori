@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ristori.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,9 +18,15 @@ namespace Ristori.Views
             InitializeComponent();
         }
 
-        void CollectionView_SelectionChanged(System.Object sender, Xamarin.Forms.SelectionChangedEventArgs eventArgs)
+        /*async*/ void CollectionView_SelectionChanged(System.Object sender, Xamarin.Forms.SelectionChangedEventArgs eventArgs)
         {
+            /*var category = eventArgs.CurrentSelection.FirstOrDefault() as Category;
+            if (category == null)
+                return;
 
-        }
+            await Navigation.PushModalAsync(new CategoryView(category));
+
+            ((CollectionView)sender).SelectedItem = null;*/
+;        }
     }
 }
