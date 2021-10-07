@@ -28,7 +28,8 @@ namespace Ristori.Services
                     Name = p.Object.Name,
                     ProductID = p.Object.ProductID,
                     Description = p.Object.Description,
-                    Price = p.Object.Price
+                    Price = p.Object.Price,
+                    ImageUrl = p.Object.ImageUrl
                 }).ToList();
             return products;
         }

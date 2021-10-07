@@ -2,9 +2,7 @@
 using Ristori.Services;
 using Ristori.Views;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -78,9 +76,9 @@ namespace Ristori.ViewModels
         {
             var data = await new CategoryDataService().GetCategoriesAsync();
             Categories.Clear();
-            foreach (var product in data)
+            foreach (var category in data)
             {
-                Categories.Add(product);
+                Categories.Add(category);
             }
         }
     }

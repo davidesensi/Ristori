@@ -13,11 +13,11 @@
             </Grid.RowDefinitions>
 
             <Image Grid.Row="0" Source="{Binding SelectedCategory.CategoryPoster}"
-                   Aspect="AspectFit" VerticalOptions="Start" />
+                   Aspect="AspectFill" VerticalOptions="Start" />
             <Label Grid.Row="1" Text="{Binding SelectedCategory.CategoryName}" TextColor="White"
                    FontAttributes="Bold" FontSize="35" Margin="25,-85,0,0" />
             <ImageButton Source="{FontImage FontFamily=FontAwesome,
-                Glyph={x:Static helpers:IconFont.ArrowLeft}, Size=30,Color=White}"
+                Glyph={x:Static helpers:IconFont.ArrowLeft}, Size=40,Color=White}"
                          Grid.Row="0" HorizontalOptions="Start" Aspect="AspectFit"
                          VerticalOptions="Start" Margin="10,30" Clicked="ImageButton_Clicked" />
 
@@ -68,8 +68,7 @@
                                                    Text="{Binding Name}" FontSize="15" FontAttributes="Bold" />
                                             <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
                                                    Text="{Binding Description}" FontSize="15" TextColor="#a4a7b6" />
-                                            <Image Grid.Row="2" Grid.Column="1" Source="Star"
-                                                   HorizontalOptions="Start" WidthRequest="20" />
+                                            
 
                                             <Image Grid.Row="0" Grid.Column="2" Source="{Binding HomeSelected}"
                                                    HeightRequest="15" />

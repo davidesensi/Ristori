@@ -25,6 +25,7 @@ namespace Ristori.Helpers
                 {
                     ProductID = 1,
                     CategoryID = 1,
+                    ImageUrl = "MainPizza.png",
                     Name = "Suppli",
                     Description ="Suppli con riso, pomodoro, mozzarella impanato e fritto",
                     Price = 1
@@ -33,6 +34,7 @@ namespace Ristori.Helpers
                 {
                     ProductID = 2,
                     CategoryID = 2,
+                    ImageUrl = "MainPizza.png",
                     Name = "Pizza Margherita",
                     Description ="Pizza con pomodoro e mozzarella",
                     Price = 6
@@ -41,6 +43,7 @@ namespace Ristori.Helpers
                 {
                     ProductID = 3,
                     CategoryID = 3,
+                    ImageUrl = "MainPizza.png",
                     Name = "Tiramisu",
                     Description ="Dolce con mascarpone, biscotti bagnati nel caffe e cacao sopra",
                     Price = 4
@@ -58,6 +61,7 @@ namespace Ristori.Helpers
                     {
                         CategoryID = product.CategoryID,
                         ProductID = product.ProductID,
+                        ImageUrl = product.ImageUrl,
                         Description = product.Description,
                         Price = product.Price,
                         Name = product.Name

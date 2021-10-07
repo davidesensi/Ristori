@@ -4,14 +4,14 @@
              xmlns:helpers="clr-namespace:Ristori.Helpers"
              xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:vm="clr-namespace:Ristori.ViewModels"
-             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" x:DataType="vm:ProductsViewModel"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:Page.UseSafeArea="True"
              x:Class="Ristori.Views.ProductsView">
     <ContentPage.BindingContext>
         <vm:ProductsViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <Grid Margin="20,0,0,0">
+        <Grid Margin="30,0,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
@@ -78,7 +78,8 @@
 
             <CollectionView ItemsSource="{Binding Categories}"
                             Margin="0,20"
-                            HeightRequest="125" VerticalOptions="FillAndExpand"
+                            HeightRequest="200" VerticalOptions="FillAndExpand"
+                            WidthRequest="200"
                             HorizontalScrollBarVisibility="Never"
                             ItemsLayout="HorizontalList"
                             SelectionChanged="CollectionView_SelectionChanged"
@@ -88,10 +89,12 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout Padding="0,0,15,0">
-                            <Frame HeightRequest="50" HasShadow="False" BackgroundColor="#feeee8" CornerRadius="10">
-                                <!--<Image Source="{Binding ImageUrl}"/>-->
+                            <Frame HeightRequest="100" HasShadow="False" BackgroundColor="#feeee8" CornerRadius="10">
+
+                                <Image Source="{Binding ImageUrl}"
+                                HeightRequest="80"/>
                             </Frame>
-                            <!--<Label Text="{Binding CategoryName}" HorizontalOptions="Center"/>-->
+                            <Label Text="{Binding CategoryName}" HorizontalOptions="Center"/>
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
