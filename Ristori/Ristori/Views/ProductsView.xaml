@@ -40,7 +40,7 @@
                        FontAttributes="Bold" />
                 <ImageButton Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"
                              Source="{FontImage FontFamily=FontAwesome,
-                                     Glyph={x:Static helpers:IconFont.ViewList}, Size=40, Color=Red}"
+                                     Glyph={x:Static helpers:IconFont.ViewList}, Size=40, Color=DarkRed}"
                                     Margin="0,0,10,0" HorizontalOptions="End" />
                 
                 <Label Text="{Binding OperatorCartProductsCount}" FontSize="Subtitle"
@@ -55,7 +55,7 @@
                 
                 <ImageButton Grid.Row="0" Grid.Column="3" Grid.RowSpan="2"
                              Source="{FontImage FontFamily=FontAwesome,
-                                    Glyph={x:Static helpers:IconFont.Logout}, Size=40, Color=Red}"
+                                    Glyph={x:Static helpers:IconFont.Logout}, Size=40, Color=DarkRed}"
                                     Margin="0,0,10,0" HorizontalOptions="End" 
                                     Command="{Binding LogoutCommand}" />
                 
@@ -71,7 +71,7 @@
                            BackgroundColor="Transparent" HorizontalOptions="Fill"/>
 
                 <ImageButton Grid.Column="1" Source="{FontImage FontFamily=FontAwesome,
-                                     Glyph={x:Static helpers:IconFont.SearchWeb}, Size=40, Color=Red}"
+                                     Glyph={x:Static helpers:IconFont.SearchWeb}, Size=40, Color=DarkRed}"
                                     Margin="0,0,10,0" HorizontalOptions="End" />
                 
             </Grid>

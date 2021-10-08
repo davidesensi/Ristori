@@ -36,7 +36,7 @@ namespace Ristori.Helpers
                  CategoryPoster = "MainPizza.png",
                  ImageUrl = "Pizza.png"
                 }
-            };            
+            };
         }
 
         public async Task AddCategoriesAsync()

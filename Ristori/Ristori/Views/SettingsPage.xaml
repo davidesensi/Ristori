@@ -9,6 +9,9 @@
 
             <Button Text="Manage Products" x:Name="ButtonProducts"
                     Clicked="ButtonProducts_Clicked" />
+
+            <Button Text="Manage Cart" x:Name="ButtonCart"
+                    Clicked="ButtonCart_Clicked" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

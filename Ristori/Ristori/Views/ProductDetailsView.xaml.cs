@@ -1,4 +1,5 @@
 ﻿using Ristori.Models;
+using Ristori.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +14,17 @@ namespace Ristori.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ProductDetailsView : ContentPage
     {
+        ProductDetailsViewModel pvm;
         public ProductDetailsView(Product product)
         {
             InitializeComponent();
+            pvm = new ProductDetailsViewModel(product);
+            this.BindingContext = pvm;
+        }
+
+        private async void ImageButton_Clicked(System.Object sender, System.EventArgs e)
+        {
+            await Navigation.PopModalAsync();
         }
     }
 }
