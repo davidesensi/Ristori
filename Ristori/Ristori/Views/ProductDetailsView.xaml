@@ -27,14 +27,16 @@
                          VerticalOptions="Start" Margin="10,30" Clicked="ImageButton_Clicked" />
 
             <StackLayout Grid.Row="2" Spacing="10" Padding="10">
-                <Label Text="Product ID: " FontSize="Subtitle" />
-                <Label Text="{Binding SelectedProduct.ProductID}"
-                       FontSize="Subtitle" TextColor="DarkRed" />
-            </StackLayout>
-            <StackLayout Orientation="Horizontal" Spacing="10">
-                <Label Text="Nome Prodotto: " FontSize="Subtitle" />
-                <Label Text="{Binding SelectedProduct.Name}"
-                       FontSize="Subtitle" TextColor="DarkRed" />
+                <StackLayout Orientation="Horizontal" Spacing="10">
+                    <Label Text="Product ID: " FontSize="Subtitle" />
+                    <Label Text="{Binding SelectedProduct.ProductID}"
+                           FontSize="Subtitle" TextColor="DarkRed" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="10">
+                    <Label Text="Nome Prodotto: " FontSize="Subtitle" />
+                    <Label Text="{Binding SelectedProduct.Name}"
+                           FontSize="Subtitle" TextColor="DarkRed" />
+                </StackLayout>
             </StackLayout>
 
             <Grid Grid.Row="3" HorizontalOptions="Center">
@@ -63,7 +65,7 @@
                 <pancake:PancakeView CornerRadius="0,20,60,0"
                                      HorizontalOptions="Center">
                     <Button Text="Aggiungi" Background="LimeGreen"
-                            WidthRequest="100" HorizontalOptions="Center"
+                            WidthRequest="170" HorizontalOptions="Center"
                             Command="{Binding AddToCartCommand}"
                             HeightRequest="50" />
                 </pancake:PancakeView>
@@ -71,7 +73,7 @@
                 <pancake:PancakeView CornerRadius="0,10,30,0"
                                      HorizontalOptions="Center">
                     <Button Text="Carrello" Background="Orange"
-                            WidthRequest="100" HorizontalOptions="Center"
+                            WidthRequest="170" HorizontalOptions="Center"
                             Command="{Binding ViewCartCartCommand}"
                             HeightRequest="30" />
                 </pancake:PancakeView>

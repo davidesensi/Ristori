@@ -6,7 +6,8 @@
              xmlns:vm="clr-namespace:Ristori.ViewModels"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:Page.UseSafeArea="True"
-             x:Class="Ristori.Views.ProductsView">
+             x:Class="Ristori.Views.ProductsView"
+             BackgroundColor="LimeGreen">
     <ContentPage.BindingContext>
         <vm:ProductsViewModel/>
     </ContentPage.BindingContext>

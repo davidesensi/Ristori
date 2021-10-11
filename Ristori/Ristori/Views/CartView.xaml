@@ -1,10 +1,109 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Ristori.Views.CartView">
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:helpers="clr-namespace:Ristori.Helpers"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="True"
+             xmlns:vm="clr-namespace:Ristori.ViewModels"
+             x:Class="Ristori.Views.CartView"
+             Visual="Material"
+             BackgroundColor="LimeGreen">
+    <ContentPage.BindingContext>
+        <vm:CartViewModel />
+    </ContentPage.BindingContext>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="CartView"></Label>
-        </StackLayout>
+        <Grid BackgroundColor="LimeGreen">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <BoxView Grid.Row="0" />
+
+            <Label Text="Ordine" FontSize="40" TextColor="WhiteSmoke"
+                   HorizontalOptions="Center" VerticalOptions="Center" />
+
+            <Label x:Name="LabelName" FontSize="Subtitle" TextColor="WhiteSmoke"
+                   HorizontalOptions="Center" VerticalOptions="Center" />
+
+            <ImageButton Source="{FontImage FontFamily=FontAwesome,
+                Glyph={x:Static helpers:IconFont.ArrowLeft}, Size=40,Color=White}"
+                         Grid.Row="0" HorizontalOptions="Start" Aspect="AspectFit"
+                         VerticalOptions="Start" Margin="10,30" Clicked="ImageButton_Clicked" />
+            <pancake:PancakeView Grid.Row="1" BackgroundColor="WhiteSmoke"
+                                 CornerRadius="60,60,0,0">
+                <ListView x:Name="ListViewCartItems" Margin="20"
+                          SeparatorVisibility="None" BackgroundColor="WhiteSmoke"
+                          ItemsSource="{Binding CartItems}"
+                          Header="" HasUnevenRows="True">
+                    <ListView.HeaderTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="ID: " Grid.Column="0" FontSize="Subtitle"
+                                       TextColor="Green" />
+                                <Label Text="Nome: " Grid.Column="1" FontSize="Subtitle"
+                                       TextColor="Green" />
+                                <Label Text="Prezzo: " Grid.Column="2" FontSize="Subtitle"
+                                       TextColor="Green" />
+                                <Label Text="Quantità: " Grid.Column="3" FontSize="Subtitle"
+                                       TextColor="Green" />
+                                <Label Text="Costo: " Grid.Column="4" FontSize="Subtitle"
+                                       TextColor="Green" />
+                                
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.HeaderTemplate>
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label Text="{Binding ProductID}" Grid.Column="0" FontSize="Subtitle"
+                                       TextColor="Green" />
+                                        <Label Text="{Binding Name}" Grid.Column="1" FontSize="Subtitle"
+                                       TextColor="Green" />
+                                        <Label Text="{Binding Price}" Grid.Column="2" FontSize="Subtitle"
+                                       TextColor="Green" />
+                                        <Label Text="{Binding Quantity}" Grid.Column="3" FontSize="Subtitle"
+                                       TextColor="Green" />
+                                        <Label Text="{Binding Cost}" Grid.Column="4" FontSize="Subtitle"
+                                       TextColor="Green" />
+                                    </Grid>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </pancake:PancakeView>
+
+            <Label Text="{Binding TotalCost}"
+                   Grid.Row="2" HorizontalOptions="End" FontSize="Title"
+                   TextColor="WhiteSmoke" />
+
+            <Button Text="Conferma" Grid.Row="3" TextColor="White"
+                    Command="{Binding PlaceOrdersCommand}"
+                    HorizontalOptions="Center" CornerRadius="20" />
+            
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
