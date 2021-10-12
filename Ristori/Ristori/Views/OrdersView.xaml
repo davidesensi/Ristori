@@ -7,35 +7,35 @@
              ios:Page.UseSafeArea="True"
              x:Class="Ristori.Views.OrdersView"
              Visual="Material"
-             BackgroundColor="LimeGreen">
+             BackgroundColor="#931A25">
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="100" />
+                <RowDefinition Height="200" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
             <ImageButton Source="{FontImage FontFamily=FontAwesome,
-                    Glyph={x:Static helpers:IconFont.ArrowLeft}, Size=30,Color=White}"
+                    Glyph={x:Static helpers:IconFont.ArrowLeft}, Size=30,Color=#F5EFEF}"
                     Grid.Row="0" HorizontalOptions="Start" Aspect="AspectFit" 
-                    VerticalOptions="Start" Margin="10,30" Clicked="ImageButton_Clicked" />
+                    VerticalOptions="Start" Margin="10,30" Clicked="ImageButton_Clicked" BackgroundColor="Transparent"/>
 
-            <Label Text="Ordini" FontSize="40" TextColor="WhiteSmoke"
+            <Label Text="Ordini" FontSize="40" TextColor="#F5EFEF"
                    FontFamily="SourceSansPro" HorizontalOptions="Center" VerticalOptions="Start" />
 
-            <Label x:Name="LabelName" FontSize="Subtitle" Margin="20,0" TextColor="WhiteSmoke" 
+            <Label x:Name="LabelName" FontSize="Subtitle" Margin="20,0" TextColor="#F5EFEF" 
                     HorizontalOptions="Center" VerticalOptions="End" />
 
 
-            <pancake:PancakeView BackgroundColor="WhiteSmoke" CornerRadius="60,60,0,0" 
+            <pancake:PancakeView BackgroundColor="#931A25" CornerRadius="60,60,0,0" 
                                  Grid.Row="1">
                 <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-                    <Label x:Name="LabelOrderId" TextColor="DarkRed"
+                    <Label x:Name="LabelOrderId" TextColor="#F5EFEF"
                            FontSize="Subtitle" />
 
                     <Button Text="Visualizza tutti i Prodotti"
                             WidthRequest="200"
-                            BackgroundColor="DarkRed"
+                            BackgroundColor="#F44336"
                             HorizontalOptions="Center"
                             CornerRadius="20" Clicked="Button_Clicked" />
                 </StackLayout>

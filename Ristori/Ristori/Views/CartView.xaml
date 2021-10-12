@@ -8,12 +8,12 @@
              xmlns:vm="clr-namespace:Ristori.ViewModels"
              x:Class="Ristori.Views.CartView"
              Visual="Material"
-             BackgroundColor="LimeGreen">
+             BackgroundColor="#931A25">
     <ContentPage.BindingContext>
         <vm:CartViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <Grid BackgroundColor="LimeGreen">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="100" />
                 <RowDefinition Height="*" />
@@ -23,43 +23,40 @@
 
             <BoxView Grid.Row="0" />
 
-            <Label Text="Ordine" FontSize="40" TextColor="WhiteSmoke"
-                   HorizontalOptions="Center" VerticalOptions="Center" />
-
-            <Label x:Name="LabelName" FontSize="Subtitle" TextColor="WhiteSmoke"
+            <Label Text="Ordine" FontSize="40" TextColor="#F5EFEF"
                    HorizontalOptions="Center" VerticalOptions="Center" />
 
             <ImageButton Source="{FontImage FontFamily=FontAwesome,
-                Glyph={x:Static helpers:IconFont.ArrowLeft}, Size=40,Color=White}"
+                         Glyph={x:Static helpers:IconFont.ArrowLeft}, Size=40, Color=#F5EFEF}"
                          Grid.Row="0" HorizontalOptions="Start" Aspect="AspectFit"
-                         VerticalOptions="Start" Margin="10,30" Clicked="ImageButton_Clicked" />
-            <pancake:PancakeView Grid.Row="1" BackgroundColor="WhiteSmoke"
+                         VerticalOptions="Start" Margin="10,30" Clicked="ImageButton_Clicked" BackgroundColor="Transparent"/>
+            <pancake:PancakeView Grid.Row="1"
                                  CornerRadius="60,60,0,0">
                 <ListView x:Name="ListViewCartItems" Margin="20"
-                          SeparatorVisibility="None" BackgroundColor="WhiteSmoke"
+                          SeparatorVisibility="None"
                           ItemsSource="{Binding CartItems}"
                           Header="" HasUnevenRows="True">
                     <ListView.HeaderTemplate>
                         <DataTemplate>
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="20" />
+                                    <ColumnDefinition Width="100" />
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
 
                                 <Label Text="ID: " Grid.Column="0" FontSize="Subtitle"
-                                       TextColor="Green" />
+                                       TextColor="#F5EFEF" />
                                 <Label Text="Nome: " Grid.Column="1" FontSize="Subtitle"
-                                       TextColor="Green" />
+                                       TextColor="#F5EFEF" />
                                 <Label Text="Prezzo: " Grid.Column="2" FontSize="Subtitle"
-                                       TextColor="Green" />
+                                       TextColor="#F5EFEF" />
                                 <Label Text="Quantità: " Grid.Column="3" FontSize="Subtitle"
-                                       TextColor="Green" />
+                                       TextColor="#F5EFEF" />
                                 <Label Text="Costo: " Grid.Column="4" FontSize="Subtitle"
-                                       TextColor="Green" />
+                                       TextColor="#F5EFEF" />
                                 
                             </Grid>
                         </DataTemplate>
@@ -71,23 +68,23 @@
                                 <ViewCell.View>
                                     <Grid>
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*" />
-                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="20" />
+                                            <ColumnDefinition Width="100" />
                                             <ColumnDefinition Width="*" />
                                             <ColumnDefinition Width="*" />
                                             <ColumnDefinition Width="*" />
                                         </Grid.ColumnDefinitions>
 
                                         <Label Text="{Binding ProductID}" Grid.Column="0" FontSize="Subtitle"
-                                       TextColor="Green" />
-                                        <Label Text="{Binding Name}" Grid.Column="1" FontSize="Subtitle"
-                                       TextColor="Green" />
+                                       TextColor="#F5EFEF" />
+                                        <Label Text="{Binding ProductName}" Grid.Column="1" FontSize="Subtitle"
+                                       TextColor="#F5EFEF" />
                                         <Label Text="{Binding Price}" Grid.Column="2" FontSize="Subtitle"
-                                       TextColor="Green" />
+                                       TextColor="#F5EFEF" />
                                         <Label Text="{Binding Quantity}" Grid.Column="3" FontSize="Subtitle"
-                                       TextColor="Green" />
+                                       TextColor="#F5EFEF" />
                                         <Label Text="{Binding Cost}" Grid.Column="4" FontSize="Subtitle"
-                                       TextColor="Green" />
+                                       TextColor="#F5EFEF" />
                                     </Grid>
                                 </ViewCell.View>
                             </ViewCell>
@@ -96,11 +93,15 @@
                 </ListView>
             </pancake:PancakeView>
 
+            <Label Text="Costo Totale Ordine: "
+                   Grid.Row="2" HorizontalOptions="Start" FontSize="Title"
+                   TextColor="#F5EFEF" />
             <Label Text="{Binding TotalCost}"
                    Grid.Row="2" HorizontalOptions="End" FontSize="Title"
-                   TextColor="WhiteSmoke" />
+                   TextColor="#F5EFEF" />
 
-            <Button Text="Conferma" Grid.Row="3" TextColor="White"
+            <Button Text="Conferma" Grid.Row="3" TextColor="#F5EFEF" 
+                    BackgroundColor="#F44336"
                     Command="{Binding PlaceOrdersCommand}"
                     HorizontalOptions="Center" CornerRadius="20" />
             

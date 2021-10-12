@@ -11,7 +11,9 @@ namespace Ristori.Services
         public int GetOperatorCartCount()
         {
             var cn = DependencyService.Get<ISQLite>().GetConnection();
-            var count = cn.Table<CartItem>().Count();
+            var count = 0;
+            if (cn.Table<CartItem>().Count() > 0)
+                count = cn.Table<CartItem>().Count();
             cn.Close();
             return count;
         }

@@ -150,4 +150,7 @@
       <Name>Ristori</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\LogoApp.png" />
+  </ItemGroup>
 </Project>

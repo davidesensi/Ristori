@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:helpers="clr-namespace:Ristori.Helpers"
              xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             x:Class="Ristori.Views.ProductDetailsView">
+             x:Class="Ristori.Views.ProductDetailsView"
+             BackgroundColor="#931A25">
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -19,23 +20,23 @@
             <Image Grid.Row="0" Source="{Binding SelectedProduct.ImageUrl}"
                    Aspect="AspectFit" VerticalOptions="Start" />
             <Label Grid.Row="1" Text="{Binding SelectedProduct.Name}"
-                   TextColor="White" FontAttributes="Bold"
-                   FontSize="35" Margin="25,-85,0,0" />
+                   TextColor="#F5EFEF" FontAttributes="Bold"
+                   FontSize="35" Margin="25,-85,0,0" HorizontalOptions="Center"/>
             <ImageButton Source="{FontImage FontFamily=FontAwesome,
-                Glyph={x:Static helpers:IconFont.ArrowLeft}, Size=40,Color=White}"
-                         Grid.Row="0" HorizontalOptions="Start" Aspect="AspectFit"
+                Glyph={x:Static helpers:IconFont.ArrowLeft}, Size=40,Color=#F5EFEF}"
+                         Grid.Row="0" HorizontalOptions="Start" Aspect="AspectFit" BackgroundColor="Transparent"
                          VerticalOptions="Start" Margin="10,30" Clicked="ImageButton_Clicked" />
 
             <StackLayout Grid.Row="2" Spacing="10" Padding="10">
                 <StackLayout Orientation="Horizontal" Spacing="10">
                     <Label Text="Product ID: " FontSize="Subtitle" />
                     <Label Text="{Binding SelectedProduct.ProductID}"
-                           FontSize="Subtitle" TextColor="DarkRed" />
+                           FontSize="Subtitle" TextColor="#F5EFEF" />
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" Spacing="10">
                     <Label Text="Nome Prodotto: " FontSize="Subtitle" />
                     <Label Text="{Binding SelectedProduct.Name}"
-                           FontSize="Subtitle" TextColor="DarkRed" />
+                           FontSize="Subtitle" TextColor="#F5EFEF" />
                 </StackLayout>
             </StackLayout>
 
@@ -46,25 +47,26 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <Button Text="-" FontSize="30" TextColor="White"
-                        BackgroundColor="DarkRed" Grid.Column="0"
-                        HorizontalOptions="End"
-                        Command="{Binding DecrementOrderCommand}" />
+                <ImageButton Source="{FontImage FontFamily=FontAwesome,
+                                Glyph={x:Static helpers:IconFont.MinusCircleOutline}, Size=40,Color=#F5EFEF}"
+                                Grid.Column="0" HorizontalOptions="Start" Aspect="AspectFit" 
+                                VerticalOptions="Start" Margin="10,30" Command="{Binding DecrementOrderCommand}" BackgroundColor="Transparent" />
+                
 
                 <Entry Text="{Binding TotalQuantity}"
                        HorizontalOptions="Center" FontSize="30"
                        Grid.Column="1" />
 
-                <Button Text="+" FontSize="30" TextColor="White"
-                        BackgroundColor="DarkRed" Grid.Column="2"
-                        HorizontalOptions="End"
-                        Command="{Binding IncrementOrderCommand}" />
+                <ImageButton Source="{FontImage FontFamily=FontAwesome,
+                                Glyph={x:Static helpers:IconFont.PlusCircleOutline}, Size=40,Color=#F5EFEF}"
+                                Grid.Column="2" HorizontalOptions="Start" Aspect="AspectFit" 
+                                VerticalOptions="Start" Margin="10,30" Command="{Binding IncrementOrderCommand}" BackgroundColor="Transparent" />
             </Grid>
 
             <StackLayout Orientation="Horizontal" Grid.Row="4">
                 <pancake:PancakeView CornerRadius="0,20,60,0"
                                      HorizontalOptions="Center">
-                    <Button Text="Aggiungi" Background="LimeGreen"
+                    <Button Text="Aggiungi" Background="#F44336"
                             WidthRequest="170" HorizontalOptions="Center"
                             Command="{Binding AddToCartCommand}"
                             HeightRequest="50" />
@@ -72,15 +74,15 @@
 
                 <pancake:PancakeView CornerRadius="0,10,30,0"
                                      HorizontalOptions="Center">
-                    <Button Text="Carrello" Background="Orange"
+                    <Button Text="Carrello" Background="#F44336"
                             WidthRequest="170" HorizontalOptions="Center"
-                            Command="{Binding ViewCartCartCommand}"
+                            Command="{Binding ViewCartCommand}"
                             HeightRequest="30" />
                 </pancake:PancakeView>
             </StackLayout>
 
             <pancake:PancakeView Grid.Row="6" CornerRadius="30,30,0,0">
-                <Button Text="Home" BackgroundColor="SkyBlue"
+                <Button Text="Home" BackgroundColor="#F44336"
                         HeightRequest="50"
                         Command="{Binding HomeCommand}" />
             </pancake:PancakeView>
