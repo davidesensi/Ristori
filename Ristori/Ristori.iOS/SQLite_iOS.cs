@@ -18,7 +18,7 @@ namespace Ristori.iOS
         {
             var sqliteFileName = "MyDatabase.db3";
             string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            string libraryPath = Path.Combine(documentsPath, ".." ,"Library");
+            string libraryPath = Path.Combine(documentsPath, "..", "Library");
             var path = Path.Combine(libraryPath, sqliteFileName);
             var cn = new SQLiteConnection(path);
             return cn;

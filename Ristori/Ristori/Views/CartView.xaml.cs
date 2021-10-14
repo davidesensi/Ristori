@@ -15,7 +15,6 @@ namespace Ristori.Views
         public CartView()
         {
             InitializeComponent();
-            LabelName.Text = "Welcome" + Preferences.Get("Username", "Guest");
         }
 
         private async void ImageButton_Clicked(System.Object sender, System.EventArgs e)

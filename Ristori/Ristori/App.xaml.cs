@@ -1,4 +1,5 @@
-﻿using Ristori.Services;
+﻿using Ristori.Helpers;
+using Ristori.Services;
 using Ristori.Views;
 using System;
 using Xamarin.Essentials;
@@ -13,6 +14,8 @@ namespace Ristori
         public App()
         {
             InitializeComponent();
+            var cct = new CreateCartTable();
+            cct.CreateTable();
 
             //MainPage = new LoginView();
             //MainPage = new NavigationPage(new SettingsPage());
