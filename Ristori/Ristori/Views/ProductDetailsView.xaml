@@ -17,8 +17,8 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <Image Grid.Row="0" Source="{Binding SelectedProduct.ImageUrl}"
-                   Aspect="AspectFit" VerticalOptions="Start" />
+            <!--<Image Grid.Row="0" Source="{Binding SelectedProduct.ImageUrl}"
+                   Aspect="AspectFit" VerticalOptions="Start" />-->
             <Label Grid.Row="1" Text="{Binding SelectedProduct.Name}"
                    TextColor="#F5EFEF" FontAttributes="Bold"
                    FontSize="35" Margin="25,-85,0,0" HorizontalOptions="Center"/>

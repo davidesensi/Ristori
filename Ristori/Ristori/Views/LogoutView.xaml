@@ -7,7 +7,7 @@
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:Page.UseSafeArea="True"
              Visual="Material"
-             BackgroundColor="LimeGreen"
+             BackgroundColor="#931A25"
              xmlns:vm="clr-namespace:Ristori.ViewModels">
     <ContentPage.BindingContext>
         <vm:LogoutViewModel />
@@ -15,24 +15,24 @@
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="100" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <ImageButton Source="{FontImage FontFamily=FontAwesome,
-                    Glyph={x:Static helpers:IconFont.ArrowLeft}, Size=30,Color=White}"
+            
+                <ImageButton Source="{FontImage FontFamily=FontAwesome,
+                    Glyph={x:Static helpers:IconFont.ArrowLeft}, Size=30,Color=#F5EFEF}"
                     Grid.Row="0" HorizontalOptions="Start" Aspect="AspectFit" 
-                    VerticalOptions="Start" Margin="10,30" Clicked="ImageButton_Clicked" />
+                    VerticalOptions="Start" Margin="10,30" Clicked="ImageButton_Clicked" BackgroundColor="Transparent" />
 
-            <Label Text="Logout" FontSize="40" TextColor="WhiteSmoke"
+                <Label Text="Logout" FontSize="40" TextColor="#F5EFEF"
                    FontFamily="SourceSansPro" HorizontalOptions="Center" VerticalOptions="Start" />
 
-            <Label x:Name="LabelName" FontSize="Subtitle" Margin="20,0" TextColor="WhiteSmoke" 
-                    HorizontalOptions="Center" VerticalOptions="End" />
 
 
-            <pancake:PancakeView BackgroundColor="WhiteSmoke" CornerRadius="60,60,0,0" 
-                                 Grid.Row="1">
+
+            <pancake:PancakeView CornerRadius="20,20,0,0" 
+                                 Grid.Row="1" BackgroundColor="Transparent" Margin="0,-40">
                 <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
                     <StackLayout IsVisible="{Binding IsCartExist}" >
                         <Label Text="Il carrello non è vuoto!!" />
@@ -44,14 +44,14 @@
                         <StackLayout Orientation="Horizontal" Spacing="10">
                             <Button Text="Si, Logout"
                                 WidthRequest="200"
-                                BackgroundColor="LimeGreen"
+                                BackgroundColor="#F44336"
                                 HorizontalOptions="Center"
                                 CornerRadius="20" 
                                 Command="{Binding LogoutCommand}"/>
 
                             <Button Text="No, vai al carrello"
                                 WidthRequest="200"
-                                BackgroundColor="DarkRed"
+                                BackgroundColor="#F44336"
                                 HorizontalOptions="Center"
                                 CornerRadius="20" 
                                 Command="{Binding GoToCartCommand}"/>

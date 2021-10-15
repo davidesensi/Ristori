@@ -4,6 +4,7 @@ using Ristori.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -39,9 +40,19 @@ namespace Ristori.ViewModels
 
         private async Task PlaceOrdersAsync()
         {
-            var id = await new OrderService().PlaceOrderAsync() as string;
-            RemoveItemsFromCart();
-            await Application.Current.MainPage.Navigation.PushModalAsync(new OrdersView(id));
+            
+            if (CartItems.Count() == 0)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "Carrello vuoto", "OK");
+            }
+            else
+            {
+                var id = await new OrderService().PlaceOrderAsync() as string;
+                RemoveItemsFromCart();
+                await Application.Current.MainPage.Navigation.PushModalAsync(new OrderDetailView(id));
+            }
+                
+            
         }
 
         private void RemoveItemsFromCart()

@@ -1,51 +1,22 @@
 ﻿using Ristori.Models;
-using Ristori.Services;
+using Ristori.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
-namespace Ristori.ViewModels
+namespace Ristori.Views
 {
-    public class CategoryViewModel : BaseViewModel
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class CategoryView2 : ContentPage
     {
-        private Category _SelectedCategory;
-        public Category SelectedCategory
-        {
-            set
-            {
-                _SelectedCategory = value;
-                OnPropertyChanged();
-            }
-            get
-            {
-                return _SelectedCategory;
-            }
-           
+        CategoryViewModel cvm;
 
-        }
-
-        public ObservableCollection<Product> ProductsByCategory { get; set; }
-
-        private int _TotalProducts;
-        public int TotalProducts
-        {
-            set
-            {
-                _TotalProducts = value;
-                OnPropertyChanged();
-            }
-            get
-            {
-                return _TotalProducts;
-            }
-        }
-
-
-        /*private Product _SelectedProduct;
+        private Product _SelectedProduct;
         public Product SelectedProduct
         {
             set
@@ -80,32 +51,35 @@ namespace Ristori.ViewModels
         public Command IncrementOrderCommand { get; set; }
         public Command DecrementOrderCommand { get; set; }
         public Command AddToCartCommand { get; set; }
-        public Command ViewCartCommand { get; set; }*/
-
-        public CategoryViewModel(Category category)
+        public Command ViewCartCommand { get; set; }
+        public CategoryView2(Category category)
         {
-            SelectedCategory = category;
-            ProductsByCategory = new ObservableCollection<Product>();
-            _ = GetProductsAsync(category.CategoryID);
-            /*TotalQuantity = 0;
+            InitializeComponent();
+            cvm = new CategoryViewModel(category);
+            TotalQuantity = 0;
 
             IncrementOrderCommand = new Command(() => IncrementOrder());
             DecrementOrderCommand = new Command(() => DecrementOrder());
-            AddToCartCommand = new Command(() => AddToCart());*/
+            AddToCartCommand = new Command(() => AddToCart());
+
+            this.BindingContext = cvm;
         }
 
-        private async Task GetProductsAsync(int categoryID)
+        async void ImageButton_Clicked(object sender, EventArgs e)
         {
-            var data = await new ProductService().GetProductsByCategoryAsync(categoryID);
-            ProductsByCategory.Clear();
-            foreach(var product in data)
-            {
-                ProductsByCategory.Add(product);
-            }
-            TotalProducts = ProductsByCategory.Count;
+            await Navigation.PopModalAsync();
         }
 
-        /*private void AddToCart()
+        async void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedProduct = e.CurrentSelection.FirstOrDefault() as Product;
+            if (selectedProduct == null)
+                return;
+            await Navigation.PushModalAsync(new ProductDetailsView(selectedProduct));
+            ((CollectionView)sender).SelectedItem = null;
+        }
+
+        private void AddToCart()
         {
             SQLite.SQLiteConnection cn = DependencyService.Get<ISQLite>().GetConnection();
             try
@@ -156,8 +130,6 @@ namespace Ristori.ViewModels
         private void IncrementOrder()
         {
             TotalQuantity++;
-        }*/
-
-
+        }
     }
 }
