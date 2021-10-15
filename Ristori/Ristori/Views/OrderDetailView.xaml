@@ -5,7 +5,7 @@
              xmlns:helpers="clr-namespace:Ristori.Helpers"
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:Page.UseSafeArea="True"
-             x:Class="Ristori.Views.OrdersView"
+             x:Class="Ristori.Views.OrderDetailView"
              Visual="Material"
              BackgroundColor="#931A25">
     <ContentPage.Content>
@@ -20,7 +20,7 @@
                     Grid.Row="0" HorizontalOptions="Start" Aspect="AspectFit" 
                     VerticalOptions="Start" Margin="10,30" Clicked="ImageButton_Clicked" BackgroundColor="Transparent"/>
 
-            <Label Text="Ordini" FontSize="40" TextColor="#F5EFEF"
+            <Label Text="Ordine Effettuato" FontSize="30" TextColor="#F5EFEF" Margin="0,-50"
                    FontFamily="SourceSansPro" HorizontalOptions="Center" VerticalOptions="Start" />
 
             <Label x:Name="LabelName" FontSize="Subtitle" Margin="20,0" TextColor="#F5EFEF" 

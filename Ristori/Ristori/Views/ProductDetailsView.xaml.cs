@@ -24,7 +24,7 @@ namespace Ristori.Views
 
         private async void ImageButton_Clicked(System.Object sender, System.EventArgs e)
         {
-            await Navigation.PopModalAsync();
+             await Navigation.PopModalAsync();
         }
     }
 }

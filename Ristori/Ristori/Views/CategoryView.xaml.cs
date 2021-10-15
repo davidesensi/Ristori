@@ -15,10 +15,14 @@ namespace Ristori.Views
     public partial class CategoryView : ContentPage
     {
         CategoryViewModel cvm;
+            
+
         public CategoryView(Category category)
         {
             InitializeComponent();
             cvm = new CategoryViewModel(category);
+            
+
             this.BindingContext = cvm;
         }
 
@@ -35,5 +39,7 @@ namespace Ristori.Views
             await Navigation.PushModalAsync(new ProductDetailsView(selectedProduct));
             ((CollectionView)sender).SelectedItem = null;
         }
+
+        
     }
 }

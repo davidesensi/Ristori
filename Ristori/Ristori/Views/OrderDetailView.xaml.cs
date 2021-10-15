@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Ristori.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class OrdersView : ContentPage
+    public partial class OrderDetailView : ContentPage
     {
-        public OrdersView(string id)
+        public OrderDetailView(string id)
         {
             InitializeComponent();
             LabelName.Text = "Ciao " + Preferences.Get("Username", "Guest") + ",";
