@@ -1,15 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:helpers="clr-namespace:Ristori.Helpers"
-             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             xmlns:vm="clr-namespace:Ristori.ViewModels"
-             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-             ios:Page.UseSafeArea="True"
-             x:Class="Ristori.Views.ProductsView"
-             BackgroundColor="#931A25">
+<ContentPage
+    x:Class="Ristori.Views.ProductsView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:helpers="clr-namespace:Ristori.Helpers"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:vm="clr-namespace:Ristori.ViewModels"
+    ios:Page.UseSafeArea="True"
+    BackgroundColor="#931A25">
     <ContentPage.BindingContext>
-        <vm:ProductsViewModel/>
+        <vm:ProductsViewModel />
     </ContentPage.BindingContext>
     <ContentPage.Content>
         <Grid Margin="30,0,0,0">
@@ -36,30 +37,68 @@
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
-                <Label Text="Benvenuto" Grid.Row="0" Grid.Column="0" TextColor="#F5EFEF" FontSize="20" FontAttributes="Bold"/>
-                <Label Text="{Binding UserName}" Grid.Row="1" Grid.Column="0" FontSize="20"
-                       FontAttributes="Bold" TextColor="#F5EFEF"/>
-                <ImageButton Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"
-                             Source="{FontImage FontFamily=FontAwesome,
-                                     Glyph={x:Static helpers:IconFont.ViewList}, Size=40, Color=#F5EFEF}"
-                                    Margin="0,0,10,0" HorizontalOptions="End" BackgroundColor="Transparent" />
-                
-                <Label Text="{Binding OperatorCartProductsCount}" FontSize="Subtitle"
-                       Grid.Row="0" Grid.Column="2" Grid.RowSpan="2"
-                       HorizontalTextAlignment="End" VerticalTextAlignment="Start" />
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    Text="Benvenuto"
+                    TextColor="#F5EFEF" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    FontAttributes="Bold"
+                    FontSize="20"
+                    Text="{Binding UserName}"
+                    TextColor="#F5EFEF" />
+                <ImageButton
+                    Grid.Row="0"
+                    Grid.RowSpan="2"
+                    Grid.Column="1"
+                    Margin="0,0,10,0"
+                    BackgroundColor="Transparent"
+                    Command="{Binding SettingsSpageCommand}"
+                    HorizontalOptions="End"
+                    Source="{FontImage FontFamily=FontAwesome,
+                                       Glyph={x:Static helpers:IconFont.ViewList},
+                                       Size=40,
+                                       Color=#F5EFEF}" />
 
-                <ImageButton Grid.Row="0" Grid.Column="2" Grid.RowSpan="2"
-                             Source="{FontImage FontFamily=FontAwesome,
-                                     Glyph={x:Static helpers:IconFont.Shopping}, Size=40, Color=#F5EFEF}"
-                                    Margin="0,0,10,0" HorizontalOptions="End" BackgroundColor="Transparent"
-                                    Command="{Binding ViewCartCommand}" />
-                
-                <ImageButton Grid.Row="0" Grid.Column="3" Grid.RowSpan="2"
-                             Source="{FontImage FontFamily=FontAwesome,
-                                    Glyph={x:Static helpers:IconFont.Logout}, Size=40, Color=#F5EFEF}"
-                                    Margin="5,0,10,0" HorizontalOptions="End" BackgroundColor="Transparent" 
-                                    Command="{Binding LogoutCommand}" />
-                
+                <Label
+                    Grid.Row="0"
+                    Grid.RowSpan="2"
+                    Grid.Column="2"
+                    FontSize="Subtitle"
+                    HorizontalTextAlignment="End"
+                    Text="{Binding OperatorCartProductsCount}"
+                    VerticalTextAlignment="Start" />
+
+                <ImageButton
+                    Grid.Row="0"
+                    Grid.RowSpan="2"
+                    Grid.Column="2"
+                    Margin="0,0,10,0"
+                    BackgroundColor="Transparent"
+                    Command="{Binding ViewCartCommand}"
+                    HorizontalOptions="End"
+                    Source="{FontImage FontFamily=FontAwesome,
+                                       Glyph={x:Static helpers:IconFont.Shopping},
+                                       Size=40,
+                                       Color=#F5EFEF}" />
+
+                <ImageButton
+                    Grid.Row="0"
+                    Grid.RowSpan="2"
+                    Grid.Column="3"
+                    Margin="5,0,10,0"
+                    BackgroundColor="Transparent"
+                    Command="{Binding LogoutCommand}"
+                    HorizontalOptions="End"
+                    Source="{FontImage FontFamily=FontAwesome,
+                                       Glyph={x:Static helpers:IconFont.Logout},
+                                       Size=40,
+                                       Color=#F5EFEF}" />
+
             </Grid>
 
             <Grid Grid.Row="1" Grid.Column="0">
@@ -68,40 +107,64 @@
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
-                <SearchBar Grid.Column="0" Placeholder="Cerca Prodotto" TextColor="#F5EFEF" PlaceholderColor="#F5EFEF"
-                           BackgroundColor="Transparent" HorizontalOptions="Fill"/>
+                <SearchBar
+                    Grid.Column="0"
+                    BackgroundColor="Transparent"
+                    HorizontalOptions="Fill"
+                    Placeholder="Cerca Prodotto"
+                    PlaceholderColor="#F5EFEF"
+                    TextColor="#F5EFEF" />
 
-                <ImageButton Grid.Column="1" Source="{FontImage FontFamily=FontAwesome,
-                                     Glyph={x:Static helpers:IconFont.SearchWeb}, Size=40, Color=#F5EFEF}"
-                                    Margin="0,0,10,0" HorizontalOptions="End" BackgroundColor="Transparent"/>
-                
+                <ImageButton
+                    Grid.Column="1"
+                    Margin="0,0,10,0"
+                    BackgroundColor="Transparent"
+                    HorizontalOptions="End"
+                    Source="{FontImage FontFamily=FontAwesome,
+                                       Glyph={x:Static helpers:IconFont.SearchWeb},
+                                       Size=40,
+                                       Color=#F5EFEF}" />
+
             </Grid>
 
-            <CollectionView ItemsSource="{Binding Categories}"
-                            Margin="5,20"
-                            HeightRequest="150" VerticalOptions="FillAndExpand"
-                            WidthRequest="120"
-                            HorizontalScrollBarVisibility="Never"
-                            ItemsLayout="HorizontalList"
-                            SelectionChanged="CollectionView_SelectionChanged"
-                            SelectionMode="Single"
-                            Grid.Row="2" >
-                
+            <CollectionView
+                Grid.Row="2"
+                Margin="5,20"
+                HeightRequest="150"
+                HorizontalScrollBarVisibility="Never"
+                ItemsLayout="HorizontalList"
+                ItemsSource="{Binding Categories}"
+                SelectionChanged="CollectionView_SelectionChanged"
+                SelectionMode="Single"
+                VerticalOptions="FillAndExpand"
+                WidthRequest="120">
+
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout Padding="0,0,20,0">
-                            <Frame HeightRequest="100" HasShadow="False" BackgroundColor="#F5EFEF" CornerRadius="15">
+                            <Frame
+                                BackgroundColor="#F5EFEF"
+                                CornerRadius="15"
+                                HasShadow="False"
+                                HeightRequest="100">
 
-                                <Image Source="{Binding ImageUrl}" BackgroundColor="Transparent"
-                                HeightRequest="80"/>
+                                <Image
+                                    BackgroundColor="Transparent"
+                                    HeightRequest="80"
+                                    Source="{Binding ImageUrl}" />
                             </Frame>
-                            <Label Text="{Binding CategoryName}" HorizontalOptions="Center" TextColor="#F5EFEF" FontAttributes="Bold" FontSize="20"/>
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="20"
+                                HorizontalOptions="Center"
+                                Text="{Binding CategoryName}"
+                                TextColor="#F5EFEF" />
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-            
-            
+
+
         </Grid>
     </ContentPage.Content>
 </ContentPage>

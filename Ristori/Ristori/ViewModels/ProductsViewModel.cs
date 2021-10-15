@@ -42,6 +42,8 @@ namespace Ristori.ViewModels
         public ObservableCollection<Category> Categories { get; set; }
 
         public Command ViewCartCommand { get; set; }
+
+        public Command SettingsSpageCommand { get; set; }
         public Command LogoutCommand { get; set; }
 
         public ProductsViewModel()
@@ -57,6 +59,7 @@ namespace Ristori.ViewModels
             Categories = new ObservableCollection<Category>();
 
             ViewCartCommand = new Command(async () => await ViewCartAsync());
+            SettingsSpageCommand = new Command(async () => await SettingsSpageAsync());
             LogoutCommand = new Command(async () => await LogoutAsync());
 
             GetCategories();
@@ -65,6 +68,11 @@ namespace Ristori.ViewModels
         private async Task LogoutAsync()
         {
             await Application.Current.MainPage.Navigation.PushModalAsync(new LogoutView());
+        }
+
+        private async Task SettingsSpageAsync()
+        {
+            await Application.Current.MainPage.Navigation.PushModalAsync(new SettingsPage());
         }
 
         private async Task ViewCartAsync()

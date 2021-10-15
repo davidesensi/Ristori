@@ -26,13 +26,31 @@ namespace Ristori.Helpers
                 },
                 new Category(){
                  CategoryID = 2,
-                 CategoryName = "Pizze",
+                 CategoryName = "Pizze Rosse",
                  CategoryPoster = "MainPizza.png",
                  ImageUrl = "Pizza.png"
                 },
                 new Category(){
                  CategoryID = 3,
+                 CategoryName = "Pizze Bianche",
+                 CategoryPoster = "MainPizza.png",
+                 ImageUrl = "Pizza.png"
+                },
+                new Category(){
+                 CategoryID = 4,
                  CategoryName = "Dolci",
+                 CategoryPoster = "MainPizza.png",
+                 ImageUrl = "Pizza.png"
+                },
+                new Category(){
+                 CategoryID = 5,
+                 CategoryName = "Bevande",
+                 CategoryPoster = "MainPizza.png",
+                 ImageUrl = "Pizza.png"
+                },
+                new Category(){
+                 CategoryID = 6,
+                 CategoryName = "Birre e Vini",
                  CategoryPoster = "MainPizza.png",
                  ImageUrl = "Pizza.png"
                 }
@@ -51,10 +69,9 @@ namespace Ristori.Helpers
                         CategoryName = category.CategoryName,
                         CategoryPoster = category.CategoryPoster,
                         ImageUrl = category.ImageUrl
-                        
+
                     });
                 }
-
             }
             catch (Exception ex)
             {
