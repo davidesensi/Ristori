@@ -8,7 +8,8 @@
              xmlns:vm="clr-namespace:Ristori.ViewModels"
              x:Class="Ristori.Views.CartView"
              Visual="Material"
-             BackgroundColor="#931A25">
+             BackgroundColor="#931A25"
+             Title="Carrello">
     <ContentPage.BindingContext>
         <vm:CartViewModel />
     </ContentPage.BindingContext>

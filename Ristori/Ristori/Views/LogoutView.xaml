@@ -8,7 +8,8 @@
              ios:Page.UseSafeArea="True"
              Visual="Material"
              BackgroundColor="#931A25"
-             xmlns:vm="clr-namespace:Ristori.ViewModels">
+             xmlns:vm="clr-namespace:Ristori.ViewModels"
+             Title="Logout">
     <ContentPage.BindingContext>
         <vm:LogoutViewModel />
     </ContentPage.BindingContext>

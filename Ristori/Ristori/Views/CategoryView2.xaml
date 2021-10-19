@@ -1,28 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:helpers="clr-namespace:Ristori.Helpers"
-             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             x:Class="Ristori.Views.CategoryView2"
-             BackgroundColor="#931A25">
+<ContentPage
+    x:Class="Ristori.Views.CategoryView2"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:helpers="clr-namespace:Ristori.Helpers"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    BackgroundColor="#931A25">
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
             <!--<Image Grid.Row="0" Source="{Binding SelectedCategory.CategoryPoster}"
                    Aspect="AspectFill" VerticalOptions="Start" BackgroundColor="#931A25"/>-->
-            <Label Grid.Row="1" Text="{Binding SelectedCategory.CategoryName}" TextColor="#F5EFEF"
-                   FontAttributes="Bold" FontSize="35" Margin="25,-85,0,0" HorizontalOptions="Center"/>
-            <ImageButton Source="{FontImage FontFamily=FontAwesome,
-                Glyph={x:Static helpers:IconFont.ArrowLeft}, Size=40,Color=#F5EFEF}"
-                         Grid.Row="0" HorizontalOptions="Start" Aspect="AspectFit" 
-                         VerticalOptions="Start" Margin="10,30" Clicked="ImageButton_Clicked" BackgroundColor="Transparent" />
+            <Label
+                Grid.Row="1"
+                Margin="25,-85,0,0"
+                FontAttributes="Bold"
+                FontSize="35"
+                HorizontalOptions="Center"
+                Text="{Binding SelectedCategory.CategoryName}"
+                TextColor="#F5EFEF" />
+            <ImageButton
+                Grid.Row="0"
+                Margin="10,30"
+                Aspect="AspectFit"
+                BackgroundColor="Transparent"
+                Clicked="ImageButton_Clicked"
+                HorizontalOptions="Start"
+                Source="{FontImage FontFamily=FontAwesome,
+                                   Glyph={x:Static helpers:IconFont.ArrowLeft},
+                                   Size=40,
+                                   Color=#F5EFEF}"
+                VerticalOptions="Start" />
 
-            <pancake:PancakeView Grid.Row="2" CornerRadius="30" Margin="0,-40">
+            <pancake:PancakeView
+                Grid.Row="2"
+                Margin="0,-40"
+                CornerRadius="30">
                 <Grid Padding="25,30">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
@@ -33,70 +51,116 @@
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
-                    <Label Grid.Row="0" Grid.Column="0" Text="{Binding TotalProducts, StringFormat='{0} Prodotti Totali'}"
-                           FontAttributes="Bold" FontSize="18" TextColor="#F5EFEF"/>
-                    <Image Grid.Row="0" Grid.Column="1" Source="More" />
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        Text="{Binding TotalProducts, StringFormat='{0} Prodotti Totali'}"
+                        TextColor="#F5EFEF" />
+                    <Image
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Source="More" />
 
-                    <CollectionView ItemsSource="{Binding ProductsByCategory}"
-                                    VerticalOptions="Start"
-                                    VerticalScrollBarVisibility="Never"
-                                    Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
-                                    SelectionMode="Single"
-                                    SelectionChanged="CollectionView_SelectionChanged"
-                                    >
+                    <CollectionView
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        ItemsSource="{Binding ProductsByCategory}"
+                        SelectionChanged="CollectionView_SelectionChanged"
+                        SelectionMode="Single"
+                        VerticalOptions="Start"
+                        VerticalScrollBarVisibility="Never">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
                                 <StackLayout BackgroundColor="Black">
-                                    
-                                    
-                                        <Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="Auto"/>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="Auto"/>
-                                            </Grid.ColumnDefinitions>
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="*"/>
-                                                <RowDefinition Height="Auto"/>
-                                                <RowDefinition Height="*"/>
-                                            </Grid.RowDefinitions>
-                                            <pancake:PancakeView Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
-                                                                 CornerRadius="12" Margin="0,0,10,0">
-                                                <!--<Image Source="{Binding ImageUrl}" HeightRequest="50"
+
+
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <pancake:PancakeView
+                                            Grid.Row="0"
+                                            Grid.RowSpan="3"
+                                            Grid.Column="0"
+                                            Margin="0,0,10,0"
+                                            CornerRadius="12">
+                                            <!--<Image Source="{Binding ImageUrl}" HeightRequest="50"
                                                        WidthRequest="50" Aspect="AspectFill" />-->
-                                            </pancake:PancakeView>
+                                        </pancake:PancakeView>
 
-                                            <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"
-                                                   Text="{Binding Name}" FontSize="30" FontAttributes="Bold" TextColor="#F5EFEF"/>
-                                            <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
-                                                   Text="{Binding Description}" FontSize="8" TextColor="#F5EFEF" 
-                                                   LineBreakMode="WordWrap"/>
+                                        <Label
+                                            Grid.Row="0"
+                                            Grid.Column="1"
+                                            Grid.ColumnSpan="2"
+                                            FontAttributes="Bold"
+                                            FontSize="30"
+                                            Text="{Binding Name}"
+                                            TextColor="#F5EFEF" />
+                                        <Label
+                                            Grid.Row="1"
+                                            Grid.Column="1"
+                                            Grid.ColumnSpan="2"
+                                            FontSize="8"
+                                            LineBreakMode="WordWrap"
+                                            Text="{Binding Description}"
+                                            TextColor="#F5EFEF" />
 
 
-                                        <Grid Grid.Row="2" Grid.Column="1" HorizontalOptions="Center">
+                                        <Grid
+                                            Grid.Row="2"
+                                            Grid.Column="1"
+                                            HorizontalOptions="Center">
                                             <Grid.ColumnDefinitions>
                                                 <ColumnDefinition Width="*" />
                                                 <ColumnDefinition Width="*" />
                                                 <ColumnDefinition Width="*" />
                                             </Grid.ColumnDefinitions>
 
-                                            <ImageButton Source="{FontImage FontFamily=FontAwesome,
-                                                                Glyph={x:Static helpers:IconFont.MinusCircleOutline}, Size=20,Color=#F5EFEF}"
-                                                                Grid.Column="0" HorizontalOptions="Start" Aspect="AspectFit" 
-                                                                VerticalOptions="Start" Margin="10,30" Command="{Binding DecrementOrderCommand}" BackgroundColor="Transparent" />
+                                            <ImageButton
+                                                Grid.Column="0"
+                                                Margin="10,30"
+                                                Aspect="AspectFit"
+                                                BackgroundColor="Transparent"
+                                                Command="{Binding DecrementOrderCommand}"
+                                                HorizontalOptions="Start"
+                                                Source="{FontImage FontFamily=FontAwesome,
+                                                                   Glyph={x:Static helpers:IconFont.MinusCircleOutline},
+                                                                   Size=20,
+                                                                   Color=#F5EFEF}"
+                                                VerticalOptions="Start" />
 
 
-                                            <Entry Text="{Binding TotalQuantity}"
-                                                       HorizontalOptions="Center" FontSize="30"
-                                                       Grid.Column="1" />
+                                            <Entry
+                                                Grid.Column="1"
+                                                FontSize="30"
+                                                HorizontalOptions="Center"
+                                                Text="{Binding TotalQuantity}" />
 
-                                            <ImageButton Source="{FontImage FontFamily=FontAwesome,
-                                                            Glyph={x:Static helpers:IconFont.PlusCircleOutline}, Size=20,Color=#F5EFEF}"
-                                                            Grid.Column="2" HorizontalOptions="Start" Aspect="AspectFit" 
-                                                            VerticalOptions="Start" Margin="10,30" Command="{Binding IncrementOrderCommand}" BackgroundColor="Transparent" />
+                                            <ImageButton
+                                                Grid.Column="2"
+                                                Margin="10,30"
+                                                Aspect="AspectFit"
+                                                BackgroundColor="Transparent"
+                                                Command="{Binding IncrementOrderCommand}"
+                                                HorizontalOptions="Start"
+                                                Source="{FontImage FontFamily=FontAwesome,
+                                                                   Glyph={x:Static helpers:IconFont.PlusCircleOutline},
+                                                                   Size=20,
+                                                                   Color=#F5EFEF}"
+                                                VerticalOptions="Start" />
                                         </Grid>
                                     </Grid>
-                                    
+
                                 </StackLayout>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>

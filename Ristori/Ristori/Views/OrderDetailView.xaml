@@ -1,13 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             xmlns:helpers="clr-namespace:Ristori.Helpers"
-             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-             ios:Page.UseSafeArea="True"
-             x:Class="Ristori.Views.OrderDetailView"
-             Visual="Material"
-             BackgroundColor="#931A25">
+<ContentPage
+    x:Class="Ristori.Views.OrderDetailView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:helpers="clr-namespace:Ristori.Helpers"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    ios:Page.UseSafeArea="True"
+    BackgroundColor="#931A25"
+    Visual="Material">
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -15,29 +16,54 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <ImageButton Source="{FontImage FontFamily=FontAwesome,
-                    Glyph={x:Static helpers:IconFont.ArrowLeft}, Size=30,Color=#F5EFEF}"
-                    Grid.Row="0" HorizontalOptions="Start" Aspect="AspectFit" 
-                    VerticalOptions="Start" Margin="10,30" Clicked="ImageButton_Clicked" BackgroundColor="Transparent"/>
+            <ImageButton
+                Grid.Row="0"
+                Margin="10,30"
+                Aspect="AspectFit"
+                BackgroundColor="Transparent"
+                Clicked="ImageButton_Clicked"
+                HorizontalOptions="Start"
+                Source="{FontImage FontFamily=FontAwesome,
+                                   Glyph={x:Static helpers:IconFont.ArrowLeft},
+                                   Size=30,
+                                   Color=#F5EFEF}"
+                VerticalOptions="Start" />
 
-            <Label Text="Ordine Effettuato" FontSize="30" TextColor="#F5EFEF" Margin="0,-50"
-                   FontFamily="SourceSansPro" HorizontalOptions="Center" VerticalOptions="Start" />
+            <Label
+                Margin="0,-50"
+                FontFamily="SourceSansPro"
+                FontSize="30"
+                HorizontalOptions="Center"
+                Text="Ordine Effettuato"
+                TextColor="#F5EFEF"
+                VerticalOptions="Start" />
 
-            <Label x:Name="LabelName" FontSize="Subtitle" Margin="20,0" TextColor="#F5EFEF" 
-                    HorizontalOptions="Center" VerticalOptions="End" />
+            <Label
+                x:Name="LabelName"
+                Margin="20,0"
+                FontSize="Subtitle"
+                HorizontalOptions="Center"
+                TextColor="#F5EFEF"
+                VerticalOptions="End" />
 
 
-            <pancake:PancakeView BackgroundColor="#931A25" CornerRadius="60,60,0,0" 
-                                 Grid.Row="1">
+            <pancake:PancakeView
+                Grid.Row="1"
+                BackgroundColor="#931A25"
+                CornerRadius="60,60,0,0">
                 <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-                    <Label x:Name="LabelOrderId" TextColor="#F5EFEF"
-                           FontSize="Subtitle" />
+                    <Label
+                        x:Name="LabelOrderId"
+                        FontSize="Subtitle"
+                        TextColor="#F5EFEF" />
 
-                    <Button Text="Visualizza tutti i Prodotti"
-                            WidthRequest="200"
-                            BackgroundColor="#F44336"
-                            HorizontalOptions="Center"
-                            CornerRadius="20" Clicked="Button_Clicked" />
+                    <Button
+                        BackgroundColor="#F44336"
+                        Clicked="Button_Clicked"
+                        CornerRadius="20"
+                        HorizontalOptions="Center"
+                        Text="Visualizza tutti i Prodotti"
+                        WidthRequest="200" />
                 </StackLayout>
             </pancake:PancakeView>
         </Grid>

@@ -8,7 +8,8 @@
     xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     xmlns:vm="clr-namespace:Ristori.ViewModels"
     ios:Page.UseSafeArea="True"
-    BackgroundColor="#931A25">
+    BackgroundColor="#931A25"
+    Title="HOME">
     <ContentPage.BindingContext>
         <vm:ProductsViewModel />
     </ContentPage.BindingContext>
