@@ -9,7 +9,7 @@
     xmlns:vm="clr-namespace:Ristori.ViewModels"
     ios:Page.UseSafeArea="True"
     BackgroundColor="#931A25"
-    Title="HOME">
+    >
     <ContentPage.BindingContext>
         <vm:ProductsViewModel />
     </ContentPage.BindingContext>

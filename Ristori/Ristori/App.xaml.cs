@@ -26,7 +26,7 @@ namespace Ristori
             }
             else
             {
-                MainPage = new Tabbed();
+                MainPage = new ShellView();
                 //MainPage = new ProductsView();
             }
         }

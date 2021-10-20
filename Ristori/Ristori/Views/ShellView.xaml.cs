@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Ristori.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Tabbed : TabbedPage
+    public partial class ShellView : Shell
     {
-        public Tabbed()
+        public ShellView()
         {
             InitializeComponent();
         }
