@@ -19,7 +19,6 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -27,17 +26,14 @@
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Row="0">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                
                 <Label
                     Grid.Row="0"
                     Grid.Column="0"
@@ -46,59 +42,12 @@
                     Text="Benvenuto"
                     TextColor="#F5EFEF" />
                 <Label
-                    Grid.Row="1"
-                    Grid.Column="0"
+                    Grid.Row="0"
+                    Grid.Column="1"
                     FontAttributes="Bold"
                     FontSize="20"
                     Text="{Binding UserName}"
                     TextColor="#F5EFEF" />
-                <ImageButton
-                    Grid.Row="0"
-                    Grid.RowSpan="2"
-                    Grid.Column="1"
-                    Margin="0,0,10,0"
-                    BackgroundColor="Transparent"
-                    Command="{Binding SettingsSpageCommand}"
-                    HorizontalOptions="End"
-                    Source="{FontImage FontFamily=FontAwesome,
-                                       Glyph={x:Static helpers:IconFont.ViewList},
-                                       Size=40,
-                                       Color=#F5EFEF}" />
-
-                <Label
-                    Grid.Row="0"
-                    Grid.RowSpan="2"
-                    Grid.Column="2"
-                    FontSize="Subtitle"
-                    HorizontalTextAlignment="End"
-                    Text="{Binding OperatorCartProductsCount}"
-                    VerticalTextAlignment="Start" />
-
-                <ImageButton
-                    Grid.Row="0"
-                    Grid.RowSpan="2"
-                    Grid.Column="2"
-                    Margin="0,0,10,0"
-                    BackgroundColor="Transparent"
-                    Command="{Binding ViewCartCommand}"
-                    HorizontalOptions="End"
-                    Source="{FontImage FontFamily=FontAwesome,
-                                       Glyph={x:Static helpers:IconFont.Shopping},
-                                       Size=40,
-                                       Color=#F5EFEF}" />
-
-                <ImageButton
-                    Grid.Row="0"
-                    Grid.RowSpan="2"
-                    Grid.Column="3"
-                    Margin="5,0,10,0"
-                    BackgroundColor="Transparent"
-                    Command="{Binding LogoutCommand}"
-                    HorizontalOptions="End"
-                    Source="{FontImage FontFamily=FontAwesome,
-                                       Glyph={x:Static helpers:IconFont.Logout},
-                                       Size=40,
-                                       Color=#F5EFEF}" />
 
             </Grid>
 
