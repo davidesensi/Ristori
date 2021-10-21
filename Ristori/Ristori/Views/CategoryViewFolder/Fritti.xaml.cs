@@ -9,33 +9,20 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Ristori.Views
+namespace Ristori.Views.CategoryViewFolder
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CategoryView : ContentPage
+    public partial class Fritti : ContentPage
     {
+
         CategoryViewModel cvm;
-            
-
-        public CategoryView(Category category)
+        public Fritti()
         {
             InitializeComponent();
-            cvm = new CategoryViewModel(category);
-            
-
+            int ID = new int();
+            ID = 1;
+            cvm = new CategoryViewModel(ID);
             this.BindingContext = cvm;
-        }
-
-        public CategoryView(int categoryID)
-        {
-            InitializeComponent();
-            cvm = new CategoryViewModel(categoryID);
-            BindingContext = cvm;
-        }
-
-        async void ImageButton_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PopModalAsync();
         }
 
         async void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -46,7 +33,5 @@ namespace Ristori.Views
             await Navigation.PushModalAsync(new ProductDetailsView(selectedProduct));
             ((CollectionView)sender).SelectedItem = null;
         }
-
-        
     }
 }

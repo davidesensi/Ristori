@@ -39,11 +39,12 @@ namespace Ristori.Services
             var productsByCategory = new ObservableCollection<Product>();
             var products = (await GetProductAsync()).Where(p => p.CategoryID == categoryID).ToList();
 
-            foreach(var product in products)
+            foreach (var product in products)
             {
                 productsByCategory.Add(product);
             }
             return productsByCategory;
         }
+
     }
 }

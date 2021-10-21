@@ -18,7 +18,6 @@ namespace Ristori.Views
         public ShellView()
         {
             InitializeComponent();
-
             Categories = new ObservableCollection<Category>();
 
             GetCategories();

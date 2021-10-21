@@ -28,6 +28,22 @@ namespace Ristori.ViewModels
 
         }
 
+        private int _SelectedCategoryID;
+        public int SelectedCategoryID
+        {
+            set
+            {
+                _SelectedCategoryID = value;
+                OnPropertyChanged();
+            }
+            get
+            {
+                return _SelectedCategoryID;
+            }
+
+
+        }
+
         public ObservableCollection<Product> ProductsByCategory { get; set; }
 
         private int _TotalProducts;
@@ -45,42 +61,7 @@ namespace Ristori.ViewModels
         }
 
 
-        /*private Product _SelectedProduct;
-        public Product SelectedProduct
-        {
-            set
-            {
-                _SelectedProduct = value;
-                OnPropertyChanged();
-            }
-            get
-            {
-                return _SelectedProduct;
-            }
-        }
-
-        private int _TotalQuantity;
-        public int TotalQuantity
-        {
-            set
-            {
-                _TotalQuantity = value;
-                if (this._TotalQuantity < 0)
-                    this._TotalQuantity = 0;
-                if (this._TotalQuantity > 10)
-                    this._TotalQuantity -= 1;
-                OnPropertyChanged();
-            }
-            get
-            {
-                return _TotalQuantity;
-            }
-        }
-
-        public Command IncrementOrderCommand { get; set; }
-        public Command DecrementOrderCommand { get; set; }
-        public Command AddToCartCommand { get; set; }
-        public Command ViewCartCommand { get; set; }*/
+        
 
         public CategoryViewModel(Category category)
         {
@@ -94,6 +75,13 @@ namespace Ristori.ViewModels
             AddToCartCommand = new Command(() => AddToCart());*/
         }
 
+        public CategoryViewModel(int categoryID)
+        {
+            SelectedCategoryID = categoryID;
+            ProductsByCategory = new ObservableCollection<Product>();
+            _ = GetProductsAsync(categoryID);
+            
+        }
         private async Task GetProductsAsync(int categoryID)
         {
             var data = await new ProductService().GetProductsByCategoryAsync(categoryID);
@@ -105,7 +93,18 @@ namespace Ristori.ViewModels
             TotalProducts = ProductsByCategory.Count;
         }
 
-        /*private void AddToCart()
+        /*private async Task GetProductsByNameAsync(string categoryName)
+        {
+            var data = await new ProductService().GetProductsByNameByCategoryAsync(categoryName);
+            ProductsByCategory.Clear();
+            foreach (var product in data)
+            {
+                ProductsByCategory.Add(product);
+            }
+            TotalProducts = ProductsByCategory.Count;
+        }
+
+        private void AddToCart()
         {
             SQLite.SQLiteConnection cn = DependencyService.Get<ISQLite>().GetConnection();
             try

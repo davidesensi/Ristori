@@ -6,6 +6,7 @@
     xmlns:helpers="clr-namespace:Ristori.Helpers"
     xmlns:tabbedbottm="clr-namespace:Ristori.Views"
     xmlns:views="clr-namespace:Ristori.Views"
+    xmlns:cviews="clr-namespace:Ristori.Views.CategoryViewFolder"
     x:DataType="tabbedbottm:ShellView"
     NavBarIsVisible="False"
     Shell.BackgroundColor="#931A25"
@@ -20,7 +21,7 @@
     <TabBar>
 
         <Tab Title="Home" Icon="{FontImage FontFamily=FontAwesome, Glyph={x:Static helpers:IconFont.Home}}">
-            <ShellContent Title="Fritti" ContentTemplate="{DataTemplate views:ProvaProductsView}" />
+            <ShellContent x:Name="Fritti" Title="Fritti" ContentTemplate="{DataTemplate cviews:Fritti}" />
             <ShellContent Title="Pizze Rosse" ContentTemplate="{DataTemplate views:ProvaProductsView}" />
             <ShellContent Title="Pizze Bianche" ContentTemplate="{DataTemplate views:ProvaProductsView}" />
             <ShellContent Title="Dolci" ContentTemplate="{DataTemplate views:ProvaProductsView}" />
