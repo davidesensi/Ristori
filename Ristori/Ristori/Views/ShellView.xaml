@@ -1,34 +1,39 @@
-﻿<Shell xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:tabbedbottm="clr-namespace:Ristori.Views"
-            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
-            xmlns:helpers="clr-namespace:Ristori.Helpers"
-       
-       xmlns:views="clr-namespace:Ristori.Views" x:DataType="tabbedbottm:ShellView"
-       x:Class="Ristori.Views.ShellView"
-       NavBarIsVisible="False"
-       Shell.TabBarBackgroundColor="White"
-       Shell.TabBarUnselectedColor="#931A25"
-       Shell.TabBarTitleColor="#F44336">
-    <!--Pages can be added as references or inline-->
+﻿<Shell
+    x:Class="Ristori.Views.ShellView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:helpers="clr-namespace:Ristori.Helpers"
+    xmlns:tabbedbottm="clr-namespace:Ristori.Views"
+    xmlns:views="clr-namespace:Ristori.Views"
+    x:DataType="tabbedbottm:ShellView"
+    NavBarIsVisible="False"
+    Shell.BackgroundColor="#931A25"
+    Shell.TabBarBackgroundColor="White"
+    Shell.TabBarTitleColor="#F44336"
+    Shell.TabBarUnselectedColor="#931A25"
+    Shell.TitleColor="#F44336"
+    Shell.UnselectedColor="White">
 
 
-    
-    <TabBar >
-        
-        <Tab Title="Home" 
-             Icon="{FontImage FontFamily=FontAwesome, Glyph={x:Static helpers:IconFont.Home}}">
-            <ShellContent 
-                ContentTemplate="{DataTemplate views:ProductsView}"  />
+
+    <TabBar>
+
+        <Tab Title="Home" Icon="{FontImage FontFamily=FontAwesome, Glyph={x:Static helpers:IconFont.Home}}">
+            <ShellContent Title="Fritti" ContentTemplate="{DataTemplate views:ProvaProductsView}" />
+            <ShellContent Title="Pizze Rosse" ContentTemplate="{DataTemplate views:ProvaProductsView}" />
+            <ShellContent Title="Pizze Bianche" ContentTemplate="{DataTemplate views:ProvaProductsView}" />
+            <ShellContent Title="Dolci" ContentTemplate="{DataTemplate views:ProvaProductsView}" />
+            <ShellContent Title="Bevande" ContentTemplate="{DataTemplate views:ProvaProductsView}" />
+            <ShellContent Title="Birre e Vini" ContentTemplate="{DataTemplate views:ProvaProductsView}" />
         </Tab>
 
-        <Tab Title="Carrello" 
-             Icon="{FontImage FontFamily=FontAwesome, Glyph={x:Static helpers:IconFont.Cart}}">
-            <ShellContent ContentTemplate="{DataTemplate views:CartView}"  />
+        <Tab Title="Carrello" Icon="{FontImage FontFamily=FontAwesome, Glyph={x:Static helpers:IconFont.Cart}}">
+            <ShellContent ContentTemplate="{DataTemplate views:CartView}" />
         </Tab>
 
-        <Tab Title="Logout" 
-             Icon="{FontImage FontFamily=FontAwesome, Glyph={x:Static helpers:IconFont.LogoutVariant}}">
-            <ShellContent ContentTemplate="{DataTemplate views:LogoutView}"  />
+        <Tab Title="Logout" Icon="{FontImage FontFamily=FontAwesome, Glyph={x:Static helpers:IconFont.LogoutVariant}}">
+            <ShellContent ContentTemplate="{DataTemplate views:LogoutView}" />
         </Tab>
     </TabBar>
 

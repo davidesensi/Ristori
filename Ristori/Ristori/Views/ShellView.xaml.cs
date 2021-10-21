@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Ristori.Models;
+using Ristori.Services;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +18,23 @@ namespace Ristori.Views
         public ShellView()
         {
             InitializeComponent();
+
+            Categories = new ObservableCollection<Category>();
+
+            GetCategories();
+        }
+
+        public ObservableCollection<Category> Categories { get; set; }
+
+        private async void GetCategories()
+        {
+
+            var data = await new CategoryDataService().GetCategoriesAsync();
+            Categories.Clear();
+            foreach (var category in data)
+            {
+                Categories.Add(category);
+            }
         }
     }
 }
