@@ -1,15 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             xmlns:helpers="clr-namespace:Ristori.Helpers"
-             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-             ios:Page.UseSafeArea="True"
-             xmlns:vm="clr-namespace:Ristori.ViewModels"
-             x:Class="Ristori.Views.CartView"
-             Visual="Material"
-             BackgroundColor="#931A25"
-             Title="Carrello">
+<ContentPage
+    x:Class="Ristori.Views.CartView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:helpers="clr-namespace:Ristori.Helpers"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:vm="clr-namespace:Ristori.ViewModels"
+    Title="Carrello"
+    ios:Page.UseSafeArea="True"
+    BackgroundColor="#931A25"
+    Visual="Material">
 
 
     <ContentPage.Content>
@@ -24,30 +25,46 @@
 
             <BoxView Grid.Row="0" />
 
-            <Label Text="Ordine" FontSize="40" TextColor="#F5EFEF"
-                   HorizontalOptions="Center" VerticalOptions="Center" />
+            <Label
+                FontSize="40"
+                HorizontalOptions="Center"
+                Text="Ordine"
+                TextColor="#F5EFEF"
+                VerticalOptions="Center" />
 
-            <pancake:PancakeView Grid.Row="1"
-                                 CornerRadius="60,60,0,0">
-                <ListView x:Name="ListViewCartItems" Margin="20"
-                          SeparatorVisibility="None" SelectionMode="Single"
-                          ItemsSource="{Binding CartItems}"
-                          Header="" HasUnevenRows="True">
+            <pancake:PancakeView Grid.Row="1" CornerRadius="60,60,0,0">
+                <ListView
+                    x:Name="ListViewCartItems"
+                    Margin="20"
+                    HasUnevenRows="True"
+                    Header=""
+                    ItemsSource="{Binding CartItems}"
+                    SelectionMode="Single"
+                    SeparatorVisibility="None">
                     <ListView.HeaderTemplate>
                         <DataTemplate>
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="150"/>
+                                    <ColumnDefinition Width="150" />
                                     <ColumnDefinition Width="80" />
                                     <ColumnDefinition Width="100" />
                                 </Grid.ColumnDefinitions>
 
-                                <Label Text="NOME" Grid.Column="0" FontSize="Subtitle"
-                                       TextColor="#F5EFEF" />
-                                <Label Text="PREZZO" Grid.Column="1" FontSize="Subtitle"
-                                       TextColor="#F5EFEF" />
-                                <Label Text="QUANTITA" Grid.Column="2" FontSize="Subtitle"
-                                       TextColor="#F5EFEF" />
+                                <Label
+                                    Grid.Column="0"
+                                    FontSize="Subtitle"
+                                    Text="NOME"
+                                    TextColor="#F5EFEF" />
+                                <Label
+                                    Grid.Column="1"
+                                    FontSize="Subtitle"
+                                    Text="PREZZO"
+                                    TextColor="#F5EFEF" />
+                                <Label
+                                    Grid.Column="2"
+                                    FontSize="Subtitle"
+                                    Text="QUANTITA"
+                                    TextColor="#F5EFEF" />
 
                             </Grid>
                         </DataTemplate>
@@ -63,18 +80,27 @@
                                             <RowDefinition Height="Auto" />
                                         </Grid.RowDefinitions>
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="150"/>
+                                            <ColumnDefinition Width="150" />
                                             <ColumnDefinition Width="80" />
                                             <ColumnDefinition Width="100" />
                                         </Grid.ColumnDefinitions>
 
 
-                                        <Label Text="{Binding ProductName}" Grid.Column="0" FontSize="Subtitle"
-                                                TextColor="#F5EFEF" />
-                                        <Label Text="{Binding Path=Price, StringFormat='{}{0:C}'}" Grid.Column="1" FontSize="Subtitle"
-                                                TextColor="#F5EFEF" />
-                                        <Label Text="{Binding Quantity}" Grid.Column="2" FontSize="Subtitle"
-                                                TextColor="#F5EFEF" />
+                                        <Label
+                                            Grid.Column="0"
+                                            FontSize="Subtitle"
+                                            Text="{Binding ProductName}"
+                                            TextColor="#F5EFEF" />
+                                        <Label
+                                            Grid.Column="1"
+                                            FontSize="Subtitle"
+                                            Text="{Binding Path=Price, StringFormat='{}{0:C}'}"
+                                            TextColor="#F5EFEF" />
+                                        <Label
+                                            Grid.Column="2"
+                                            FontSize="Subtitle"
+                                            Text="{Binding Quantity}"
+                                            TextColor="#F5EFEF" />
 
 
 
@@ -87,17 +113,27 @@
                 </ListView>
             </pancake:PancakeView>
 
-            <Label Text="Totale Ordine:"
-                   Grid.Row="2" HorizontalOptions="Center" FontSize="Title"
-                   TextColor="#F5EFEF" />
-            <Label Text="{Binding Path=TotalCost, StringFormat='{}{0:C}'}"
-                   Grid.Row="2" HorizontalOptions="End" FontSize="Title"
-                   TextColor="#F5EFEF" />
+            <Label
+                Grid.Row="2"
+                FontSize="Title"
+                HorizontalOptions="Center"
+                Text="Totale Ordine:"
+                TextColor="#F5EFEF" />
+            <Label
+                Grid.Row="2"
+                FontSize="Title"
+                HorizontalOptions="End"
+                Text="{Binding Path=TotalCost, StringFormat='{}{0:C}'}"
+                TextColor="#F5EFEF" />
 
-            <Button Text="Conferma" Grid.Row="3" TextColor="#F5EFEF" 
-                    BackgroundColor="#F44336"
-                    Command="{Binding PlaceOrdersCommand}"
-                    HorizontalOptions="Center" CornerRadius="20" />
+            <Button
+                Grid.Row="3"
+                BackgroundColor="#F44336"
+                Command="{Binding PlaceOrdersCommand}"
+                CornerRadius="20"
+                HorizontalOptions="Center"
+                Text="Conferma"
+                TextColor="#F5EFEF" />
 
         </Grid>
     </ContentPage.Content>

@@ -15,14 +15,9 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
+                <RowDefinition Height="500" />
             </Grid.RowDefinitions>
 
-            
-                <ImageButton Source="{FontImage FontFamily=FontAwesome,
-                    Glyph={x:Static helpers:IconFont.ArrowLeft}, Size=30,Color=#F5EFEF}"
-                    Grid.Row="0" HorizontalOptions="Start" Aspect="AspectFit" 
-                    VerticalOptions="Start" Margin="10,30" Clicked="ImageButton_Clicked" BackgroundColor="Transparent" />
 
                 <Label Text="Logout" FontSize="40" TextColor="#F5EFEF"
                    FontFamily="SourceSansPro" HorizontalOptions="Center" VerticalOptions="Start" />
@@ -31,7 +26,7 @@
 
 
             <pancake:PancakeView CornerRadius="20,20,0,0" 
-                                 Grid.Row="1" BackgroundColor="Transparent" Margin="0,-40">
+                                 Grid.Row="1" BackgroundColor="Transparent" Margin="10,-40">
                 <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
                     <StackLayout IsVisible="{Binding IsCartExist}" >
                         <Label Text="Il carrello non è vuoto!!" />
@@ -40,14 +35,15 @@
 
                     <StackLayout>
                         <Label Text="Sei sicuro di voler uscire?"/>
-                        <StackLayout Orientation="Horizontal" Spacing="10">
+                        <StackLayout Orientation="Horizontal" Spacing="10" HorizontalOptions="Center">
                             <Button Text="Si, Logout"
                                 WidthRequest="200"
                                 BackgroundColor="#F44336"
                                 HorizontalOptions="Center"
                                 CornerRadius="20" 
                                 Command="{Binding LogoutCommand}"/>
-
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" Spacing="10" HorizontalOptions="Center">
                             <Button Text="No, vai al carrello"
                                 WidthRequest="200"
                                 BackgroundColor="#F44336"

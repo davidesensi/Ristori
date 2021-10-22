@@ -7,6 +7,9 @@
     xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     BackgroundColor="#931A25">
     <ContentPage.Content>
+        
+        
+        
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -59,6 +62,20 @@
                         Text="{Binding SelectedProduct.Name}"
                         TextColor="#F5EFEF" />
                 </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="10">
+                    <Label FontSize="Subtitle" Text="Descrizione: " />
+                    <Label
+                        FontSize="Subtitle"
+                        Text="{Binding SelectedProduct.Description}"
+                        TextColor="#F5EFEF" />
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Spacing="10">
+                    <Label FontSize="Subtitle" Text="Prezzo: " />
+                    <Label
+                        FontSize="Subtitle"
+                        Text="{Binding Path=SelectedProduct.Price, StringFormat='{}{0:C}'}"
+                        TextColor="#F5EFEF" />
+                </StackLayout>
             </StackLayout>
 
             <Grid Grid.Row="3" HorizontalOptions="Center">
@@ -102,8 +119,8 @@
                     VerticalOptions="Start" />
             </Grid>
 
-            <StackLayout Grid.Row="4" Orientation="Horizontal">
-                <pancake:PancakeView CornerRadius="0,20,60,0" HorizontalOptions="Center">
+            <StackLayout Grid.Row="4" Orientation="Horizontal" HorizontalOptions="Center">
+                <pancake:PancakeView CornerRadius="0,20,60,0">
                     <Button
                         Background="#F44336"
                         Command="{Binding AddToCartCommand}"
@@ -112,25 +129,7 @@
                         Text="Aggiungi"
                         WidthRequest="170" />
                 </pancake:PancakeView>
-
-                <pancake:PancakeView CornerRadius="0,10,30,0" HorizontalOptions="Center">
-                    <Button
-                        Background="#F44336"
-                        Command="{Binding ViewCartCommand}"
-                        HeightRequest="30"
-                        HorizontalOptions="Center"
-                        Text="Carrello"
-                        WidthRequest="170" />
-                </pancake:PancakeView>
             </StackLayout>
-
-            <pancake:PancakeView Grid.Row="6" CornerRadius="30,30,0,0">
-                <Button
-                    BackgroundColor="#F44336"
-                    Command="{Binding HomeCommand}"
-                    HeightRequest="50"
-                    Text="Home" />
-            </pancake:PancakeView>
         </Grid>
     </ContentPage.Content>
 </ContentPage>
