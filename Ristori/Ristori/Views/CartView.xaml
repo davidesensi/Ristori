@@ -10,9 +10,8 @@
              Visual="Material"
              BackgroundColor="#931A25"
              Title="Carrello">
-    <ContentPage.BindingContext>
-        <vm:CartViewModel />
-    </ContentPage.BindingContext>
+
+
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -31,7 +30,7 @@
             <pancake:PancakeView Grid.Row="1"
                                  CornerRadius="60,60,0,0">
                 <ListView x:Name="ListViewCartItems" Margin="20"
-                          SeparatorVisibility="None" IsRefreshing="True" SelectionMode="Single"
+                          SeparatorVisibility="None" SelectionMode="Single"
                           ItemsSource="{Binding CartItems}"
                           Header="" HasUnevenRows="True">
                     <ListView.HeaderTemplate>
@@ -49,7 +48,7 @@
                                        TextColor="#F5EFEF" />
                                 <Label Text="QUANTITA" Grid.Column="2" FontSize="Subtitle"
                                        TextColor="#F5EFEF" />
-                                
+
                             </Grid>
                         </DataTemplate>
                     </ListView.HeaderTemplate>
@@ -64,60 +63,24 @@
                                             <RowDefinition Height="Auto" />
                                         </Grid.RowDefinitions>
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="20" />
+                                            <ColumnDefinition Width="150"/>
+                                            <ColumnDefinition Width="80" />
                                             <ColumnDefinition Width="100" />
-                                            <ColumnDefinition Width="*" />
-                                            <ColumnDefinition Width="*" />
-                                            <ColumnDefinition Width="*" />
                                         </Grid.ColumnDefinitions>
 
-                                        <Label Text="{Binding ProductID}" Grid.Column="0" FontSize="Subtitle"
+
+                                        <Label Text="{Binding ProductName}" Grid.Column="0" FontSize="Subtitle"
                                                 TextColor="#F5EFEF" />
-                                        <Label Text="{Binding ProductName}" Grid.Column="1" FontSize="Subtitle"
+                                        <Label Text="{Binding Path=Price, StringFormat='{}{0:C}'}" Grid.Column="1" FontSize="Subtitle"
                                                 TextColor="#F5EFEF" />
-                                        <Label Text="{Binding Price}" Grid.Column="2" FontSize="Subtitle"
-                                                TextColor="#F5EFEF" />
-                                        <Label Text="{Binding Quantity}" Grid.Column="3" FontSize="Subtitle"
-                                                TextColor="#F5EFEF" />
-                                        <Label Text="{Binding Cost}" Grid.Column="4" FontSize="Subtitle"
+                                        <Label Text="{Binding Quantity}" Grid.Column="2" FontSize="Subtitle"
                                                 TextColor="#F5EFEF" />
 
-                                        <ImageButton
-                                                Grid.Column="1"
-                                                Margin="10,30"
-                                                Aspect="AspectFit"
-                                                BackgroundColor="Transparent"
-                                                Command="{Binding DecrementOrderCommand}"
-                                                HorizontalOptions="Start"
-                                                Source="{FontImage FontFamily=FontAwesome,
-                                                                   Glyph={x:Static helpers:IconFont.MinusCircleOutline},
-                                                                   Size=25,
-                                                                   Color=#F5EFEF}"
-                                                VerticalOptions="Start" />
 
-
-                                        <Entry
-                                                Grid.Column="2"
-                                                FontSize="20"
-                                                HorizontalOptions="Center"
-                                                Text="{Binding Quantity}" />
-
-                                        <ImageButton
-                                                Grid.Column="3"
-                                                Margin="10,30"
-                                                Aspect="AspectFit"
-                                                BackgroundColor="Transparent"
-                                                Command="{Binding IncrementOrderCommand}"
-                                                HorizontalOptions="Start"
-                                                Source="{FontImage FontFamily=FontAwesome,
-                                                                   Glyph={x:Static helpers:IconFont.PlusCircleOutline},
-                                                                   Size=25,
-                                                                   Color=#F5EFEF}"
-                                                VerticalOptions="Start" />
 
                                     </Grid>
                                 </ViewCell.View>
-                                
+
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
@@ -135,7 +98,7 @@
                     BackgroundColor="#F44336"
                     Command="{Binding PlaceOrdersCommand}"
                     HorizontalOptions="Center" CornerRadius="20" />
-            
+
         </Grid>
     </ContentPage.Content>
 </ContentPage>

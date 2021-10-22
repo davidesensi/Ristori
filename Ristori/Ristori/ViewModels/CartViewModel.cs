@@ -4,6 +4,7 @@ using Ristori.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,7 +14,19 @@ namespace Ristori.ViewModels
 {
     public class CartViewModel : BaseViewModel
     {
-        public ObservableCollection<OperatorCartItem> CartItems { get; set; }
+        private ObservableCollection<CartItem> _CartItems;
+        public ObservableCollection<CartItem> CartItems
+        {
+            set
+            {
+                _CartItems = value;
+                OnPropertyChanged();
+            }
+            get
+            {
+                return _CartItems;
+            }
+        }
 
         public decimal _TotalCost;
         public decimal TotalCost
@@ -69,11 +82,12 @@ namespace Ristori.ViewModels
 
         public CartViewModel()
         {
-            CartItems = new ObservableCollection<OperatorCartItem>();
+            CartItems = new ObservableCollection<CartItem>();
             LoadItems();
             PlaceOrdersCommand = new Command(async () => await PlaceOrdersAsync());
         }
 
+        
         private async Task PlaceOrdersAsync()
         {
             
@@ -103,16 +117,17 @@ namespace Ristori.ViewModels
             var cn = DependencyService.Get<ISQLite>().GetConnection();
             var items = cn.Table<CartItem>().ToList();
             CartItems.Clear();
+            CartItems = new ObservableCollection<CartItem>();
             foreach(var item in items)
             {
-                CartItems.Add(new OperatorCartItem()
+                CartItems.Add(new CartItem()
                 {
                     CartItemID = item.CartItemID,
                     ProductID = item.ProductID,
                     ProductName = item.ProductName,
                     Price = item.Price,
-                    Quantity = item.Quantity,
-                    Cost = item.Price * item.Quantity
+                    Quantity = item.Quantity
+                    
 
                 });
                 TotalCost += (item.Price * item.Quantity);
