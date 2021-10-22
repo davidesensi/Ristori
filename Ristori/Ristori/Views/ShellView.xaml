@@ -3,10 +3,10 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:cviews="clr-namespace:Ristori.Views.CategoryViewFolder"
     xmlns:helpers="clr-namespace:Ristori.Helpers"
     xmlns:tabbedbottm="clr-namespace:Ristori.Views"
     xmlns:views="clr-namespace:Ristori.Views"
-    xmlns:cviews="clr-namespace:Ristori.Views.CategoryViewFolder"
     x:DataType="tabbedbottm:ShellView"
     NavBarIsVisible="False"
     Shell.BackgroundColor="#931A25"
@@ -21,7 +21,10 @@
     <TabBar>
 
         <Tab Title="Home" Icon="{FontImage FontFamily=FontAwesome, Glyph={x:Static helpers:IconFont.Home}}">
-            <ShellContent x:Name="Fritti" Title="Fritti" ContentTemplate="{DataTemplate cviews:Fritti}" />
+            <ShellContent
+                x:Name="Fritti"
+                Title="Fritti"
+                ContentTemplate="{DataTemplate cviews:Fritti}" />
             <ShellContent Title="Pizze Rosse" ContentTemplate="{DataTemplate cviews:PizzeRosse}" />
             <ShellContent Title="Pizze Bianche" ContentTemplate="{DataTemplate cviews:PizzeBianche}" />
             <ShellContent Title="Dolci" ContentTemplate="{DataTemplate cviews:Dolci}" />
