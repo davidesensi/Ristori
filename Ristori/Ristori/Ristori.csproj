@@ -26,6 +26,21 @@
     <Compile Update="Views\CategoryView.xaml.cs">
       <DependentUpon>CategoryView.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\CategoryViewFolder\Bevande.xaml.cs">
+      <DependentUpon>Bevande.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\CategoryViewFolder\BirreVini.xaml.cs">
+      <DependentUpon>BirreVini.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\CategoryViewFolder\Dolci.xaml.cs">
+      <DependentUpon>Dolci.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\CategoryViewFolder\PizzeRosse.xaml.cs">
+      <DependentUpon>PizzeRosse.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\CategoryViewFolder\PizzeBianche.xaml.cs">
+      <DependentUpon>PizzeBianche.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\OrderDetailView.xaml.cs">
       <DependentUpon>OrderDetailView.xaml</DependentUpon>
     </Compile>
