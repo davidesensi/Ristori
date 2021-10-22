@@ -26,7 +26,7 @@ namespace Ristori.Views
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new ProductsView());
+            await Navigation.PushModalAsync(new ShellView());
         }
     }
 }

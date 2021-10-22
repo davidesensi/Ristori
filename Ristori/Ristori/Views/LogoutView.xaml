@@ -10,9 +10,7 @@
              BackgroundColor="#931A25"
              xmlns:vm="clr-namespace:Ristori.ViewModels"
              Title="Logout">
-    <ContentPage.BindingContext>
-        <vm:LogoutViewModel />
-    </ContentPage.BindingContext>
+    
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>

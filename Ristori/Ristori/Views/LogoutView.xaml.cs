@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ristori.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,8 +16,14 @@ namespace Ristori.Views
         public LogoutView()
         {
             InitializeComponent();
+            this.BindingContext = new LogoutViewModel();
+            base.OnAppearing();
         }
-
+        protected override void OnAppearing()
+        {
+            this.BindingContext = new LogoutViewModel();
+            base.OnAppearing();
+        }
         async void ImageButton_Clicked(System.Object sender, System.EventArgs e)
         {
             await Navigation.PopModalAsync();
