@@ -29,7 +29,43 @@ namespace Ristori.ViewModels
             }
         }
 
+        private int _Quantity;
+        public int Quantity
+        {
+            set
+            {
+                _ = value;
+                if (this._Quantity < 0)
+                    this._Quantity = 0;
+                if (this._Quantity > 10)
+                    this._Quantity -= 1;
+                OnPropertyChanged();
+            }
+            get
+            {
+                return _Quantity;
+            }
+        }
+
+        private Product _SelectedProduct;
+        public Product SelectedProduct
+        {
+            set
+            {
+                _SelectedProduct = value;
+                OnPropertyChanged();
+            }
+            get
+            {
+                return _SelectedProduct;
+            }
+        }
+
         public Command PlaceOrdersCommand { get; set; }
+
+        public Command IncrementOrderCommand { get; set; }
+        public Command DecrementOrderCommand { get; set; }
+        public Command AddToCartCommand { get; set; }
 
         public CartViewModel()
         {
@@ -81,6 +117,59 @@ namespace Ristori.ViewModels
                 });
                 TotalCost += (item.Price * item.Quantity);
             }
+        }
+
+        private void AddToCart()
+        {
+            SQLite.SQLiteConnection cn = DependencyService.Get<ISQLite>().GetConnection();
+            try
+            {
+                CartItem cartItem = new CartItem()
+                {
+                    ProductID = SelectedProduct.ProductID,
+                    ProductName = SelectedProduct.Name,
+                    Price = SelectedProduct.Price,
+                    Quantity = Quantity
+                };
+
+                var product = cn.Table<CartItem>().ToList()
+                    .FirstOrDefault(c => c.ProductID == SelectedProduct.ProductID);
+                if (product == null)
+                    cn.Insert(cartItem);
+                else
+                {
+                    if (Quantity == 0)
+                    {
+                        Application.Current.MainPage.DisplayAlert("Error", "Devi inserire almeno un prodotto", "OK");
+                    }
+                    else
+                    {
+                        product.Quantity += Quantity;
+                        cn.Update(product);
+                    }
+                }
+                cn.Commit();
+                cn.Close();
+                Application.Current.MainPage.DisplayAlert("Carrello", "Prodotto aggiunto al carrello", "OK");
+            }
+            catch (Exception ex)
+            {
+                Application.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
+            }
+            finally
+            {
+                cn.Close();
+            }
+        }
+
+        private void DecrementOrder()
+        {
+            Quantity--;
+        }
+
+        private void IncrementOrder()
+        {
+            Quantity++;
         }
     }
 }
