@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage
+﻿<ContentPage
             x:Class="Ristori.Views.CartView"
             xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -11,173 +10,157 @@
             Title="Carrello"
             ios:Page.UseSafeArea="True"
             BackgroundColor="#931A25"
-            Visual="Material">
+            Visual="Material"
+            >
 
 
 
     <ContentPage.Content>
+        <ScrollView>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="100" />
-                    <RowDefinition Height="*" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-            <BoxView Grid.Row="0" />
-            <Label
+                <Label
+                    Margin="0,10"
+                    Grid.Row="0"
                     FontSize="40"
                     HorizontalOptions="Center"
                     Text="Ordine"
                     TextColor="#F5EFEF"
                     VerticalOptions="Center" />
 
-                    <pancake:PancakeView Grid.Row="1"
-                                                     CornerRadius="60,60,0,0">
-                            <CollectionView x:Name="ListViewCartItems" Margin="20"
-                                            SelectionMode="None"
-                                            ItemsSource="{Binding CartItems}"
-                                            Header="">  
-                                <CollectionView.HeaderTemplate>
-                                            <DataTemplate>
-                                                <Grid>
-                                                    <Grid.ColumnDefinitions>
-                                                        <ColumnDefinition Width="150" />
-                                                        <ColumnDefinition Width="80" />
-                                                        <ColumnDefinition Width="100" />
-                                                    </Grid.ColumnDefinitions>
+                
+                <pancake:PancakeView Grid.Row="1" MinimumHeightRequest="200">
+                    
+                        <CollectionView
+                        x:Name="ListViewCartItems" Margin="20"
+                        ItemsSource="{Binding CartItems}"
+                        Header=""
+                            >
+                        
+                        <CollectionView.HeaderTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="200" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
 
-                                            <Label
-                                                    Grid.Column="0"
-                                                    FontSize="Subtitle"
-                                                    Text="NOME"
-                                                    TextColor="#F5EFEF" />
-                                            <Label
-                                                    Grid.Column="1"
-                                                    FontSize="Subtitle"
-                                                    Text="PREZZO"
-                                                    TextColor="#F5EFEF" />
-                                            <Label
-                                                    Grid.Column="2"
-                                                    FontSize="Subtitle"
-                                                    Text="QUANTITA"
-                                                    TextColor="#F5EFEF" />      
-
-                                        </Grid>
-                                            </DataTemplate>
-                                                </CollectionView.HeaderTemplate>
-
-                                                        <CollectionView.ItemTemplate>
-                                                                <DataTemplate>
-                                                                    <pancake:PancakeView>
-                                                                        <xct:Expander>
-                                                                            <xct:Expander.Header>
-                                                                                <Grid>
-                                                                                    <Grid.ColumnDefinitions>
-                                                                                        <ColumnDefinition Width="150"/>
-                                                                                        <ColumnDefinition Width="80" />
-                                                                                        <ColumnDefinition Width="100" />
-                                                                                    </Grid.ColumnDefinitions>
-
-
-                                                                                    <Label Text="{Binding ProductName}" Grid.Column="0" FontSize="Subtitle"
-                                                                                            TextColor="#F5EFEF" />
-                                                                                    <Label Text="{Binding Path=Price, StringFormat='{}{0:C}'}" Grid.Column="1" FontSize="Subtitle"
-                                                                                            TextColor="#F5EFEF" />
-                                                                                    <Label Text="{Binding Quantity}" Grid.Column="2" FontSize="Subtitle"
-                                                                                            TextColor="#F5EFEF" />
-                                                                                </Grid>
-                                                                            </xct:Expander.Header>
-                                                                            <Grid>
-                                                                                <Grid.RowDefinitions>
-                                                                                    <RowDefinition Height="100" />
-                                                                                </Grid.RowDefinitions>
-                                                                                <Grid.ColumnDefinitions>
-                                                                                    <ColumnDefinition Width="150" />
-                                                                                    <ColumnDefinition Width="80" />
-                                                                                    <ColumnDefinition Width="100" />
-                                                                                </Grid.ColumnDefinitions>
-
-
-                                                    <Label
-                                                            Grid.Column="0"
-                                                            FontSize="Subtitle"
-                                                            Text="{Binding ProductName}"
-                                                            TextColor="#F5EFEF" />
-                                                    <Label
-                                                            Grid.Column="1"
-                                                            FontSize="Subtitle"
-                                                            Text="{Binding Path=Price, StringFormat='{}{0:C}'}"
-                                                            TextColor="#F5EFEF" />
-                                                    <Label
-                                                            Grid.Column="2"
-                                                            FontSize="Subtitle"
-                                                            Text="{Binding Quantity}"
-                                                            TextColor="#F5EFEF" />
-
-
-                                                    <ImageButton
-                                                                Grid.Column="0"                                                    
-                                                                Margin="10,30"
-                                                                Aspect="AspectFit"
-                                                                BackgroundColor="Transparent"
-                                                                Command="{Binding DecrementOrderCommand}"
-                                                                HorizontalOptions="Start"
-                                                                Source="{FontImage FontFamily=FontAwesome,
-                                                                                Glyph={x:Static helpers:IconFont.MinusCircleOutline},
-                                                                                Size=40,
-                                                                                Color=#F5EFEF}"
-                                                                VerticalOptions="Start" />
-                                                    <Entry
-                                                                Grid.Column="1"
-                                                                FontSize="30"
-                                                                HorizontalOptions="Center"
-                                                                Text="{Binding Quantity}" />
-
-                                                    <ImageButton
-                                                                Grid.Column="2"
-                                                                Grid.Row="0"
-                                                                Margin="10,30"
-                                                                Aspect="AspectFit"
-                                                                BackgroundColor="Transparent"
-                                                                Command="{Binding IncrementOrderCommand}"
-                                                                HorizontalOptions="Start"
-                                                                Source="{FontImage FontFamily=FontAwesome,
-                                                                            Glyph={x:Static helpers:IconFont.PlusCircleOutline},
-                                                                            Size=40,
-                                                                            Color=#F5EFEF}"
-                                                                VerticalOptions="Start" />
-                                                        </Grid>
-                                                    </xct:Expander>
-                                                </pancake:PancakeView>
-                                            </DataTemplate>
-                                        </CollectionView.ItemTemplate>
-                                    </CollectionView>
-                                </pancake:PancakeView>
-
-                                <Label
-                                        Grid.Row="2"
-                                        FontSize="Title"
+                                        <Label
+                                        Grid.Column="1"
+                                        FontSize="Subtitle"
                                         HorizontalOptions="Center"
-                                        Text="Totale Ordine:"
+                                        Text="NOME"
                                         TextColor="#F5EFEF" />
-                                 <Label
-                                        Grid.Row="2"
-                                        FontSize="Title"
-                                        HorizontalOptions="End"
-                                        Text="{Binding Path=TotalCost, StringFormat='{}{0:C}'}"
+                                        <Label
+                                        Grid.Column="2"
+                                        FontSize="Subtitle"
+                                        HorizontalOptions="Center"
+                                        Text="QTA"
                                         TextColor="#F5EFEF" />
 
-                        <Button
-                                    Grid.Row="3"
-                                    BackgroundColor="#F44336"
-                                    Command="{Binding PlaceOrdersCommand}"
-                                    CornerRadius="20"
-                                    HorizontalOptions="Center"
-                                    Text="Conferma"
-                                    TextColor="#F5EFEF" />
+                                    </Grid>
+                                </DataTemplate>
+                            </CollectionView.HeaderTemplate>
+
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Vertical"
+                                               ItemSpacing="20" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <pancake:PancakeView 
+                                        Margin="10,10"
+                                        BackgroundColor="#F44336"
+                                        CornerRadius="20"
+                                        HeightRequest="50"
+                                        Padding="5">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="200" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+
+
+                                            <ImageButton
+                                               Grid.Column="0"
+                                               Aspect="AspectFit"
+                                               BackgroundColor="Transparent"
+                                               Command="{Binding Path=BindingContext.DecrementOrderCommand,Source={x:Reference ListViewCartItems}, Mode=TwoWay}"
+                                               CommandParameter="{Binding .}"
+                                               VerticalOptions="Center"
+                                               HorizontalOptions="Center"
+                                               Source="{FontImage FontFamily=FontAwesome,
+                                                        Glyph={x:Static helpers:IconFont.MinusCircleOutline},
+                                                        Size=30,Color=#F5EFEF}" />
+
+                                            <Label Text="{Binding ProductName}" 
+                                               Grid.Column="1" FontSize="Title"
+                                               TextColor="#F5EFEF" 
+                                               HorizontalOptions="CenterAndExpand"
+                                               VerticalOptions="Center"
+                                               MinimumWidthRequest="200"/>
+                                            <!--<Label Text="{Binding Path=Price, StringFormat='{}{0:C}'}" Grid.Column="1" Grid.Row="0" FontSize="Subtitle"
+                                                                                            TextColor="#F5EFEF" />-->
+
+                                            <Label Text="{Binding Quantity}" Grid.Column="2"
+                                                   FontSize="25"
+                                                   VerticalOptions="Center"
+                                                   HorizontalOptions="Center"
+                                                   TextColor="#F5EFEF" />
+
+                                            <ImageButton
+                                               Grid.Column="3"
+                                               Aspect="AspectFit"
+                                               BackgroundColor="Transparent"
+                                               Command="{Binding Path=BindingContext.IncrementOrderCommand,Source={x:Reference ListViewCartItems}, Mode=TwoWay}"
+                                               CommandParameter="{Binding .}"
+                                               VerticalOptions="Center"
+                                               HorizontalOptions="Center"
+                                               Source="{FontImage FontFamily=FontAwesome,
+                                                        Glyph={x:Static helpers:IconFont.PlusCircleOutline},
+                                                        Size=30,Color=#F5EFEF}"/>
+                                        </Grid>
+                                    </pancake:PancakeView>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                </pancake:PancakeView>
+            
+                    
+            <Label
+                Grid.Row="2"
+                FontSize="Title"
+                HorizontalOptions="Center"
+                Text="Totale Ordine:"
+                TextColor="#F5EFEF" />
+            <Label
+                Grid.Row="2"
+                FontSize="Title"
+                HorizontalOptions="End"
+                Text="{Binding Path=TotalCost, StringFormat='{}{0:C}'}"
+                TextColor="#F5EFEF" />
+
+
+            <Button
+                Grid.Row="3"
+                BackgroundColor="#F44336"
+                Command="{Binding PlaceOrdersCommand}"
+                CornerRadius="20"
+                HorizontalOptions="Center"
+                Text="Conferma"
+                TextColor="#F5EFEF" />
 
         </Grid>
-        </ContentPage.Content>
+        </ScrollView>
+    </ContentPage.Content>
 </ContentPage>

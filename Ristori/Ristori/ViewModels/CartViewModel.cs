@@ -60,20 +60,6 @@ namespace Ristori.ViewModels
             }
         }
 
-        private Product _SelectedProduct;
-        public Product SelectedProduct
-        {
-            set
-            {
-                _SelectedProduct = value;
-                OnPropertyChanged();
-            }
-            get
-            {
-                return _SelectedProduct;
-            }
-        }
-
         public Command PlaceOrdersCommand { get; set; }
 
         public Command IncrementOrderCommand { get; set; }
@@ -85,6 +71,8 @@ namespace Ristori.ViewModels
             CartItems = new ObservableCollection<CartItem>();
             LoadItems();
             PlaceOrdersCommand = new Command(async () => await PlaceOrdersAsync());
+            IncrementOrderCommand = new Command(IncrementOrder);
+            DecrementOrderCommand = new Command(DecrementOrder);
         }
 
         
@@ -114,6 +102,7 @@ namespace Ristori.ViewModels
 
         private void LoadItems()
         {
+            TotalCost = 0;
             var cn = DependencyService.Get<ISQLite>().GetConnection();
             var items = cn.Table<CartItem>().ToList();
             CartItems.Clear();
@@ -130,11 +119,13 @@ namespace Ristori.ViewModels
                     
 
                 });
-                TotalCost += (item.Price * item.Quantity);
+                TotalCost += item.Price * item.Quantity;
             }
         }
 
-        private void AddToCart()
+        
+
+        /*private void AddToCart()
         {
             SQLite.SQLiteConnection cn = DependencyService.Get<ISQLite>().GetConnection();
             try
@@ -142,9 +133,9 @@ namespace Ristori.ViewModels
                 CartItem cartItem = new CartItem()
                 {
                     ProductID = SelectedProduct.ProductID,
-                    ProductName = SelectedProduct.Name,
+                    ProductName = SelectedProduct.ProductName,
                     Price = SelectedProduct.Price,
-                    Quantity = Quantity
+                    Quantity = SelectedProduct.Quantity
                 };
 
                 var product = cn.Table<CartItem>().ToList()
@@ -165,7 +156,7 @@ namespace Ristori.ViewModels
                 }
                 cn.Commit();
                 cn.Close();
-                Application.Current.MainPage.DisplayAlert("Carrello", "Prodotto aggiunto al carrello", "OK");
+                Application.Current.MainPage.DisplayAlert("Carrello", "Quantita prodotto modificata nel carrello", "OK");
             }
             catch (Exception ex)
             {
@@ -175,16 +166,36 @@ namespace Ristori.ViewModels
             {
                 cn.Close();
             }
+        }*/
+
+        private void DecrementOrder(Object obj)
+        {
+            SQLite.SQLiteConnection cn = DependencyService.Get<ISQLite>().GetConnection();
+            var selectedProduct = obj as CartItem;
+            
+            var product = cn.Table<CartItem>().ToList()
+                    .FirstOrDefault(c => c.CartItemID == selectedProduct.CartItemID);
+            product.Quantity--;
+            cn.Update(product);
+            cn.Commit();
+            cn.Close();
+            LoadItems();
+
         }
 
-        private void DecrementOrder()
+        private void IncrementOrder(Object obj)
         {
-            Quantity--;
+            SQLite.SQLiteConnection cn = DependencyService.Get<ISQLite>().GetConnection();
+            var selectedProduct = obj as CartItem;
+
+            var product = cn.Table<CartItem>().ToList()
+                    .FirstOrDefault(c => c.CartItemID == selectedProduct.CartItemID);
+            product.Quantity++;
+            cn.Update(product);
+            cn.Commit();
+            cn.Close();
+            LoadItems();
         }
 
-        private void IncrementOrder()
-        {
-            Quantity++;
-        }
     }
 }
