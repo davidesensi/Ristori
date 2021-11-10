@@ -64,7 +64,7 @@ namespace Ristori.ViewModels
 
         public Command IncrementOrderCommand { get; set; }
         public Command DecrementOrderCommand { get; set; }
-        public Command AddToCartCommand { get; set; }
+        public Command DeleteRowCommand { get; set; }
 
         public CartViewModel()
         {
@@ -73,6 +73,7 @@ namespace Ristori.ViewModels
             PlaceOrdersCommand = new Command(async () => await PlaceOrdersAsync());
             IncrementOrderCommand = new Command(IncrementOrder);
             DecrementOrderCommand = new Command(DecrementOrder);
+            DeleteRowCommand = new Command(DeleteRow);
         }
 
         
@@ -125,48 +126,19 @@ namespace Ristori.ViewModels
 
         
 
-        /*private void AddToCart()
+        private void DeleteRow(Object obj)
         {
             SQLite.SQLiteConnection cn = DependencyService.Get<ISQLite>().GetConnection();
-            try
-            {
-                CartItem cartItem = new CartItem()
-                {
-                    ProductID = SelectedProduct.ProductID,
-                    ProductName = SelectedProduct.ProductName,
-                    Price = SelectedProduct.Price,
-                    Quantity = SelectedProduct.Quantity
-                };
+            var selectedProduct = obj as CartItem;
+            var product = cn.Table<CartItem>().ToList()
+                    .FirstOrDefault(c => c.CartItemID == selectedProduct.CartItemID);
 
-                var product = cn.Table<CartItem>().ToList()
-                    .FirstOrDefault(c => c.ProductID == SelectedProduct.ProductID);
-                if (product == null)
-                    cn.Insert(cartItem);
-                else
-                {
-                    if (Quantity == 0)
-                    {
-                        Application.Current.MainPage.DisplayAlert("Error", "Devi inserire almeno un prodotto", "OK");
-                    }
-                    else
-                    {
-                        product.Quantity += Quantity;
-                        cn.Update(product);
-                    }
-                }
-                cn.Commit();
-                cn.Close();
-                Application.Current.MainPage.DisplayAlert("Carrello", "Quantita prodotto modificata nel carrello", "OK");
-            }
-            catch (Exception ex)
-            {
-                Application.Current.MainPage.DisplayAlert("Error", ex.Message, "OK");
-            }
-            finally
-            {
-                cn.Close();
-            }
-        }*/
+            cn.Delete(product);
+            cn.Commit();
+            cn.Close();
+            LoadItems();
+
+        }
 
         private void DecrementOrder(Object obj)
         {
@@ -175,12 +147,19 @@ namespace Ristori.ViewModels
             
             var product = cn.Table<CartItem>().ToList()
                     .FirstOrDefault(c => c.CartItemID == selectedProduct.CartItemID);
-            product.Quantity--;
-            cn.Update(product);
-            cn.Commit();
-            cn.Close();
-            LoadItems();
-
+            if(product.Quantity <= 1)
+            {
+                DeleteRow(product);
+            }
+            else
+            {
+                product.Quantity--;
+                cn.Update(product);
+                cn.Commit();
+                cn.Close();
+                LoadItems();
+            }
+            
         }
 
         private void IncrementOrder(Object obj)
