@@ -111,7 +111,7 @@ namespace Ristori.ViewModels
                 if(Result)
                 {
                     Preferences.Set("Username", Username);
-                    await Application.Current.MainPage.Navigation.PushModalAsync(new ProductsView());
+                    await Application.Current.MainPage.Navigation.PushModalAsync(new ShellView());
                 }
                 else
                 {

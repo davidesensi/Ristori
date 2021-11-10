@@ -60,6 +60,20 @@ namespace Ristori.ViewModels
             }
         }
 
+        private Order _Order;
+        public Order Order
+        {
+            set
+            {
+                _Order = value;
+                OnPropertyChanged();
+            }
+            get
+            {
+                return _Order;
+            }
+        }
+
         public Command PlaceOrdersCommand { get; set; }
 
         public Command IncrementOrderCommand { get; set; }
@@ -70,6 +84,7 @@ namespace Ristori.ViewModels
         {
             CartItems = new ObservableCollection<CartItem>();
             LoadItems();
+            Order = new Order();
             PlaceOrdersCommand = new Command(async () => await PlaceOrdersAsync());
             IncrementOrderCommand = new Command(IncrementOrder);
             DecrementOrderCommand = new Command(DecrementOrder);
@@ -86,7 +101,7 @@ namespace Ristori.ViewModels
             }
             else
             {
-                var id = await new OrderService().PlaceOrderAsync() as string;
+                var id = await new OrderService().PlaceOrderAsync(Order) as string;
                 RemoveItemsFromCart();
                 
                 await Application.Current.MainPage.Navigation.PushModalAsync(new OrderDetailView(id));
@@ -175,6 +190,5 @@ namespace Ristori.ViewModels
             cn.Close();
             LoadItems();
         }
-
     }
 }

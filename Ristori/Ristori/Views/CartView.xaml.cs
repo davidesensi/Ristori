@@ -1,6 +1,7 @@
 ﻿using Ristori.Models;
 using Ristori.ViewModels;
 using System;
+using System.ComponentModel;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,7 +29,44 @@ namespace Ristori.Views
             this.BindingContext = cvm;
             base.OnAppearing();
         }
-        
-        
+
+        void Button_Clicked(System.Object sender, System.EventArgs e)
+        {
+            var mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
+
+
+            if (MyDraggableView.Height == 0)
+            {
+                Action<double> callback = input => MyDraggableView.HeightRequest = input;
+                double startHeight = 0;
+                double endHeight = mainDisplayInfo.Height / 3;
+                uint rate = 32;
+                uint length = 500;
+                Easing easing = Easing.CubicOut;
+                MyDraggableView.Animate("anim", callback, startHeight, endHeight, rate, length, easing);
+            }
+            else
+            {
+                Action<double> callback = input => MyDraggableView.HeightRequest = input;
+                double startHeight = mainDisplayInfo.Height / 3;
+                double endiendHeight = 0;
+                uint rate = 32;
+                uint length = 500;
+                Easing easing = Easing.SinOut;
+                MyDraggableView.Animate("anim", callback, startHeight, endiendHeight, rate, length, easing);
+
+            }
+        }
+        void TapGestureRecognizer_Tapped(System.Object sender, System.EventArgs e)
+        {
+            var mainDisplayInfo = DeviceDisplay.MainDisplayInfo;
+            Action<double> callback = input => MyDraggableView.HeightRequest = input;
+            double startHeight = mainDisplayInfo.Height / 3;
+            double endiendHeight = 0;
+            uint rate = 32;
+            uint length = 500;
+            Easing easing = Easing.SinOut;
+            MyDraggableView.Animate("anim", callback, startHeight, endiendHeight, rate, length, easing);
+        }
     }
 }

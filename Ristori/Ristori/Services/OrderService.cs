@@ -19,7 +19,7 @@ namespace Ristori.Services
             client = new FirebaseClient("https://ristori-1955c-default-rtdb.europe-west1.firebasedatabase.app/");
         }
 
-        public async Task<string> PlaceOrderAsync()
+        public async Task<string> PlaceOrderAsync(Order delivery)
         {
             var cn = DependencyService.Get<ISQLite>().GetConnection();
             var data = cn.Table<CartItem>().ToList();
@@ -51,7 +51,11 @@ namespace Ristori.Services
                 {
                     OrderID = orderID,
                     Username = oname,
-                    TotalCost = totalCost
+                    TotalCost = totalCost,
+                    DeliveryAddress = delivery.DeliveryAddress,
+                    DeliverySurname = delivery.DeliverySurname,
+                    DeliveryPhone = delivery.DeliveryPhone
+                    
                 });
             return orderID;
         }

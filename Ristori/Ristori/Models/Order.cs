@@ -11,11 +11,11 @@ namespace Ristori.Models
         public string Username { get; set; }
         public decimal TotalCost { get; set; }
 
-        public string deliveryAddress { get; set; }
+        public string DeliveryAddress { get; set; }
 
-        public string deliverySurname { get; set; }
+        public string DeliverySurname { get; set; }
 
-        public string deliveryPhone { get; set; }
+        public string DeliveryPhone { get; set; }
 
     }
 }
