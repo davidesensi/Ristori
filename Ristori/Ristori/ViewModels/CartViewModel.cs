@@ -99,12 +99,15 @@ namespace Ristori.ViewModels
             {
                 await Application.Current.MainPage.DisplayAlert("Error", "Carrello vuoto", "OK");
             }
+            else if (TotalCost == 0)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "Ordine Vuoto", "OK");
+            }
             else
             {
                 var id = await new OrderService().PlaceOrderAsync(Order) as string;
                 RemoveItemsFromCart();
-                
-                await Application.Current.MainPage.Navigation.PushModalAsync(new OrderDetailView(id));
+                Application.Current.MainPage.;
             }
                 
             

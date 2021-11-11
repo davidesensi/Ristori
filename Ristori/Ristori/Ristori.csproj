@@ -42,8 +42,8 @@
     <Compile Update="Views\CategoryViewFolder\PizzeBianche.xaml.cs">
       <DependentUpon>PizzeBianche.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\OrderDetailView.xaml.cs">
-      <DependentUpon>OrderDetailView.xaml</DependentUpon>
+    <Compile Update="Views\OrderHistoryView.xaml.cs">
+      <DependentUpon>OrderHistoryView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -63,10 +63,7 @@
     <EmbeddedResource Update="Views\LogoutView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\OrderDetailForm.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\OrderDetailView.xaml">
+    <EmbeddedResource Update="Views\OrderHistoryView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ProductDetailsView.xaml">

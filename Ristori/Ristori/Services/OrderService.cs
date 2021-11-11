@@ -3,6 +3,8 @@ using Firebase.Database.Query;
 using Ristori.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
@@ -58,6 +60,23 @@ namespace Ristori.Services
                     
                 });
             return orderID;
+        }
+
+        public async Task<List<Order>> GetAllOrderAsync()
+        {
+            
+            var orders = (await client.Child("Orders")
+                .OnceAsync<Order>())
+                .Select(o => new Order
+                {
+                    OrderID = o.Object.OrderID,
+                    Username = o.Object.Username,
+                    TotalCost = o.Object.TotalCost,
+                    DeliveryAddress = o.Object.DeliveryAddress,
+                    DeliveryPhone = o.Object.DeliveryPhone,
+                    DeliverySurname = o.Object.DeliverySurname
+                }).ToList();
+            return orders;
         }
     }
 }
