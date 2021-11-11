@@ -103,11 +103,15 @@ namespace Ristori.ViewModels
             {
                 await Application.Current.MainPage.DisplayAlert("Error", "Ordine Vuoto", "OK");
             }
+            else if(Order.DeliveryAddress==null && Order.DeliverySurname==null)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "Inserisci Cognome e Indirizzo", "OK");
+            }
             else
             {
                 var id = await new OrderService().PlaceOrderAsync(Order) as string;
                 RemoveItemsFromCart();
-                Application.Current.MainPage.;
+                Application.Current.MainPage = new ShellView();
             }
                 
             

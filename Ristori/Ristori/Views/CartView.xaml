@@ -17,8 +17,8 @@
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="40" />
             </Grid.RowDefinitions>
 
             <Label
@@ -134,41 +134,22 @@
 
 
             <Label
-                Grid.Row="2"
+                Grid.Row="3"
                 FontSize="Title"
                 HorizontalOptions="Center"
                 Text="Totale Ordine:"
                 TextColor="#F5EFEF" />
             <Label
-                Grid.Row="2"
+                Grid.Row="3"
                 FontSize="Title"
                 HorizontalOptions="End"
                 Text="{Binding Path=TotalCost, StringFormat='{}{0:C}'}"
                 TextColor="#F5EFEF" />
 
-
-            <Button
-                Grid.Row="3"
-                BackgroundColor="#F44336"
-                Clicked="Button_Clicked"
-                
-                CornerRadius="20"
-                HorizontalOptions="Start"
-                Text="Inserisci Dati Delivery"
-                TextColor="#F5EFEF" />
-
-            <Button
-                Grid.Row="3"
-                BackgroundColor="#F44336"
-                Command="{Binding PlaceOrdersCommand}"
-                CornerRadius="20"
-                HorizontalOptions="End"
-                Text="Conferma Ordine"
-                TextColor="#F5EFEF" />
-
+            <!--Visualizzazione della Form per inserire Indirizzo, Cognome, Telefono-->
             <pancake:PancakeView BackgroundColor="#F5EFEF" VerticalOptions="EndAndExpand"  
                                  x:Name="MyDraggableView" CornerRadius="60,60,0,0" 
-                                 HorizontalOptions="FillAndExpand" HeightRequest="0" Grid.Row="4">
+                                 HorizontalOptions="FillAndExpand" HeightRequest="0" Grid.Row="2">
                 <ScrollView>
                     <Grid>
                         <Grid.RowDefinitions>
@@ -182,12 +163,12 @@
                             </Grid.GestureRecognizers>
                         </Grid>
 
-                        <StackLayout Grid.Row="1" Spacing="10" WidthRequest="50">
+                        <StackLayout Grid.Row="1" Spacing="10" WidthRequest="50" Margin="20,20">
                             <Entry
                                 VerticalOptions="Center"
                                 FontSize="12"
                                 Placeholder="Inserisci indirizzo"
-                                PlaceholderColor="Gray"
+                                PlaceholderColor="#F5EFEF"
                                 Text="{Binding Path=BindingContext.Order.DeliveryAddress, Source={x:Reference MyDraggableView}, Mode=TwoWay}"
                                 TextColor="Black"/>
                             <Entry
@@ -209,6 +190,27 @@
                     </Grid>
                 </ScrollView>
             </pancake:PancakeView>
+            
+            <Button
+                Grid.Row="4"
+                BackgroundColor="#F44336"
+                Clicked="Button_Clicked"
+                
+                CornerRadius="20"
+                HorizontalOptions="Start"
+                Text="Inserisci Dati Delivery"
+                TextColor="#F5EFEF" />
+
+            <Button
+                Grid.Row="4"
+                BackgroundColor="#F44336"
+                Command="{Binding PlaceOrdersCommand}"
+                CornerRadius="20"
+                HorizontalOptions="End"
+                Text="Conferma Ordine"
+                TextColor="#F5EFEF" />
+
+            
         </Grid>
     </ContentPage.Content>
 </ContentPage>
