@@ -12,7 +12,9 @@
 
 
 
-        <Grid>
+    <Grid HorizontalOptions="Fill"
+          VerticalOptions="Fill"
+          Padding="8">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
@@ -42,7 +44,7 @@
 
                     <CollectionView.ItemsLayout>
                         <LinearItemsLayout Orientation="Vertical"
-                                               ItemSpacing="20" />
+                                           ItemSpacing="15" />
                     </CollectionView.ItemsLayout>
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
@@ -51,7 +53,7 @@
                                         BackgroundColor="#F44336"
                                         CornerRadius="20"
                                         HeightRequest="80"
-                                        Padding="5">
+                                        Padding="8">
                                 <Grid>
 
                                     <Grid.ColumnDefinitions>

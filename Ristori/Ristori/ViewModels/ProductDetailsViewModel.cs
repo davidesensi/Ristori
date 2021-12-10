@@ -89,7 +89,7 @@ namespace Ristori.ViewModels
                     cn.Insert(cartItem);
                 else
                 {
-                    if(TotalQuantity == 0)
+                    if(TotalQuantity <= 0)
                     {
                         Application.Current.MainPage.DisplayAlert("Error", "Devi inserire almeno un prodotto", "OK");
                     }

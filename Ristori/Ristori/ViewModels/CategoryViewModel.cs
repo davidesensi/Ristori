@@ -1,5 +1,6 @@
 ﻿using Ristori.Models;
 using Ristori.Services;
+using Ristori.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -60,27 +61,29 @@ namespace Ristori.ViewModels
             }
         }
 
+        public Command IncrementOrderCommand { get; set; }
+        public Command InfoProductCommand { get; set; }
 
-        
 
         public CategoryViewModel(Category category)
         {
             SelectedCategory = category;
             ProductsByCategory = new ObservableCollection<Product>();
-            _ = GetProductsAsync(category.CategoryID);
-            /*TotalQuantity = 0;
-
-            IncrementOrderCommand = new Command(() => IncrementOrder());
-            DecrementOrderCommand = new Command(() => DecrementOrder());
-            AddToCartCommand = new Command(() => AddToCart());*/
+            GetProductsAsync(category.CategoryID);
+            IncrementOrderCommand = new Command(IncrementOrder);
+            InfoProductCommand = new Command(InfoProduct);
+            
         }
 
         public CategoryViewModel(int categoryID)
         {
             SelectedCategoryID = categoryID;
             ProductsByCategory = new ObservableCollection<Product>();
-            _ = GetProductsAsync(categoryID);
+            GetProductsAsync(categoryID);
+            IncrementOrderCommand = new Command(IncrementOrder);
+            InfoProductCommand = new Command(InfoProduct);
             
+
         }
         private async Task GetProductsAsync(int categoryID)
         {
@@ -90,52 +93,42 @@ namespace Ristori.ViewModels
             {
                 ProductsByCategory.Add(product);
             }
-            TotalProducts = ProductsByCategory.Count;
         }
 
-        /*private async Task GetProductsByNameAsync(string categoryName)
+        
+
+        private void InfoProduct(Object obj)
         {
-            var data = await new ProductService().GetProductsByNameByCategoryAsync(categoryName);
-            ProductsByCategory.Clear();
-            foreach (var product in data)
-            {
-                ProductsByCategory.Add(product);
-            }
-            TotalProducts = ProductsByCategory.Count;
+            var product = obj as Product;
+            Application.Current.MainPage.Navigation.PushModalAsync(new ProductDetailsView(product));
         }
 
-        private void AddToCart()
+        private void IncrementOrder(Object obj)
         {
             SQLite.SQLiteConnection cn = DependencyService.Get<ISQLite>().GetConnection();
+            var selectedProduct = obj as Product;
+
             try
             {
                 CartItem cartItem = new CartItem()
                 {
-                    ProductID = SelectedProduct.ProductID,
-                    ProductName = SelectedProduct.Name,
-                    Price = SelectedProduct.Price,
-                    Quantity = TotalQuantity
+                    ProductID = selectedProduct.ProductID,
+                    ProductName = selectedProduct.Name,
+                    Price = selectedProduct.Price,
+                    Quantity = 1
                 };
 
                 var product = cn.Table<CartItem>().ToList()
-                    .FirstOrDefault(c => c.ProductID == SelectedProduct.ProductID);
+                    .FirstOrDefault(c => c.ProductID == selectedProduct.ProductID);
                 if (product == null)
                     cn.Insert(cartItem);
                 else
                 {
-                    if (TotalQuantity == 0)
-                    {
-                        Application.Current.MainPage.DisplayAlert("Error", "Devi inserire almeno un prodotto", "OK");
-                    }
-                    else
-                    {
-                        product.Quantity += TotalQuantity;
-                        cn.Update(product);
-                    }
+                    product.Quantity ++;
+                    cn.Update(product);
                 }
                 cn.Commit();
                 cn.Close();
-                Application.Current.MainPage.DisplayAlert("Carrello", "Prodotto aggiunto al carrello", "OK");
             }
             catch (Exception ex)
             {
@@ -145,17 +138,8 @@ namespace Ristori.ViewModels
             {
                 cn.Close();
             }
-        }
 
-        private void DecrementOrder()
-        {
-            TotalQuantity--;
         }
-
-        private void IncrementOrder()
-        {
-            TotalQuantity++;
-        }*/
 
 
     }

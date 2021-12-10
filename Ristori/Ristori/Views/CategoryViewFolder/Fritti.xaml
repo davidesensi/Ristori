@@ -8,9 +8,12 @@
              x:Class="Ristori.Views.CategoryViewFolder.Fritti">
     
     <ContentPage.Content>
-        <Grid>
-            <pancake:PancakeView CornerRadius="30" Margin="0,-40">
-                <Grid Padding="25,30">
+        <Grid HorizontalOptions="Fill"
+              VerticalOptions="Fill"
+              Padding="8">
+            <pancake:PancakeView VerticalOptions="CenterAndExpand"
+                                 HorizontalOptions="CenterAndExpand">
+                <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
@@ -22,36 +25,60 @@
 
                     <CollectionView ItemsSource="{Binding ProductsByCategory}"
                                     VerticalOptions="Start"
+                                    x:Name="ListProductsByCategory"
                                     VerticalScrollBarVisibility="Never"
-                                    Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
-                                    SelectionMode="Single" 
-                                    SelectionChanged="CollectionView_SelectionChanged">
-                        
+                                    Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                        <CollectionView.ItemsLayout>
+                            <LinearItemsLayout Orientation="Vertical"
+                                               ItemSpacing="10" />
+                        </CollectionView.ItemsLayout>
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
-                                <StackLayout >
-                                    <pancake:PancakeView  BackgroundColor="#F44336" HeightRequest="90"
-                                           CornerRadius="20" Margin="10,10" >
-                                        <Grid>
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="Auto"/>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="Auto"/>
-                                            </Grid.ColumnDefinitions>
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="Auto"/>
-                                                <RowDefinition Height="Auto"/>
-                                                <RowDefinition Height="*"/>
-                                            </Grid.RowDefinitions>
-                                            
-                                            <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"
-                                                   Text="{Binding Name}" FontSize="30" FontAttributes="Bold" TextColor="#F5EFEF"/>
-                                            <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
-                                                   Text="{Binding Description}" FontSize="8" TextColor="#F5EFEF" 
-                                                   LineBreakMode="WordWrap"/>
-                                        </Grid>
-                                    </pancake:PancakeView>
-                                </StackLayout>
+                                <pancake:PancakeView  BackgroundColor="#F44336" HeightRequest="70"
+                                           CornerRadius="20" Margin="10,10" Padding="8">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="40"/>
+                                            <RowDefinition Height="30"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                                               VerticalOptions="Center"
+                                               Text="{Binding Name}" FontSize="25" FontAttributes="Bold" TextColor="#F5EFEF"/>
+                                        <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                                               Text="{Binding Description}" FontSize="9" TextColor="#F5EFEF"
+                                               VerticalOptions="Center"
+                                               LineBreakMode="WordWrap"/>
+
+                                        <ImageButton
+                                                Grid.Column="1"
+                                                Grid.Row="0"
+                                                Aspect="AspectFit"
+                                                BackgroundColor="Transparent"
+                                                Command="{Binding BindingContext.InfoProductCommand, Mode=TwoWay, Source={Reference Name=ListProductsByCategory}}"
+                                                CommandParameter="{Binding .}"
+                                                VerticalOptions="Center"
+                                                HorizontalOptions="Center"
+                                                Source="{FontImage Color=#F5EFEF, FontFamily=FontAwesome, Glyph={Static Member=helpers:IconFont.Information}, Size=30}"/>
+
+                                        <ImageButton
+                                                Grid.Column="1"
+                                                Grid.Row="1"
+                                                Aspect="AspectFit"
+                                                BackgroundColor="Transparent"
+                                                Command="{Binding BindingContext.IncrementOrderCommand, Mode=TwoWay, Source={Reference Name=ListProductsByCategory}}"
+                                                CommandParameter="{Binding .}"
+                                                VerticalOptions="Center"
+                                                HorizontalOptions="Center"
+                                                Source="{FontImage Color=#F5EFEF, FontFamily=FontAwesome, Glyph={Static Member=helpers:IconFont.PlusCircleOutline}, Size=30}"/>
+
+
+                                    </Grid>
+                                </pancake:PancakeView>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>
