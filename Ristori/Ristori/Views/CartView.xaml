@@ -1,14 +1,15 @@
-﻿<ContentPage
-            xmlns="http://xamarin.com/schemas/2014/forms"
-            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            xmlns:helpers="clr-namespace:Ristori.Helpers"
-            xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-            xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-            xmlns:ViewModels="clr-namespace:Ristori.ViewModels"
-            x:Class="Ristori.Views.CartView"
-            Title="Carrello"
-            ios:Page.UseSafeArea="True"
-            BackgroundColor="#931A25">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             xmlns:helpers="clr-namespace:Ristori.Helpers"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea="True"
+             xmlns:vm="clr-namespace:Ristori.ViewModels"
+             x:Class="Ristori.Views.CartView"
+             Visual="Material"
+             BackgroundColor="#931A25"
+             Title="Carrello">
 
 
 
@@ -126,18 +127,18 @@
                             </pancake:PancakeView>
 
                         </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-            </pancake:PancakeView>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </pancake:PancakeView>
 
 
-            <Label
+        <Label
                 Grid.Row="3"
                 FontSize="Title"
                 HorizontalOptions="Center"
                 Text="Totale Ordine:"
                 TextColor="#F5EFEF" />
-            <Label
+        <Label
                 Grid.Row="3"
                 FontSize="Title"
                 HorizontalOptions="End"
@@ -147,28 +148,28 @@
         <pancake:PancakeView BackgroundColor="#F5EFEF" VerticalOptions="EndAndExpand"  
                                  x:Name="MyDraggableView" CornerRadius="60,60,0,0" 
                                  HorizontalOptions="FillAndExpand" HeightRequest="0" Grid.Row="2" >
-                <ScrollView>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        <Grid Grid.Row="0">
-                            <Grid.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-                            </Grid.GestureRecognizers>
-                            <BoxView HeightRequest="10"  Margin="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" BackgroundColor="Gray" WidthRequest="90" CornerRadius="20"/>
-                        </Grid>
+            <ScrollView>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                        </Grid.GestureRecognizers>
+                        <BoxView HeightRequest="10"  Margin="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" BackgroundColor="Gray" WidthRequest="90" CornerRadius="20"/>
+                    </Grid>
 
-                        <StackLayout Grid.Row="1" Spacing="10" WidthRequest="50" Margin="20,20">
-                            <Entry
+                    <StackLayout Grid.Row="1" Spacing="10" WidthRequest="50" Margin="20,20">
+                        <Entry
                                 VerticalOptions="Center"
                                 FontSize="12"
                                 Placeholder="Inserisci indirizzo"
                                 PlaceholderColor="Gray"
                                 Text="{Binding BindingContext.Order.DeliveryAddress, Mode=TwoWay, Source={Reference Name=MyDraggableView}}"
                                 TextColor="Black"/>
-                            <Entry
+                        <Entry
                                 VerticalOptions="Center"
                                 FontSize="12"
                                 Placeholder="Inserisci Cognome"
@@ -176,7 +177,7 @@
                                 Text="{Binding BindingContext.Order.DeliverySurname, Mode=TwoWay, Source={Reference Name=MyDraggableView}}"
                                 TextColor="Black"/>
 
-                            <Entry
+                        <Entry
                                 VerticalOptions="Center"
                                 FontSize="12"
                                 Placeholder="Inserisci Recapito Telefonico"
@@ -194,12 +195,12 @@
 
                             <TimePicker Time="{Binding BindingContext.Order.DeliveryDateTime}"
                                         />-->
-                        </StackLayout>
-                    </Grid>
-                </ScrollView>
-            </pancake:PancakeView>
-            
-            <Button
+                    </StackLayout>
+                </Grid>
+            </ScrollView>
+        </pancake:PancakeView>
+
+        <Button
                 Grid.Row="4"
                 BackgroundColor="#F44336"
                 Clicked="Button_Clicked"
@@ -209,7 +210,7 @@
                 Text="Inserisci Dati Delivery"
                 TextColor="#F5EFEF" />
 
-            <Button
+        <Button
                 Grid.Row="4"
                 BackgroundColor="#F44336"
                 Command="{Binding PlaceOrdersCommand}"
@@ -218,7 +219,7 @@
                 Text="Conferma Ordine"
                 TextColor="#F5EFEF" />
 
-            
-        </Grid>
+
+    </Grid>
 </ContentPage>
 

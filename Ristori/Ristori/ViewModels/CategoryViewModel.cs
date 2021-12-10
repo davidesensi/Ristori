@@ -132,7 +132,6 @@ namespace Ristori.ViewModels
                 cn.Commit();
                 cn.Close();
                 Vibration.Vibrate();
-                Noti
             }
             catch (Exception ex)
             {
