@@ -13,7 +13,7 @@ namespace Ristori.ViewModels
 
         public SettingsViewModel()
         {
-            LogoutCommand = new Command(async () => await  LogoutViewCall());
+            LogoutCommand = new Command(async () => await LogoutViewCall());
         }
 
         private async Task LogoutViewCall()

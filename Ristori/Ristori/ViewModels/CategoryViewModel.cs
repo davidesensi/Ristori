@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace Ristori.ViewModels
@@ -130,6 +131,8 @@ namespace Ristori.ViewModels
                 }
                 cn.Commit();
                 cn.Close();
+                Vibration.Vibrate();
+                Noti
             }
             catch (Exception ex)
             {
@@ -139,7 +142,6 @@ namespace Ristori.ViewModels
             {
                 cn.Close();
             }
-
         }
 
 
