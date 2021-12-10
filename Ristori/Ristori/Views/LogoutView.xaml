@@ -34,7 +34,8 @@
                     </StackLayout>
 
                     <StackLayout>
-                        <Label Text="Sei sicuro di voler uscire?"/>
+                        <Label Text="Sei sicuro di voler uscire?" FontAttributes="Bold"
+                               FontSize="30"/>
                         <StackLayout Orientation="Horizontal" Spacing="10" HorizontalOptions="Center">
                             <Button Text="Si, Logout"
                                 WidthRequest="200"
@@ -43,16 +44,6 @@
                                 CornerRadius="20" 
                                 Command="{Binding LogoutCommand}"/>
                         </StackLayout>
-                        <StackLayout Orientation="Horizontal" Spacing="10" HorizontalOptions="Center">
-                            <Button Text="No, vai al carrello"
-                                WidthRequest="200"
-                                BackgroundColor="#F44336"
-                                HorizontalOptions="Center"
-                                CornerRadius="20" 
-                                Command="{Binding GoToCartCommand}"/>
-                        </StackLayout>
-
-                        
                     </StackLayout>
                     
                 </StackLayout>

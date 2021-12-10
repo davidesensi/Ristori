@@ -38,8 +38,8 @@
             <ShellContent ContentTemplate="{DataTemplate views:OrderHistoryView}" />
         </Tab>
 
-        <Tab Title="Logout" Icon="{FontImage FontFamily=FontAwesome, Glyph={x:Static helpers:IconFont.LogoutVariant}}">
-            <ShellContent ContentTemplate="{DataTemplate views:LogoutView}" />
+        <Tab Title="Settings" Icon="{FontImage FontFamily=FontAwesome, Glyph={x:Static helpers:IconFont.ApplicationSettings}}">
+            <ShellContent ContentTemplate="{DataTemplate views:SettingsView}" />
         </Tab>
     </TabBar>
 

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ristori.Views.SettingsView"
+             xmlns:vm="clr-namespace:Ristori.ViewModels" 
+             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" x:DataType="vm:SettingsViewModel"
+             BackgroundColor="#931A25">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Label
+                    Margin="0,10"
+                    Grid.Row="0"
+                    FontSize="35"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    Text="Impostazioni"
+                    TextColor="#F5EFEF"
+                    VerticalOptions="Center" />
+            
+            
+            <Button Text="Logout" Command="{Binding LogoutCommand}" 
+                    BackgroundColor="#F5EFEF"
+                    TextColor="#F44336"
+                    Grid.Row="1"
+                    CornerRadius="20"
+                    Padding="20"
+                    Margin="10,20"/>
+            
+
+            
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

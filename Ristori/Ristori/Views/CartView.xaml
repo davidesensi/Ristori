@@ -1,17 +1,17 @@
 ﻿<ContentPage
-            x:Class="Ristori.Views.CartView"
             xmlns="http://xamarin.com/schemas/2014/forms"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:helpers="clr-namespace:Ristori.Helpers"
             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
             xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+            xmlns:ViewModels="clr-namespace:Ristori.ViewModels"
+            x:Class="Ristori.Views.CartView"
             Title="Carrello"
             ios:Page.UseSafeArea="True"
             BackgroundColor="#931A25">
 
 
 
-    <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -83,13 +83,11 @@
                                                Grid.Row="1"
                                                Aspect="AspectFit"
                                                BackgroundColor="Transparent"
-                                               Command="{Binding Path=BindingContext.DecrementOrderCommand,Source={x:Reference ListViewCartItems}, Mode=TwoWay}"
+                                               Command="{Binding BindingContext.DecrementOrderCommand, Mode=TwoWay, Source={Reference Name=ListViewCartItems}}"
                                                CommandParameter="{Binding .}"
                                                VerticalOptions="Center"
                                                HorizontalOptions="Center"
-                                               Source="{FontImage FontFamily=FontAwesome,
-                                                        Glyph={x:Static helpers:IconFont.MinusCircleOutline},
-                                                        Size=60,Color=#F5EFEF}" />
+                                               Source="{FontImage Color=#F5EFEF, FontFamily=FontAwesome, Glyph={Static Member=helpers:IconFont.MinusCircleOutline}, Size=60}" />
 
 
                                     <Entry Text="{Binding Quantity}" 
@@ -105,13 +103,11 @@
                                         Grid.Row="1"
                                         Aspect="AspectFit"
                                         BackgroundColor="Transparent"
-                                        Command="{Binding Path=BindingContext.IncrementOrderCommand,Source={x:Reference ListViewCartItems}, Mode=TwoWay}"
+                                        Command="{Binding BindingContext.IncrementOrderCommand, Mode=TwoWay, Source={Reference Name=ListViewCartItems}}"
                                         CommandParameter="{Binding .}"
                                         VerticalOptions="Center"
                                         HorizontalOptions="Center"
-                                        Source="{FontImage FontFamily=FontAwesome,
-                                                 Glyph={x:Static helpers:IconFont.PlusCircleOutline},
-                                                 Size=60,Color=#F5EFEF}"/>
+                                        Source="{FontImage Color=#F5EFEF, FontFamily=FontAwesome, Glyph={Static Member=helpers:IconFont.PlusCircleOutline}, Size=60}"/>
 
                                     <Button
                                         Grid.Column="0"
@@ -120,7 +116,7 @@
                                         Text="Elimina"
                                         CornerRadius="50"
                                         HeightRequest="40"
-                                        Command="{Binding Path=BindingContext.DeleteRowCommand,Source={x:Reference ListViewCartItems}, Mode=TwoWay}"
+                                        Command="{Binding BindingContext.DeleteRowCommand, Mode=TwoWay, Source={Reference Name=ListViewCartItems}}"
                                         CommandParameter="{Binding .}"
                                         VerticalOptions="Center"
                                         HorizontalOptions="Center"/>
@@ -143,13 +139,12 @@
                 Grid.Row="3"
                 FontSize="Title"
                 HorizontalOptions="End"
-                Text="{Binding Path=TotalCost, StringFormat='{}{0:C}'}"
+                Text="{Binding TotalCost, StringFormat=\{0:C\}}"
                 TextColor="#F5EFEF" />
 
-            <!--Visualizzazione della Form per inserire Indirizzo, Cognome, Telefono-->
-            <pancake:PancakeView BackgroundColor="#F5EFEF" VerticalOptions="EndAndExpand"  
+        <pancake:PancakeView BackgroundColor="#F5EFEF" VerticalOptions="EndAndExpand"  
                                  x:Name="MyDraggableView" CornerRadius="60,60,0,0" 
-                                 HorizontalOptions="FillAndExpand" HeightRequest="0" Grid.Row="2">
+                                 HorizontalOptions="FillAndExpand" HeightRequest="0" Grid.Row="2" >
                 <ScrollView>
                     <Grid>
                         <Grid.RowDefinitions>
@@ -157,10 +152,10 @@
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="0">
-                            <BoxView HeightRequest="2"  Margin="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" BackgroundColor="Gray" WidthRequest="90"/>
                             <Grid.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
                             </Grid.GestureRecognizers>
+                            <BoxView HeightRequest="10"  Margin="10" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" BackgroundColor="Gray" WidthRequest="90" CornerRadius="20"/>
                         </Grid>
 
                         <StackLayout Grid.Row="1" Spacing="10" WidthRequest="50" Margin="20,20">
@@ -168,15 +163,15 @@
                                 VerticalOptions="Center"
                                 FontSize="12"
                                 Placeholder="Inserisci indirizzo"
-                                PlaceholderColor="#F5EFEF"
-                                Text="{Binding Path=BindingContext.Order.DeliveryAddress, Source={x:Reference MyDraggableView}, Mode=TwoWay}"
+                                PlaceholderColor="Gray"
+                                Text="{Binding BindingContext.Order.DeliveryAddress, Mode=TwoWay, Source={Reference Name=MyDraggableView}}"
                                 TextColor="Black"/>
                             <Entry
                                 VerticalOptions="Center"
                                 FontSize="12"
                                 Placeholder="Inserisci Cognome"
                                 PlaceholderColor="Gray"
-                                Text="{Binding Path=BindingContext.Order.DeliverySurname, Source={x:Reference MyDraggableView}, Mode=TwoWay}"
+                                Text="{Binding BindingContext.Order.DeliverySurname, Mode=TwoWay, Source={Reference Name=MyDraggableView}}"
                                 TextColor="Black"/>
 
                             <Entry
@@ -184,8 +179,19 @@
                                 FontSize="12"
                                 Placeholder="Inserisci Recapito Telefonico"
                                 PlaceholderColor="Gray"
-                                Text="{Binding Path=BindingContext.Order.DeliveryPhone, Source={x:Reference MyDraggableView}, Mode=TwoWay}"
+                                Text="{Binding BindingContext.Order.DeliveryPhone, Mode=TwoWay, Source={Reference Name=MyDraggableView}}"
                                 TextColor="Black"/>
+
+                        <!--<DatePicker MinimumDate="01/01/2021"
+                                        MaximumDate="12/31/2022"
+                                        TextColor="Black" FontSize="">
+								<DatePicker.BindingContext>
+									<ViewModels:CartViewModel/>
+								</DatePicker.BindingContext>
+                            </DatePicker>
+
+                            <TimePicker Time="{Binding BindingContext.Order.DeliveryDateTime}"
+                                        />-->
                         </StackLayout>
                     </Grid>
                 </ScrollView>
@@ -212,6 +218,5 @@
 
             
         </Grid>
-    </ContentPage.Content>
 </ContentPage>
 

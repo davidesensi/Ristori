@@ -17,5 +17,7 @@ namespace Ristori.Models
 
         public string DeliveryPhone { get; set; }
 
+        public TimeSpan DeliveryDateTime { get; set; }
+
     }
 }
