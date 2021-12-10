@@ -18,7 +18,7 @@ namespace Ristori.ViewModels
 
         private async Task LogoutViewCall()
         {
-            await Application.Current.MainPage.Navigation.PushModalAsync(new LogoutView());
+            await Shell.Current.Navigation.PushAsync(new LogoutView());
         }
 
     }

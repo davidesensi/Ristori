@@ -100,7 +100,8 @@ namespace Ristori.ViewModels
         private void InfoProduct(Object obj)
         {
             var product = obj as Product;
-            Application.Current.MainPage.Navigation.PushModalAsync(new ProductDetailsView(product));
+            //Application.Current.MainPage.Navigation.PushModalAsync(new ProductDetailsView(product));
+            Shell.Current.Navigation.PushAsync(new ProductDetailsView(product));
         }
 
         private void IncrementOrder(Object obj)
