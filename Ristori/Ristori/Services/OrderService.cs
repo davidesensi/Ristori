@@ -56,8 +56,8 @@ namespace Ristori.Services
                     TotalCost = totalCost,
                     DeliveryAddress = delivery.DeliveryAddress,
                     DeliverySurname = delivery.DeliverySurname,
-                    DeliveryPhone = delivery.DeliveryPhone
-                    
+                    DeliveryPhone = delivery.DeliveryPhone,
+                    DeliveryDateTime = delivery.DeliveryDateTime
                 });
             return orderID;
         }

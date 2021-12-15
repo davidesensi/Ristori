@@ -184,17 +184,10 @@
                                 PlaceholderColor="Gray"
                                 Text="{Binding BindingContext.Order.DeliveryPhone, Mode=TwoWay, Source={Reference Name=MyDraggableView}}"
                                 TextColor="Black"/>
+                        <DatePicker />
 
-                        <!--<DatePicker MinimumDate="01/01/2021"
-                                        MaximumDate="12/31/2022"
-                                        TextColor="Black" FontSize="">
-								<DatePicker.BindingContext>
-									<ViewModels:CartViewModel/>
-								</DatePicker.BindingContext>
-                            </DatePicker>
-
-                            <TimePicker Time="{Binding BindingContext.Order.DeliveryDateTime}"
-                                        />-->
+                        <TimePicker Time="{Binding BindingContext.Order.DeliveryDateTime, Mode=TwoWay, Source={Reference Name=MyDraggableView}}"
+                                    TextColor="Black"/>
                     </StackLayout>
                 </Grid>
             </ScrollView>
@@ -204,10 +197,10 @@
                 Grid.Row="4"
                 BackgroundColor="#F44336"
                 Clicked="Button_Clicked"
-                
+                WidthRequest="150"
                 CornerRadius="20"
                 HorizontalOptions="Start"
-                Text="Inserisci Dati Delivery"
+                Text="Add Delivery"
                 TextColor="#F5EFEF" />
 
         <Button
