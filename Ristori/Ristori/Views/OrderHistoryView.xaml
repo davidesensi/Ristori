@@ -7,7 +7,7 @@
              xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              Title="Carrello"
              ios:Page.UseSafeArea="True"
-             BackgroundColor="#931A25">
+             BackgroundColor="#FFFEEF">
     
     <ContentPage.Content>
         <Grid>
@@ -23,7 +23,7 @@
                     FontAttributes="Bold"
                     HorizontalOptions="Center"
                     Text="Storico Ordini"
-                    TextColor="#F5EFEF"
+                    TextColor="Black"
                     VerticalOptions="Center" />
 
             <pancake:PancakeView Grid.Row="1">
@@ -39,7 +39,7 @@
                         <DataTemplate>
                             <pancake:PancakeView 
                                         Margin="10,10"
-                                        BackgroundColor="#F44336"
+                                        BackgroundColor="#F0F0F0"
                                         CornerRadius="20"
                                         HeightRequest="150"
                                         Padding="5">
@@ -61,7 +61,7 @@
                                            Grid.Column="0" 
                                            FontSize="Large"
                                            FontAttributes="Bold"
-                                           TextColor="#F5EFEF"
+                                           TextColor="Black"
                                            HorizontalTextAlignment="Center"
                                            VerticalTextAlignment="Center"/>
 
@@ -70,7 +70,7 @@
                                            Grid.Column="1" 
                                            FontSize="Large"
                                            FontAttributes="Bold"
-                                           TextColor="#F5EFEF"
+                                           TextColor="Black"
                                            HorizontalTextAlignment="Center"
                                            VerticalTextAlignment="Center"/>
 
@@ -79,7 +79,7 @@
                                            Grid.Column="0" 
                                            FontSize="Large"
                                            FontAttributes="Bold"
-                                           TextColor="#F5EFEF" 
+                                           TextColor="Black" 
                                            HorizontalTextAlignment="Center"
                                            VerticalTextAlignment="Center"/>
 
@@ -97,7 +97,7 @@
                                            Grid.Column="0" 
                                            FontSize="Large"
                                            FontAttributes="Bold"
-                                           TextColor="#F5EFEF" 
+                                           TextColor="Black" 
                                            HorizontalTextAlignment="Center"
                                            VerticalTextAlignment="Center"/>
 
@@ -106,7 +106,7 @@
                                            Grid.Column="1" 
                                            FontSize="Subtitle"
                                            FontAttributes="Italic"
-                                           TextColor="#F5EFEF" 
+                                           TextColor="Black" 
                                            HorizontalTextAlignment="Center"
                                            VerticalTextAlignment="Center"/>
 
@@ -115,7 +115,7 @@
                                            Grid.Column="0" 
                                            FontSize="Large"
                                            FontAttributes="Bold"
-                                           TextColor="#F5EFEF" 
+                                           TextColor="Black" 
                                            HorizontalTextAlignment="Center"
                                            VerticalTextAlignment="Center"/>
 
@@ -124,7 +124,7 @@
                                            Grid.Column="1" 
                                            FontSize="Subtitle"
                                            FontAttributes="Italic"
-                                           TextColor="#F5EFEF" 
+                                           TextColor="Black" 
                                            HorizontalTextAlignment="Center"
                                            VerticalTextAlignment="Center"/>
 
@@ -133,7 +133,7 @@
                                            Grid.Column="0" 
                                            FontSize="Large"
                                            FontAttributes="Bold"
-                                           TextColor="#F5EFEF" 
+                                           TextColor="Black" 
                                            HorizontalTextAlignment="Center"
                                            VerticalTextAlignment="Center"/>
 
@@ -142,7 +142,7 @@
                                            Grid.Column="1" 
                                            FontSize="Subtitle"
                                            FontAttributes="Italic"
-                                           TextColor="#F5EFEF" 
+                                           TextColor="Black" 
                                            HorizontalTextAlignment="Center"
                                            VerticalTextAlignment="Center"/>
                                 </Grid>

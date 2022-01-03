@@ -9,12 +9,12 @@
     xmlns:views="clr-namespace:Ristori.Views"
     x:DataType="tabbedbottm:ShellView"
     NavBarIsVisible="False"
-    Shell.BackgroundColor="#931A25"
-    Shell.TabBarBackgroundColor="White"
+    Shell.BackgroundColor="#F0F0F0"
+    Shell.TabBarBackgroundColor="#F0F0F0"
     Shell.TabBarTitleColor="#F44336"
     Shell.TabBarUnselectedColor="#931A25"
     Shell.TitleColor="#F44336"
-    Shell.UnselectedColor="White">
+    Shell.UnselectedColor="#931A25">
 
 
 
