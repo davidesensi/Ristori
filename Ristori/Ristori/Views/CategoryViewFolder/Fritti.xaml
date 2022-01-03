@@ -72,6 +72,16 @@
                                             TextColor="Black"
                                             VerticalOptions="Center" />
 
+                                        <Label
+                                            Grid.Row="0"
+                                            Grid.Column="1"
+                                            FontSize="18"
+                                            LineBreakMode="WordWrap"
+                                            Text="{Binding Price, StringFormat=\{0:C\}}"
+                                            TextColor="Black"
+                                            VerticalOptions="Center" />
+
+                                        <!--
                                         <ImageButton
                                             Grid.Row="0"
                                             Grid.Column="1"
@@ -80,11 +90,12 @@
                                             Command="{Binding BindingContext.InfoProductCommand, Mode=TwoWay, Source={Reference Name=ListProductsByCategory}}"
                                             CommandParameter="{Binding .}"
                                             HorizontalOptions="Center"
-                                            Source="{FontImage Color=Black,
+                                            Source="{FontImage Color=Red,
                                                                FontFamily=FontAwesome,
                                                                Glyph={Static Member=helpers:IconFont.Information},
                                                                Size=30}"
                                             VerticalOptions="Center" />
+                                        -->
 
                                         <ImageButton
                                             Grid.Row="1"
@@ -94,7 +105,7 @@
                                             Command="{Binding BindingContext.IncrementOrderCommand, Mode=TwoWay, Source={Reference Name=ListProductsByCategory}}"
                                             CommandParameter="{Binding .}"
                                             HorizontalOptions="Center"
-                                            Source="{FontImage Color=Black,
+                                            Source="{FontImage Color=#F44336,
                                                                FontFamily=FontAwesome,
                                                                Glyph={Static Member=helpers:IconFont.PlusCircleOutline},
                                                                Size=30}"
