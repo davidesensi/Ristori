@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Ristori.Views.NewProductView"
+             BackgroundColor="#FFFEEF">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Label
+                    Margin="0,10"
+                    Grid.Row="0"
+                    FontSize="35"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    Text="Nuovo Prodotto"
+                    TextColor="Black"
+                    VerticalOptions="Center" />
+
+            <StackLayout Grid.Row="1" Spacing="10" HorizontalOptions="Center">
+                <Entry
+                    FontSize="25"
+                    Placeholder="Nome Prodotto"
+                    PlaceholderColor="Black"
+                    Text="{Binding Product.Name}"
+                    TextColor="Black" />
+                <Entry
+                    FontSize="25"
+                    Placeholder="Descrizione"
+                    PlaceholderColor="Black"
+                    Text="{Binding Product.Description}"
+                    TextColor="Black" />
+
+                <Entry
+                    FontSize="25"
+                    Placeholder="Prezzo"
+                    PlaceholderColor="Black"
+                    Text="{Binding Product.Price}"
+                    TextColor="Black" />
+
+
+                <Picker Title="Seleziona Categoria"
+                        FontSize="25"
+                        ItemsSource="{Binding Categories}" 
+                        ItemDisplayBinding="{Binding CategoryName}"
+                        SelectedItem="{Binding CategorySelected}"
+                        TextColor="Black"/>
+
+                
+            </StackLayout>
+
+            <Button
+                    Grid.Row="2"
+                    BackgroundColor="#F44336"
+                    Command="{Binding AddProductCommand}"
+                    CornerRadius="20"
+                    HorizontalOptions="Center"
+                    Text="Aggiungi Prodotto"
+                    TextColor="#FFFEEF" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

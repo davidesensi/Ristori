@@ -210,7 +210,7 @@
                             Text="{Binding BindingContext.Order.DeliveryPhone, Mode=TwoWay, Source={Reference Name=MyDraggableView}}"
                             TextColor="Black"
                             VerticalOptions="Center" />
-                        <DatePicker />
+                        <DatePicker TextColor="Black" Date="{Binding BindingContext.Order.DeliveryDate.Date, Mode=TwoWay, Source={Reference Name=MyDraggableView}}" />
 
                         <TimePicker TextColor="Black" Time="{Binding BindingContext.Order.DeliveryDateTime, Mode=TwoWay, Source={Reference Name=MyDraggableView}}" />
                     </StackLayout>

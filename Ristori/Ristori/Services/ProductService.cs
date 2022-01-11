@@ -28,8 +28,7 @@ namespace Ristori.Services
                     Name = p.Object.Name,
                     ProductID = p.Object.ProductID,
                     Description = p.Object.Description,
-                    Price = p.Object.Price,
-                    ImageUrl = p.Object.ImageUrl
+                    Price = p.Object.Price
                 }).ToList();
             return products;
         }
@@ -44,6 +43,19 @@ namespace Ristori.Services
                 productsByCategory.Add(product);
             }
             return productsByCategory;
+        }
+
+        public async Task AddNewProduct(Product product)
+        {
+            var prodID = (await GetProductAsync()).Count;
+            await client.Child("Products").PostAsync(new Product()
+            {
+                CategoryID = product.CategoryID,
+                ProductID = prodID++,
+                Description = product.Description,
+                Price = product.Price,
+                Name = product.Name
+            });
         }
 
     }

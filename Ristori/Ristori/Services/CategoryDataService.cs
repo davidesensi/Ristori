@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Linq;
 using Firebase.Database.Query;
+using System.Collections.ObjectModel;
 
 namespace Ristori.Services
 {
@@ -31,6 +32,18 @@ namespace Ristori.Services
                     ImageUrl = c.Object.ImageUrl
                 }).ToList();
             return categories;
+        }
+
+        public async Task<ObservableCollection<Category>> GetCategoriesObservableAsync()
+        {
+            var Categories = new ObservableCollection<Category>();
+            var list = (await GetCategoriesAsync());
+
+            foreach(var category in list)
+            {
+                Categories.Add(category);
+            }
+            return Categories;
         }
     }
 }
