@@ -27,7 +27,7 @@ namespace Ristori.Services
             var data = cn.Table<CartItem>().ToList();
 
 
-            var orderID = Guid.NewGuid().ToString().Substring(24).ToUpper();
+            string orderID = DateTime.Now.ToShortDateString() + "-" + new Random().Next(1, 10000);
             var oname = Preferences.Get("Username", "Guest");
 
             decimal totalCost = 0;

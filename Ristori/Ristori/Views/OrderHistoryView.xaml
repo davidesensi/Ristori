@@ -41,7 +41,7 @@
                                         Margin="10,10"
                                         BackgroundColor="#F0F0F0"
                                         CornerRadius="20"
-                                        HeightRequest="150"
+                                        HeightRequest="180"
                                         Padding="5">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -49,6 +49,7 @@
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
                                         <RowDefinition Height="Auto" />
                                         <RowDefinition Height="Auto" />
                                         <RowDefinition Height="Auto" />
@@ -68,7 +69,7 @@
                                     <Label Text="{Binding OrderID}"
                                            Grid.Row="0"
                                            Grid.Column="1" 
-                                           FontSize="Large"
+                                           FontSize="14"
                                            FontAttributes="Bold"
                                            TextColor="Black"
                                            HorizontalTextAlignment="Center"
@@ -145,6 +146,26 @@
                                            TextColor="Black" 
                                            HorizontalTextAlignment="Center"
                                            VerticalTextAlignment="Center"/>
+
+                                    <Label Text="Orario Consegna: "
+                                           Grid.Row="5"
+                                           Grid.Column="0" 
+                                           FontSize="Large"
+                                           FontAttributes="Bold"
+                                           TextColor="Black" 
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"/>
+
+                                    <Label Text="{Binding Path=DeliveryDate , StringFormat='{}{0:hh\:mm}'}"
+                                           Grid.Row="5"
+                                           Grid.Column="1" 
+                                           FontSize="Subtitle"
+                                           FontAttributes="Italic"
+                                           TextColor="Black" 
+                                           HorizontalTextAlignment="Center"
+                                           VerticalTextAlignment="Center"/>
+
+                                    
                                 </Grid>
                             </pancake:PancakeView>
                         </DataTemplate>
