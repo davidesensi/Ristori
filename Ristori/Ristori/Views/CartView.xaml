@@ -210,7 +210,13 @@
                             Text="{Binding BindingContext.Order.DeliveryPhone, Mode=TwoWay, Source={Reference Name=MyDraggableView}}"
                             TextColor="Black"
                             VerticalOptions="Center" />
-                        <DatePicker TextColor="Black" Date="{Binding BindingContext.Order.DeliveryDate.Date, Mode=TwoWay, Source={Reference Name=MyDraggableView}}" />
+                        
+                        <DatePicker Date="{Binding BindingContext.Order.DeliveryDate, Mode=TwoWay, Source={Reference Name=MyDraggableView}}"
+                                    TextColor="Black"
+                                    BackgroundColor="AntiqueWhite"
+                                    
+                                    Format="dd MM yyyy"
+                                    MinimumDate="01/01/2022"/>
 
                         <TimePicker TextColor="Black" Time="{Binding BindingContext.Order.DeliveryDateTime, Mode=TwoWay, Source={Reference Name=MyDraggableView}}" />
                     </StackLayout>

@@ -54,9 +54,24 @@ namespace Ristori.ViewModels
 
         private async Task AddNewProduct()
         {
-            Product.CategoryID = CategorySelected.CategoryID;
-            new ProductService().AddNewProduct(Product);
-            await Shell.Current.Navigation.PopAsync();
+            if (Product.Name == null)
+            {
+                await Application.Current.MainPage.DisplayAlert("Errore", "Devi Inserire il nome!", "OK");
+            }
+            else if (Product.Description == null)
+            {
+                await Application.Current.MainPage.DisplayAlert("Errore", "Devi Inserire la descrizione!", "OK");
+            }
+            else if (Product.Price == null)
+            {
+                await Application.Current.MainPage.DisplayAlert("Errore", "Devi Inserire il prezzo!", "OK");
+            }
+            else
+            {
+                Product.CategoryID = CategorySelected.CategoryID;
+                new ProductService().AddNewProduct(Product);
+                await Shell.Current.Navigation.PopAsync();
+            }
         }
 
         private async Task GetCategoriesAsync()

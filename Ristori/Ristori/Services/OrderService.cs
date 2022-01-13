@@ -57,6 +57,7 @@ namespace Ristori.Services
                     DeliveryAddress = delivery.DeliveryAddress,
                     DeliverySurname = delivery.DeliverySurname,
                     DeliveryPhone = delivery.DeliveryPhone,
+                    DeliveryDate = delivery.DeliveryDate,
                     DeliveryDateTime = delivery.DeliveryDateTime
                 });
             return orderID;

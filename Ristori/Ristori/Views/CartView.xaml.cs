@@ -68,5 +68,6 @@ namespace Ristori.Views
             Easing easing = Easing.SinOut;
             MyDraggableView.Animate("anim", callback, startHeight, endiendHeight, rate, length, easing);
         }
+
     }
 }
