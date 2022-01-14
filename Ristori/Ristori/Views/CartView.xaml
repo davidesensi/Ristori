@@ -213,8 +213,6 @@
                         
                         <DatePicker Date="{Binding BindingContext.Order.DeliveryDate, Mode=TwoWay, Source={Reference Name=MyDraggableView}}"
                                     TextColor="Black"
-                                    BackgroundColor="AntiqueWhite"
-                                    
                                     Format="dd MM yyyy"
                                     MinimumDate="01/01/2022"/>
 

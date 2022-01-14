@@ -156,7 +156,7 @@
                                            HorizontalTextAlignment="Center"
                                            VerticalTextAlignment="Center"/>
 
-                                    <Label Text="{Binding Path=DeliveryDate , StringFormat='{}{0:hh\:mm}'}"
+                                    <Label Text="{Binding Path=DeliveryDateTime , StringFormat='{}{0:hh\\:mm}'}"
                                            Grid.Row="5"
                                            Grid.Column="1" 
                                            FontSize="Subtitle"

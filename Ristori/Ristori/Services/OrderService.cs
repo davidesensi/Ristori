@@ -75,7 +75,9 @@ namespace Ristori.Services
                     TotalCost = o.Object.TotalCost,
                     DeliveryAddress = o.Object.DeliveryAddress,
                     DeliveryPhone = o.Object.DeliveryPhone,
-                    DeliverySurname = o.Object.DeliverySurname
+                    DeliverySurname = o.Object.DeliverySurname,
+                    DeliveryDate = o.Object.DeliveryDate,
+                    DeliveryDateTime = o.Object.DeliveryDateTime
                 }).ToList();
             return orders;
         }

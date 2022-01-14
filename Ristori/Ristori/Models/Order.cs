@@ -21,5 +21,11 @@ namespace Ristori.Models
         public DateTime DeliveryDate { get; set; }
         public TimeSpan DeliveryDateTime { get; set; }
 
+        public Order()
+        {
+            this.DeliveryDate = DateTime.Now;
+            this.DeliveryDateTime = new TimeSpan(18, 45, 00);
+        }
+
     }
 }
