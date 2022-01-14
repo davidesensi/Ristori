@@ -217,6 +217,15 @@
                                     MinimumDate="01/01/2022"/>
 
                         <TimePicker TextColor="Black" Time="{Binding BindingContext.Order.DeliveryDateTime, Mode=TwoWay, Source={Reference Name=MyDraggableView}}" />
+
+                        <Button
+                            Grid.Row="1"
+                            BackgroundColor="#F44336"
+                            Command="{Binding PlaceOrdersCommand}"
+                            CornerRadius="20"
+                            HorizontalOptions="End"
+                            Text="Conferma Ordine"
+                            TextColor="#FFFEEF" />
                     </StackLayout>
                 </Grid>
             </ScrollView>
@@ -230,16 +239,7 @@
             HorizontalOptions="Start"
             Text="Add Delivery"
             TextColor="#FFFEEF"
-            WidthRequest="150" />
-
-        <Button
-            Grid.Row="4"
-            BackgroundColor="#F44336"
-            Command="{Binding PlaceOrdersCommand}"
-            CornerRadius="20"
-            HorizontalOptions="End"
-            Text="Conferma Ordine"
-            TextColor="#FFFEEF" />
+            WidthRequest="350" />
 
 
     </Grid>
