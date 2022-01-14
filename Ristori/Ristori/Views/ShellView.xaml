@@ -22,7 +22,9 @@
 
         <Tab Title="Home" Icon="{FontImage FontFamily=FontAwesome, Glyph={x:Static helpers:IconFont.Home}}">
             <ShellContent
-                x:Name="Fritti" Title="Fritti" ContentTemplate="{DataTemplate cviews:Fritti}" />
+                x:Name="Fritti"
+                Title="Fritti"
+                ContentTemplate="{DataTemplate cviews:Fritti}" />
             <ShellContent Title="Pizze Rosse" ContentTemplate="{DataTemplate cviews:PizzeRosse}" />
             <ShellContent Title="Pizze Bianche" ContentTemplate="{DataTemplate cviews:PizzeBianche}" />
             <ShellContent Title="Dolci" ContentTemplate="{DataTemplate cviews:Dolci}" />

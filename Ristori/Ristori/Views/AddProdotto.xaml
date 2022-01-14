@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Ristori.Views.AddProdotto">
+<ContentPage
+    x:Class="Ristori.Views.AddProdotto"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -10,10 +11,10 @@
             </Grid.RowDefinitions>
 
             <Label
-                Margin="0,10"
                 Grid.Row="0"
-                FontSize="35"
+                Margin="0,10"
                 FontAttributes="Bold"
+                FontSize="35"
                 HorizontalOptions="Center"
                 Text="Nuovo Prodotto"
                 TextColor="Black"

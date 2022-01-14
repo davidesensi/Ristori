@@ -188,6 +188,7 @@
                         Margin="20,20"
                         Spacing="10"
                         WidthRequest="50">
+
                         <Entry
                             FontSize="12"
                             Placeholder="Inserisci indirizzo"
@@ -210,11 +211,13 @@
                             Text="{Binding BindingContext.Order.DeliveryPhone, Mode=TwoWay, Source={Reference Name=MyDraggableView}}"
                             TextColor="Black"
                             VerticalOptions="Center" />
-                        
-                        <DatePicker Date="{Binding BindingContext.Order.DeliveryDate, Mode=TwoWay, Source={Reference Name=MyDraggableView}}"
-                                    TextColor="Black"
-                                    Format="dd MM yyyy"
-                                    MinimumDate="01/01/2022"/>
+
+
+                        <DatePicker
+                            Date="{Binding BindingContext.Order.DeliveryDate, Mode=TwoWay, Source={Reference Name=MyDraggableView}}"
+                            Format="dd MM yyyy"
+                            MinimumDate="01/01/2022"
+                            TextColor="Black" />
 
                         <TimePicker TextColor="Black" Time="{Binding BindingContext.Order.DeliveryDateTime, Mode=TwoWay, Source={Reference Name=MyDraggableView}}" />
 
@@ -226,6 +229,7 @@
                             HorizontalOptions="End"
                             Text="Conferma Ordine"
                             TextColor="#FFFEEF" />
+                        
                     </StackLayout>
                 </Grid>
             </ScrollView>
