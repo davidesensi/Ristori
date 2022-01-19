@@ -13,7 +13,6 @@
     Visual="Material">
 
 
-
     <Grid
         Padding="8"
         HorizontalOptions="Fill"
@@ -229,7 +228,77 @@
                             HorizontalOptions="End"
                             Text="Conferma Ordine"
                             TextColor="#FFFEEF" />
-                        
+
+                    </StackLayout>
+                </Grid>
+            </ScrollView>
+        </pancake:PancakeView>
+
+        <pancake:PancakeView
+            x:Name="MyDraggableView2"
+            Grid.Row="2"
+            BackgroundColor="#F0F0F0"
+            CornerRadius="60,60,0,0"
+            HeightRequest="0"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="EndAndExpand">
+            <ScrollView>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped2" />
+                        </Grid.GestureRecognizers>
+                        <BoxView
+                            Margin="10"
+                            BackgroundColor="Black"
+                            CornerRadius="20"
+                            HeightRequest="10"
+                            HorizontalOptions="CenterAndExpand"
+                            VerticalOptions="CenterAndExpand"
+                            WidthRequest="90" />
+                    </Grid>
+
+                    <StackLayout
+                        Grid.Row="1"
+                        Margin="20,20"
+                        Spacing="10"
+                        WidthRequest="50">
+
+                        <Picker
+                            Title="Seleziona Tavolo"
+                            FontSize="25"
+                            SelectedItem="{Binding TavoloSelected}"
+                            TextColor="Black" >
+                            <Picker.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Tavolo 1</x:String>
+                                    <x:String>Tavolo 2-A</x:String>
+                                    <x:String>Tavolo 2-B</x:String>
+                                    <x:String>Tavolo 2-C</x:String>
+                                    <x:String>Tavolo 3</x:String>
+                                    <x:String>Tavolo 4</x:String>
+                                    <x:String>Tavolo 5-A</x:String>
+                                    <x:String>Tavolo 5-B</x:String>
+                                    <x:String>Tavolo Privé</x:String>
+                                    <x:String>Bancone A</x:String>
+                                    <x:String>Bancone B</x:String>
+                                </x:Array>
+                            </Picker.ItemsSource>
+                        </Picker>
+
+                        <Button
+                            Grid.Row="1"
+                            BackgroundColor="#F44336"
+                            Command="{Binding PlaceOrdersCommand2}"
+                            CornerRadius="20"
+                            HorizontalOptions="End"
+                            Text="Conferma Ordine"
+                            TextColor="#FFFEEF" />
+
                     </StackLayout>
                 </Grid>
             </ScrollView>
@@ -243,8 +312,17 @@
             HorizontalOptions="Start"
             Text="Add Delivery"
             TextColor="#FFFEEF"
-            WidthRequest="350" />
+            WidthRequest="150" />
 
+        <Button
+            Grid.Row="4"
+            BackgroundColor="#F44336"
+            Clicked="Button_Clicked2"
+            CornerRadius="20"
+            HorizontalOptions="End"
+            Text="Cameriere"
+            TextColor="#FFFEEF"
+            WidthRequest="150" />
 
     </Grid>
 </ContentPage>

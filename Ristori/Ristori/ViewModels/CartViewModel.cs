@@ -76,9 +76,12 @@ namespace Ristori.ViewModels
 
         public Command PlaceOrdersCommand { get; set; }
 
+        public Command PlaceOrdersCommand2 { get; set; }
+
         public Command IncrementOrderCommand { get; set; }
         public Command DecrementOrderCommand { get; set; }
         public Command DeleteRowCommand { get; set; }
+        public string TavoloSelected { get; set; }
 
         public CartViewModel()
         {
@@ -86,6 +89,7 @@ namespace Ristori.ViewModels
             LoadItems();
             Order = new Order();
             PlaceOrdersCommand = new Command(async () => await PlaceOrdersAsync());
+            PlaceOrdersCommand2 = new Command(async () => await PlaceOrdersAsync2());
             IncrementOrderCommand = new Command(IncrementOrder);
             DecrementOrderCommand = new Command(DecrementOrder);
             DeleteRowCommand = new Command(DeleteRow);
@@ -113,8 +117,26 @@ namespace Ristori.ViewModels
                 RemoveItemsFromCart();
                 Application.Current.MainPage = new ShellView();
             }
-                
-            
+        }
+
+        private async Task PlaceOrdersAsync2()
+        {
+
+            if (CartItems.Count() == 0)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "Carrello vuoto", "OK");
+            }
+            else if (TotalCost == 0)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "Ordine Vuoto", "OK");
+            }
+            else
+            {
+                Order.ComandaTavolo = TavoloSelected;
+                var id = await new OrderService().PlaceOrderAsync(Order) as string;
+                RemoveItemsFromCart();
+                Application.Current.MainPage = new ShellView();
+            }
         }
 
         private void RemoveItemsFromCart()
