@@ -10,7 +10,7 @@ namespace Ristori.Models
         public string OrderID { get; set; }
         public string Username { get; set; }
         public decimal TotalCost { get; set; }
-
+        public string Note { get; set; }
         public string ComandaTavolo { get; set; }
 
         public string DeliveryAddress { get; set; }
@@ -19,7 +19,8 @@ namespace Ristori.Models
 
         public string DeliveryPhone { get; set; }
 
-
+        public DateTime OrderMakedDate { get; set; }
+        public TimeSpan OrderMakedTime { get; set; }
         public DateTime DeliveryDate { get; set; }
         public TimeSpan DeliveryDateTime { get; set; }
         

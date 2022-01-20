@@ -190,6 +190,14 @@
 
                         <Entry
                             FontSize="12"
+                            Placeholder="Nota Ordine"
+                            PlaceholderColor="Gray"
+                            Text="{Binding BindingContext.Order.Note, Mode=TwoWay, Source={Reference Name=MyDraggableView}}"
+                            TextColor="Black"
+                            VerticalOptions="Center" />
+                        
+                        <Entry
+                            FontSize="12"
                             Placeholder="Inserisci indirizzo"
                             PlaceholderColor="Gray"
                             Text="{Binding BindingContext.Order.DeliveryAddress, Mode=TwoWay, Source={Reference Name=MyDraggableView}}"
@@ -214,7 +222,7 @@
 
                         <DatePicker
                             Date="{Binding BindingContext.Order.DeliveryDate, Mode=TwoWay, Source={Reference Name=MyDraggableView}}"
-                            Format="dd MM yyyy"
+                            Format="dd/MM/yyyy"
                             MinimumDate="01/01/2022"
                             TextColor="Black" />
 
@@ -272,7 +280,7 @@
                             Title="Seleziona Tavolo"
                             FontSize="25"
                             SelectedItem="{Binding TavoloSelected}"
-                            TextColor="Black" >
+                            TextColor="Black">
                             <Picker.ItemsSource>
                                 <x:Array Type="{x:Type x:String}">
                                     <x:String>Tavolo 1</x:String>
@@ -289,6 +297,14 @@
                                 </x:Array>
                             </Picker.ItemsSource>
                         </Picker>
+
+                        <Entry
+                            FontSize="12"
+                            Placeholder="Nota Ordine"
+                            PlaceholderColor="Gray"
+                            Text="{Binding BindingContext.Order.Note, Mode=TwoWay, Source={Reference Name=MyDraggableView2}}"
+                            TextColor="Black"
+                            VerticalOptions="Center" />
 
                         <Button
                             Grid.Row="1"

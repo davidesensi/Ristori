@@ -38,13 +38,15 @@
                                 Padding="5"
                                 BackgroundColor="#F0F0F0"
                                 CornerRadius="20"
-                                HeightRequest="120">
+                                HeightRequest="190">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
                                         <RowDefinition Height="Auto" />
                                         <RowDefinition Height="Auto" />
                                         <RowDefinition Height="Auto" />
@@ -117,7 +119,7 @@
                                         FontAttributes="Bold"
                                         FontSize="Large"
                                         HorizontalTextAlignment="Center"
-                                        Text="Orario Consegna: "
+                                        Text="Data Ordine: "
                                         TextColor="Black"
                                         VerticalTextAlignment="Center" />
 
@@ -127,7 +129,47 @@
                                         FontAttributes="Italic"
                                         FontSize="Subtitle"
                                         HorizontalTextAlignment="Center"
-                                        Text="{Binding Path=DeliveryDateTime, StringFormat='{}{0:hh\\:mm}'}"
+                                        Text="{Binding Path=DeliveryDate, StringFormat='{0:dd/MM/yyyy}'}"
+                                        TextColor="Black"
+                                        VerticalTextAlignment="Center" />
+
+                                    <Label
+                                        Grid.Row="4"
+                                        Grid.Column="0"
+                                        FontAttributes="Bold"
+                                        FontSize="Large"
+                                        HorizontalTextAlignment="Center"
+                                        Text="Orario Ordine: "
+                                        TextColor="Black"
+                                        VerticalTextAlignment="Center" />
+
+                                    <Label
+                                        Grid.Row="4"
+                                        Grid.Column="1"
+                                        FontAttributes="Italic"
+                                        FontSize="Subtitle"
+                                        HorizontalTextAlignment="Center"
+                                        Text="{Binding Path=OrderMakedTime, StringFormat='{}{0:hh\\:mm}'}"
+                                        TextColor="Black"
+                                        VerticalTextAlignment="Center" />
+
+                                    <Label
+                                        Grid.Row="5"
+                                        Grid.Column="0"
+                                        FontAttributes="Bold"
+                                        FontSize="Large"
+                                        HorizontalTextAlignment="Center"
+                                        Text="Nota Ordine: "
+                                        TextColor="Black"
+                                        VerticalTextAlignment="Center" />
+
+                                    <Label
+                                        Grid.Row="5"
+                                        Grid.Column="1"
+                                        FontAttributes="Italic"
+                                        FontSize="Subtitle"
+                                        HorizontalTextAlignment="Center"
+                                        Text="{Binding Path=Note}"
                                         TextColor="Black"
                                         VerticalTextAlignment="Center" />
 

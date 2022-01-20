@@ -113,6 +113,8 @@ namespace Ristori.ViewModels
             }
             else
             {
+                Order.OrderMakedTime = DateTime.Now.TimeOfDay;
+                Order.OrderMakedDate = DateTime.Now;
                 var id = await new OrderService().PlaceOrderAsync(Order) as string;
                 RemoveItemsFromCart();
                 Application.Current.MainPage = new ShellView();
@@ -133,7 +135,7 @@ namespace Ristori.ViewModels
             else
             {
                 Order.ComandaTavolo = TavoloSelected;
-                Order.DeliveryDateTime = DateTime.Now.TimeOfDay; ;
+                Order.OrderMakedTime = DateTime.Now.TimeOfDay;
                 var id = await new OrderService().PlaceOrderAsync(Order) as string;
                 RemoveItemsFromCart();
                 Application.Current.MainPage = new ShellView();
