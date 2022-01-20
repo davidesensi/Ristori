@@ -133,6 +133,7 @@ namespace Ristori.ViewModels
             else
             {
                 Order.ComandaTavolo = TavoloSelected;
+                Order.DeliveryDateTime = DateTime.Now.TimeOfDay; ;
                 var id = await new OrderService().PlaceOrderAsync(Order) as string;
                 RemoveItemsFromCart();
                 Application.Current.MainPage = new ShellView();
