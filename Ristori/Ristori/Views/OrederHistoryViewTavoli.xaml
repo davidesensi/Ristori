@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             x:Class="Ristori.Views.OrederHistoryViewTavoli">
+<ContentPage
+    x:Class="Ristori.Views.OrederHistoryViewTavoli"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView">
 
     <ContentPage.Content>
         <Grid>
@@ -36,16 +38,13 @@
                                 Padding="5"
                                 BackgroundColor="#F0F0F0"
                                 CornerRadius="20"
-                                HeightRequest="220">
+                                HeightRequest="120">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
                                         <RowDefinition Height="Auto" />
                                         <RowDefinition Height="Auto" />
                                         <RowDefinition Height="Auto" />
@@ -78,62 +77,22 @@
                                         FontAttributes="Bold"
                                         FontSize="Large"
                                         HorizontalTextAlignment="Center"
-                                        Text="Indirizzo: "
+                                        Text="Tavolo: "
                                         TextColor="Black"
                                         VerticalTextAlignment="Center" />
 
                                     <Label
                                         Grid.Row="1"
                                         Grid.Column="1"
-                                        FontAttributes="Italic"
-                                        FontSize="Subtitle"
-                                        HorizontalTextAlignment="Center"
-                                        Text="{Binding DeliveryAddress}"
-                                        TextColor="#F5EFEF"
-                                        VerticalTextAlignment="Center" />
-
-                                    <Label
-                                        Grid.Row="2"
-                                        Grid.Column="0"
                                         FontAttributes="Bold"
-                                        FontSize="Large"
+                                        FontSize="14"
                                         HorizontalTextAlignment="Center"
-                                        Text="Cognome: "
+                                        Text="{Binding ComandaTavolo}"
                                         TextColor="Black"
                                         VerticalTextAlignment="Center" />
 
                                     <Label
                                         Grid.Row="2"
-                                        Grid.Column="1"
-                                        FontAttributes="Italic"
-                                        FontSize="Subtitle"
-                                        HorizontalTextAlignment="Center"
-                                        Text="{Binding DeliverySurname}"
-                                        TextColor="Black"
-                                        VerticalTextAlignment="Center" />
-
-                                    <Label
-                                        Grid.Row="3"
-                                        Grid.Column="0"
-                                        FontAttributes="Bold"
-                                        FontSize="Large"
-                                        HorizontalTextAlignment="Center"
-                                        Text="Telefono: "
-                                        TextColor="Black"
-                                        VerticalTextAlignment="Center" />
-
-                                    <Label
-                                        Grid.Row="3"
-                                        Grid.Column="1"
-                                        FontAttributes="Italic"
-                                        FontSize="Subtitle"
-                                        HorizontalTextAlignment="Center"
-                                        Text="{Binding DeliveryPhone}"
-                                        TextColor="Black"
-                                        VerticalTextAlignment="Center" />
-
-                                    <Label
-                                        Grid.Row="4"
                                         Grid.Column="0"
                                         FontAttributes="Bold"
                                         FontSize="Large"
@@ -143,7 +102,7 @@
                                         VerticalTextAlignment="Center" />
 
                                     <Label
-                                        Grid.Row="4"
+                                        Grid.Row="2"
                                         Grid.Column="1"
                                         FontAttributes="Italic"
                                         FontSize="Subtitle"
@@ -153,7 +112,7 @@
                                         VerticalTextAlignment="Center" />
 
                                     <Label
-                                        Grid.Row="5"
+                                        Grid.Row="3"
                                         Grid.Column="0"
                                         FontAttributes="Bold"
                                         FontSize="Large"
@@ -163,7 +122,7 @@
                                         VerticalTextAlignment="Center" />
 
                                     <Label
-                                        Grid.Row="5"
+                                        Grid.Row="3"
                                         Grid.Column="1"
                                         FontAttributes="Italic"
                                         FontSize="Subtitle"
@@ -171,27 +130,6 @@
                                         Text="{Binding Path=DeliveryDateTime, StringFormat='{}{0:hh\\:mm}'}"
                                         TextColor="Black"
                                         VerticalTextAlignment="Center" />
-
-                                    <Label
-                                        Grid.Row="6"
-                                        Grid.Column="0"
-                                        FontAttributes="Bold"
-                                        FontSize="Large"
-                                        HorizontalTextAlignment="Center"
-                                        Text="Tavolo: "
-                                        TextColor="Black"
-                                        VerticalTextAlignment="Center" />
-
-                                    <Label
-                                        Grid.Row="6"
-                                        Grid.Column="1"
-                                        FontAttributes="Bold"
-                                        FontSize="14"
-                                        HorizontalTextAlignment="Center"
-                                        Text="{Binding ComandaTavolo}"
-                                        TextColor="Black"
-                                        VerticalTextAlignment="Center" />
-
 
                                 </Grid>
                             </pancake:PancakeView>
@@ -201,5 +139,5 @@
             </pancake:PancakeView>
         </Grid>
     </ContentPage.Content>
-    
+
 </ContentPage>

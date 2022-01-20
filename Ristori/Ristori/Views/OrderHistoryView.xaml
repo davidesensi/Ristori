@@ -43,14 +43,13 @@
                                 Padding="5"
                                 BackgroundColor="#F0F0F0"
                                 CornerRadius="20"
-                                HeightRequest="220">
+                                HeightRequest="190">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
                                         <RowDefinition Height="Auto" />
                                         <RowDefinition Height="Auto" />
                                         <RowDefinition Height="Auto" />
@@ -178,28 +177,6 @@
                                         Text="{Binding Path=DeliveryDateTime, StringFormat='{}{0:hh\\:mm}'}"
                                         TextColor="Black"
                                         VerticalTextAlignment="Center" />
-
-                                    <Label
-                                        Grid.Row="6"
-                                        Grid.Column="0"
-                                        FontAttributes="Bold"
-                                        FontSize="Large"
-                                        HorizontalTextAlignment="Center"
-                                        Text="Tavolo: "
-                                        TextColor="Black"
-                                        VerticalTextAlignment="Center" />
-
-                                    <Label
-                                        Grid.Row="6"
-                                        Grid.Column="1"
-                                        FontAttributes="Bold"
-                                        FontSize="14"
-                                        HorizontalTextAlignment="Center"
-                                        Text="{Binding ComandaTavolo}"
-                                        TextColor="Black"
-                                        VerticalTextAlignment="Center" />
-
-
                                 </Grid>
                             </pancake:PancakeView>
                         </DataTemplate>
