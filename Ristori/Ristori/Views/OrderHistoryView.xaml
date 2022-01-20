@@ -95,7 +95,7 @@
                                         FontSize="Subtitle"
                                         HorizontalTextAlignment="Center"
                                         Text="{Binding DeliveryAddress}"
-                                        TextColor="#F5EFEF"
+                                        TextColor="Black"
                                         VerticalTextAlignment="Center" />
 
                                     <Label
