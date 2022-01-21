@@ -13,6 +13,8 @@ namespace Ristori.ViewModels
     {
         private ObservableCollection<Order> _OrderHistoryItems;
         private ObservableCollection<Order> _OrderHistoryItemsTavolo;
+        private ObservableCollection<Order> _OrderHistoryItemsDeliveryNow;
+        private ObservableCollection<Order> _OrderHistoryItemsTavoloNow;
         public ObservableCollection<Order> OrderHistoryItems
         {
             set
@@ -23,6 +25,19 @@ namespace Ristori.ViewModels
             get
             {
                 return _OrderHistoryItems;
+            }
+        }
+
+        public ObservableCollection<Order> OrderHistoryItemsDeliveryNow
+        {
+            set
+            {
+                _OrderHistoryItemsDeliveryNow = value;
+                OnPropertyChanged();
+            }
+            get
+            {
+                return _OrderHistoryItemsDeliveryNow;
             }
         }
 
@@ -39,10 +54,25 @@ namespace Ristori.ViewModels
             }
         }
 
+        public ObservableCollection<Order> OrderHistoryItemsTavoloNow
+        {
+            set
+            {
+                _OrderHistoryItemsTavoloNow = value;
+                OnPropertyChanged();
+            }
+            get
+            {
+                return _OrderHistoryItemsTavoloNow;
+            }
+        }
+
         public OrderHistoryViewModel()
         {
             OrderHistoryItems = new ObservableCollection<Order>();
             OrderHistoryItemsTavolo = new ObservableCollection<Order>();
+            OrderHistoryItemsDeliveryNow = new ObservableCollection<Order>();
+            OrderHistoryItemsTavoloNow = new ObservableCollection<Order>();
             _ = GetAllOrdersAsync();
         }
 
@@ -63,13 +93,24 @@ namespace Ristori.ViewModels
         public async Task GetAllOrdersAsync()
         {
             var data = await new OrderService().GetAllOrderAsync();
+            //var DataNow = DateTime.Now;
             OrderHistoryItems.Clear();
+            //OrderHistoryItemsDeliveryNow.Clear();
+            //SOrderHistoryItemsTavolo.Clear();
             foreach (var order in data)
             {
-                if (order.ComandaTavolo == null)
+                if (order.ComandaTavolo == null )
                     OrderHistoryItems.Add(order);
-                else
+                if (order.ComandaTavolo != null)
                     OrderHistoryItemsTavolo.Add(order);
+                if (order.ComandaTavolo == null && order.DeliveryDate.Day.Equals(DateTime.Now.Day)
+                                                && order.DeliveryDate.Month.Equals(DateTime.Now.Month)
+                                                && order.DeliveryDate.Year.Equals(DateTime.Now.Year))
+                    OrderHistoryItemsDeliveryNow.Add(order);
+                if (order.ComandaTavolo != null && order.DeliveryDate.Day.Equals(DateTime.Now.Day)
+                                                && order.DeliveryDate.Month.Equals(DateTime.Now.Month)
+                                                && order.DeliveryDate.Year.Equals(DateTime.Now.Year))
+                    OrderHistoryItemsTavoloNow.Add(order);
             }
         }
         

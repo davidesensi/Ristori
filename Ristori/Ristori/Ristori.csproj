@@ -45,6 +45,9 @@
     <Compile Update="Views\OrderHistoryView.xaml.cs">
       <DependentUpon>OrderHistoryView.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\OrederHistoryViewTavoli.xaml.cs">
+      <DependentUpon>OrederHistoryViewTavoli.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -67,6 +70,12 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\OrderHistoryView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\OrderHistoryViewDeliveryNow.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\OrderHistoryViewTavoliNow.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\OrederHistoryViewTavoli.xaml">

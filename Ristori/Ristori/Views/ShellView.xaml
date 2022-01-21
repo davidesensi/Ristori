@@ -37,8 +37,8 @@
         </Tab>
 
         <Tab Title="Storico Ordini" Icon="{FontImage FontFamily=FontAwesome, Glyph={x:Static helpers:IconFont.OrderNumericAscending}}">
-            <ShellContent Title="Delivery" ContentTemplate="{DataTemplate views:OrderHistoryView}" />
-            <ShellContent Title="Tavoli" ContentTemplate="{DataTemplate views:OrederHistoryViewTavoli}" />
+            <ShellContent Title="Delivery" ContentTemplate="{DataTemplate views:OrderHistoryViewDeliveryNow}" />
+            <ShellContent Title="Tavoli" ContentTemplate="{DataTemplate views:OrderHistoryViewTavoliNow}" />
         </Tab>
 
         <Tab Title="Settings" Icon="{FontImage FontFamily=FontAwesome, Glyph={x:Static helpers:IconFont.ApplicationSettings}}">

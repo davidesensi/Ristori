@@ -195,7 +195,7 @@
                             Text="{Binding BindingContext.Order.Note, Mode=TwoWay, Source={Reference Name=MyDraggableView}}"
                             TextColor="Black"
                             VerticalOptions="Center" />
-                        
+
                         <Entry
                             FontSize="12"
                             Placeholder="Inserisci indirizzo"
