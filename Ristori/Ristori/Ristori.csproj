@@ -42,11 +42,11 @@
     <Compile Update="Views\CategoryViewFolder\PizzeBianche.xaml.cs">
       <DependentUpon>PizzeBianche.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\OrderHistoryView.xaml.cs">
-      <DependentUpon>OrderHistoryView.xaml</DependentUpon>
+    <Compile Update="Views\OrderHistoryView\OrderHistoryViewDeliveryAll.xaml.cs">
+      <DependentUpon>OrderHistoryViewDeliveryAll.xaml</DependentUpon>
     </Compile>
-    <Compile Update="Views\OrederHistoryViewTavoli.xaml.cs">
-      <DependentUpon>OrederHistoryViewTavoli.xaml</DependentUpon>
+    <Compile Update="Views\OrderHistoryView\OrderHistoryViewTavoliAll.xaml.cs">
+      <DependentUpon>OrderHistoryViewTavoliAll.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
@@ -69,16 +69,16 @@
     <EmbeddedResource Update="Views\NewProductView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\OrderHistoryView.xaml">
+    <EmbeddedResource Update="Views\OrderHistoryView\OrderHistoryViewDeliveryAll.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\OrderHistoryViewDeliveryNow.xaml">
+    <EmbeddedResource Update="Views\OrderHistoryView\OrderHistoryViewDeliveryNow.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\OrderHistoryViewTavoliNow.xaml">
+    <EmbeddedResource Update="Views\OrderHistoryView\OrderHistoryViewTavoliNow.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\OrederHistoryViewTavoli.xaml">
+    <EmbeddedResource Update="Views\OrderHistoryView\OrderHistoryViewTavoliAll.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ProductDetailsView.xaml">

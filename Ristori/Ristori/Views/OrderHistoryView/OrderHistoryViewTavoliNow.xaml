@@ -1,14 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="Ristori.Views.OrderHistoryView"
+    x:Class="Ristori.Views.OrderHistoryView.OrderHistoryViewTavoliNow"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:helpers="clr-namespace:Ristori.Helpers"
-    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-    Title="Carrello"
-    ios:Page.UseSafeArea="True"
-    BackgroundColor="#FFFEEF">
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView">
 
     <ContentPage.Content>
         <Grid>
@@ -31,7 +26,7 @@
                 <CollectionView
                     x:Name="OrderHistory"
                     Margin="5"
-                    ItemsSource="{Binding OrderHistoryItems}"
+                    ItemsSource="{Binding OrderHistoryItemsTavoloNow}"
                     VerticalOptions="CenterAndExpand">
                     <CollectionView.ItemsLayout>
                         <LinearItemsLayout ItemSpacing="20" Orientation="Vertical" />
@@ -43,17 +38,13 @@
                                 Padding="5"
                                 BackgroundColor="#F0F0F0"
                                 CornerRadius="20"
-                                HeightRequest="350">
+                                HeightRequest="180">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
                                         <RowDefinition Height="Auto" />
                                         <RowDefinition Height="Auto" />
                                         <RowDefinition Height="Auto" />
@@ -87,7 +78,7 @@
                                         FontAttributes="Bold"
                                         FontSize="Large"
                                         HorizontalTextAlignment="Center"
-                                        Text="Indirizzo: "
+                                        Text="Totale: "
                                         TextColor="Black"
                                         VerticalTextAlignment="Center" />
 
@@ -97,72 +88,12 @@
                                         FontAttributes="Italic"
                                         FontSize="Subtitle"
                                         HorizontalTextAlignment="Center"
-                                        Text="{Binding DeliveryAddress}"
-                                        TextColor="Black"
-                                        VerticalTextAlignment="Center" />
-
-                                    <Label
-                                        Grid.Row="2"
-                                        Grid.Column="0"
-                                        FontAttributes="Bold"
-                                        FontSize="Large"
-                                        HorizontalTextAlignment="Center"
-                                        Text="Cognome: "
-                                        TextColor="Black"
-                                        VerticalTextAlignment="Center" />
-
-                                    <Label
-                                        Grid.Row="2"
-                                        Grid.Column="1"
-                                        FontAttributes="Italic"
-                                        FontSize="Subtitle"
-                                        HorizontalTextAlignment="Center"
-                                        Text="{Binding DeliverySurname}"
-                                        TextColor="Black"
-                                        VerticalTextAlignment="Center" />
-
-                                    <Label
-                                        Grid.Row="3"
-                                        Grid.Column="0"
-                                        FontAttributes="Bold"
-                                        FontSize="Large"
-                                        HorizontalTextAlignment="Center"
-                                        Text="Telefono: "
-                                        TextColor="Black"
-                                        VerticalTextAlignment="Center" />
-
-                                    <Label
-                                        Grid.Row="3"
-                                        Grid.Column="1"
-                                        FontAttributes="Italic"
-                                        FontSize="Subtitle"
-                                        HorizontalTextAlignment="Center"
-                                        Text="{Binding DeliveryPhone}"
-                                        TextColor="Black"
-                                        VerticalTextAlignment="Center" />
-
-                                    <Label
-                                        Grid.Row="4"
-                                        Grid.Column="0"
-                                        FontAttributes="Bold"
-                                        FontSize="Large"
-                                        HorizontalTextAlignment="Center"
-                                        Text="Totale: "
-                                        TextColor="Black"
-                                        VerticalTextAlignment="Center" />
-
-                                    <Label
-                                        Grid.Row="4"
-                                        Grid.Column="1"
-                                        FontAttributes="Italic"
-                                        FontSize="Subtitle"
-                                        HorizontalTextAlignment="Center"
                                         Text="{Binding Path=TotalCost, StringFormat='{}{0:C}'}"
                                         TextColor="Black"
                                         VerticalTextAlignment="Center" />
 
                                     <Label
-                                        Grid.Row="5"
+                                        Grid.Row="2"
                                         Grid.Column="0"
                                         FontAttributes="Bold"
                                         FontSize="Large"
@@ -172,7 +103,7 @@
                                         VerticalTextAlignment="Center" />
 
                                     <Label
-                                        Grid.Row="5"
+                                        Grid.Row="2"
                                         Grid.Column="1"
                                         FontAttributes="Italic"
                                         FontSize="Subtitle"
@@ -180,9 +111,9 @@
                                         Text="{Binding Path=OrderMakedDate, StringFormat='{0:dd/MM/yyyy}'}"
                                         TextColor="Black"
                                         VerticalTextAlignment="Center" />
-                                    
+
                                     <Label
-                                        Grid.Row="6"
+                                        Grid.Row="3"
                                         Grid.Column="0"
                                         FontAttributes="Bold"
                                         FontSize="Large"
@@ -192,7 +123,7 @@
                                         VerticalTextAlignment="Center" />
 
                                     <Label
-                                        Grid.Row="6"
+                                        Grid.Row="3"
                                         Grid.Column="1"
                                         FontAttributes="Italic"
                                         FontSize="Subtitle"
@@ -202,47 +133,7 @@
                                         VerticalTextAlignment="Center" />
 
                                     <Label
-                                        Grid.Row="7"
-                                        Grid.Column="0"
-                                        FontAttributes="Bold"
-                                        FontSize="Large"
-                                        HorizontalTextAlignment="Center"
-                                        Text="Data Consegna: "
-                                        TextColor="Black"
-                                        VerticalTextAlignment="Center" />
-
-                                    <Label
-                                        Grid.Row="7"
-                                        Grid.Column="1"
-                                        FontAttributes="Italic"
-                                        FontSize="Subtitle"
-                                        HorizontalTextAlignment="Center"
-                                        Text="{Binding Path=DeliveryDate, StringFormat='{0:dd/MM/yyyy}'}"
-                                        TextColor="Black"
-                                        VerticalTextAlignment="Center" />
-                                    
-                                    <Label
-                                        Grid.Row="8"
-                                        Grid.Column="0"
-                                        FontAttributes="Bold"
-                                        FontSize="Large"
-                                        HorizontalTextAlignment="Center"
-                                        Text="Orario Consegna: "
-                                        TextColor="Black"
-                                        VerticalTextAlignment="Center" />
-
-                                    <Label
-                                        Grid.Row="8"
-                                        Grid.Column="1"
-                                        FontAttributes="Italic"
-                                        FontSize="Subtitle"
-                                        HorizontalTextAlignment="Center"
-                                        Text="{Binding Path=DeliveryDateTime, StringFormat='{}{0:hh\\:mm}'}"
-                                        TextColor="Black"
-                                        VerticalTextAlignment="Center" />
-
-                                    <Label
-                                        Grid.Row="9"
+                                        Grid.Row="4"
                                         Grid.Column="0"
                                         FontAttributes="Bold"
                                         FontSize="Large"
@@ -252,7 +143,7 @@
                                         VerticalTextAlignment="Center" />
 
                                     <Label
-                                        Grid.Row="9"
+                                        Grid.Row="4"
                                         Grid.Column="1"
                                         FontAttributes="Italic"
                                         FontSize="Subtitle"
@@ -268,5 +159,4 @@
             </pancake:PancakeView>
         </Grid>
     </ContentPage.Content>
-
 </ContentPage>

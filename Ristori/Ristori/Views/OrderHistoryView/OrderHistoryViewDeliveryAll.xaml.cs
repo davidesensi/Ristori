@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Ristori.Views
+namespace Ristori.Views.OrderHistoryView
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class OrderHistoryView : ContentPage
+    public partial class OrderHistoryViewDeliveryAll : ContentPage
     {
-        public OrderHistoryView()
+        public OrderHistoryViewDeliveryAll()
         {
             InitializeComponent();
             BindingContext = new OrderHistoryViewModel();

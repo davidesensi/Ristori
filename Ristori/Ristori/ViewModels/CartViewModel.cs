@@ -136,6 +136,7 @@ namespace Ristori.ViewModels
             {
                 Order.ComandaTavolo = TavoloSelected;
                 Order.OrderMakedTime = DateTime.Now.TimeOfDay;
+                Order.OrderMakedDate = DateTime.Now;
                 var id = await new OrderService().PlaceOrderAsync(Order) as string;
                 RemoveItemsFromCart();
                 Application.Current.MainPage = new ShellView();

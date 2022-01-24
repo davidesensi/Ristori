@@ -1,5 +1,6 @@
 ﻿using Ristori.Helpers;
 using Ristori.Views;
+using Ristori.Views.OrderHistoryView;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -35,12 +36,12 @@ namespace Ristori.ViewModels
 
         private async Task AllDeliveryCall()
         {
-            await Shell.Current.Navigation.PushAsync(new OrderHistoryView());
+            await Shell.Current.Navigation.PushAsync(new OrderHistoryViewDeliveryAll());
         }
 
         private async Task AllTavoloCall()
         {
-            await Shell.Current.Navigation.PushAsync(new OrederHistoryViewTavoli());
+            await Shell.Current.Navigation.PushAsync(new OrderHistoryViewTavoliAll());
         }
     }
 }

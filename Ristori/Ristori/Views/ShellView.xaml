@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
     xmlns:cviews="clr-namespace:Ristori.Views.CategoryViewFolder"
+    xmlns:oviews="clr-namespace:Ristori.Views.OrderHistoryView"
     xmlns:helpers="clr-namespace:Ristori.Helpers"
     xmlns:tabbedbottm="clr-namespace:Ristori.Views"
     xmlns:views="clr-namespace:Ristori.Views"
@@ -37,8 +38,8 @@
         </Tab>
 
         <Tab Title="Storico Ordini" Icon="{FontImage FontFamily=FontAwesome, Glyph={x:Static helpers:IconFont.OrderNumericAscending}}">
-            <ShellContent Title="Delivery" ContentTemplate="{DataTemplate views:OrderHistoryViewDeliveryNow}" />
-            <ShellContent Title="Tavoli" ContentTemplate="{DataTemplate views:OrderHistoryViewTavoliNow}" />
+            <ShellContent Title="Delivery" ContentTemplate="{DataTemplate oviews:OrderHistoryViewDeliveryNow}" />
+            <ShellContent Title="Tavoli" ContentTemplate="{DataTemplate oviews:OrderHistoryViewTavoliNow}" />
         </Tab>
 
         <Tab Title="Settings" Icon="{FontImage FontFamily=FontAwesome, Glyph={x:Static helpers:IconFont.ApplicationSettings}}">

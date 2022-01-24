@@ -1,7 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             x:Class="Ristori.Views.OrderHistoryViewTavoliNow">
+<ContentPage
+    x:Class="Ristori.Views.OrderHistoryView.OrderHistoryViewDeliveryAll"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:helpers="clr-namespace:Ristori.Helpers"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    Title="Carrello"
+    ios:Page.UseSafeArea="True"
+    BackgroundColor="#FFFEEF">
 
     <ContentPage.Content>
         <Grid>
@@ -24,7 +31,7 @@
                 <CollectionView
                     x:Name="OrderHistory"
                     Margin="5"
-                    ItemsSource="{Binding OrderHistoryItemsTavoloNow}"
+                    ItemsSource="{Binding OrderHistoryItems}"
                     VerticalOptions="CenterAndExpand">
                     <CollectionView.ItemsLayout>
                         <LinearItemsLayout ItemSpacing="20" Orientation="Vertical" />
@@ -261,4 +268,5 @@
             </pancake:PancakeView>
         </Grid>
     </ContentPage.Content>
+
 </ContentPage>
