@@ -7,9 +7,9 @@
     xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
     BackgroundColor="#931A25">
     <ContentPage.Content>
-        
-        
-        
+
+
+
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -119,7 +119,10 @@
                     VerticalOptions="Start" />
             </Grid>
 
-            <StackLayout Grid.Row="4" Orientation="Horizontal" HorizontalOptions="Center">
+            <StackLayout
+                Grid.Row="4"
+                HorizontalOptions="Center"
+                Orientation="Horizontal">
                 <pancake:PancakeView CornerRadius="0,20,60,0">
                     <Button
                         Background="#F44336"

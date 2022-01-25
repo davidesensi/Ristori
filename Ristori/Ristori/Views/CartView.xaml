@@ -79,8 +79,6 @@
                                     Text="{Binding ProductName}"
                                     TextColor="Black"
                                     VerticalOptions="Center" />
-                                <!--<Label Text="{Binding Path=Price, StringFormat='{}{0:C}'}" Grid.Column="1" Grid.Row="0" FontSize="Subtitle"
-                                                                                            TextColor="#F5EFEF" />-->
 
                                 <ImageButton
                                     Grid.Row="1"

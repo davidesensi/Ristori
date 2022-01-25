@@ -16,10 +16,42 @@ namespace Ristori.Services
     {
         FirebaseClient client;
 
+
+
         public OrderService()
         {
             client = new FirebaseClient("https://ristori-1955c-default-rtdb.europe-west1.firebasedatabase.app/");
         }
+
+        public async Task<List<OrderDetails>> GetOrderDetailsAsync(Order currentOrder)
+        {
+            var orderDetails = (await client.Child("OrderDetails")
+                .OnceAsync<OrderDetails>())
+                .Select(o => new OrderDetails
+                {
+                    OrderDetailID = o.Object.OrderDetailID,
+                    OrderID = o.Object.OrderID,
+                    Price = o.Object.Price,
+                    Quantity = o.Object.Quantity,
+                    ProductID = o.Object.ProductID,
+                    ProductName = o.Object.ProductName
+                }).Where(o => o.OrderID == currentOrder.OrderID).ToList();
+            return orderDetails;
+        }
+
+        public async Task<ObservableCollection<OrderDetails>> GetOrderDetailsObservable(Order currentOrder) 
+        {
+            var orderDetails = (await GetOrderDetailsAsync(currentOrder));
+            var orderDetailsTaked = new ObservableCollection<OrderDetails>();
+
+            foreach (var od in orderDetails) 
+            {
+                orderDetailsTaked.Add(od);                                             
+            }
+
+            return orderDetailsTaked;
+        }
+
 
         public async Task<string> PlaceOrderAsync(Order delivery)
         {

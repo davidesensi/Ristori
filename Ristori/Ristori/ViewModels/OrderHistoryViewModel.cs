@@ -15,6 +15,51 @@ namespace Ristori.ViewModels
         private ObservableCollection<Order> _OrderHistoryItemsTavolo;
         private ObservableCollection<Order> _OrderHistoryItemsDeliveryNow;
         private ObservableCollection<Order> _OrderHistoryItemsTavoloNow;
+        private ObservableCollection<OrderDetails> _CurrentOrderDetails;
+        private Order _CurrentOrder;
+
+        public Command InfoCommand { get; set; }
+
+        private Order _Order;
+        public Order Order
+        {
+            set
+            {
+                _Order = value;
+                OnPropertyChanged();
+            }
+            get
+            {
+                return _Order;
+            }
+        }
+
+        public Order CurrentOrder
+        {
+            set
+            {
+                _CurrentOrder = value;
+                OnPropertyChanged();
+            }
+            get
+            {
+                return _CurrentOrder;
+            }
+        }
+
+        public ObservableCollection<OrderDetails> CurrentOrderDetails
+        {
+            set
+            {
+                _CurrentOrderDetails = value;
+                OnPropertyChanged();
+            }
+            get
+            {
+                return _CurrentOrderDetails;
+            }
+        }
+
         public ObservableCollection<Order> OrderHistoryItems
         {
             set
@@ -73,21 +118,17 @@ namespace Ristori.ViewModels
             OrderHistoryItemsTavolo = new ObservableCollection<Order>();
             OrderHistoryItemsDeliveryNow = new ObservableCollection<Order>();
             OrderHistoryItemsTavoloNow = new ObservableCollection<Order>();
+            CurrentOrderDetails = new ObservableCollection<OrderDetails>();
+            CurrentOrder = new Order();
+            InfoCommand = new Command(InfoOrder);
             _ = GetAllOrdersAsync();
         }
 
-        private Order _Order;
-        public Order Order
+        private async void InfoOrder(Object obj)
         {
-            set
-            {
-                _Order = value;
-                OnPropertyChanged();
-            }
-            get
-            {
-                return _Order;
-            }
+            CurrentOrderDetails.Clear();
+            CurrentOrder = obj as Order;
+            CurrentOrderDetails = await new OrderService().GetOrderDetailsObservable(CurrentOrder);
         }
 
         public async Task GetAllOrdersAsync()
