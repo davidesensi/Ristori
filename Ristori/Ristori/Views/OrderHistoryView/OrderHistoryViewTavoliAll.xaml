@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
     x:Class="Ristori.Views.OrderHistoryView.OrderHistoryViewTavoliAll"
-    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:helpers="clr-namespace:Ristori.Helpers"
-    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView" >
+    xmlns:pancake="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit">
 
-    <ContentPage.Content>        
+    <ContentPage.Content>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -45,7 +45,7 @@
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
@@ -58,7 +58,7 @@
                                         Grid.Column="0"
                                         FontAttributes="Bold,Italic"
                                         FontSize="20"
-                                        HorizontalTextAlignment="Center"
+                                        HorizontalTextAlignment="End"
                                         Text="Ordine: "
                                         TextColor="Black"
                                         VerticalTextAlignment="Center" />
@@ -68,7 +68,7 @@
                                         Grid.Column="1"
                                         FontAttributes="Bold,Italic"
                                         FontSize="20"
-                                        HorizontalTextAlignment="Center"
+                                        HorizontalTextAlignment="Start"
                                         Text="{Binding OrderID}"
                                         TextColor="Black"
                                         VerticalTextAlignment="Center" />
@@ -82,7 +82,7 @@
                                         CommandParameter="{Binding .}"
                                         CornerRadius="20"
                                         HeightRequest="10"
-                                        HorizontalOptions="Start"
+                                        HorizontalOptions="End"
                                         Source="{FontImage FontFamily=FontAwesome,
                                                            Glyph={x:Static helpers:IconFont.InformationOutline},
                                                            Size=40,
@@ -108,7 +108,7 @@
                                         Text="{Binding ComandaTavolo}"
                                         TextColor="Black"
                                         VerticalTextAlignment="Center" />
-                                    
+
                                 </Grid>
                             </pancake:PancakeView>
                         </DataTemplate>
@@ -161,7 +161,7 @@
                                 Text="{Binding BindingContext.CurrentOrder.OrderID, Mode=TwoWay, Source={Reference Name=MyDraggableView}}"
                                 TextColor="Black"
                                 VerticalOptions="Center" />
-                            
+
                         </Grid>
 
                         <Grid Grid.Row="2">
@@ -173,7 +173,7 @@
                                 FontSize="15"
                                 HorizontalOptions="End"
                                 Text="Data Ordine: "
-                                TextColor="Black"/>
+                                TextColor="Black" />
 
                             <Label
                                 Grid.Row="0"
@@ -181,9 +181,8 @@
                                 FontAttributes="Italic,Bold"
                                 FontSize="15"
                                 HorizontalOptions="Start"
-                                Text="{Binding BindingContext.CurrentOrder.DeliveryDate, StringFormat='{0:dd/MM/yyyy}',
-                                               Mode=TwoWay, Source={Reference Name=MyDraggableView}}"
-                                TextColor="Black"/>
+                                Text="{Binding BindingContext.CurrentOrder.DeliveryDate, StringFormat='{0:dd/MM/yyyy}', Mode=TwoWay, Source={Reference Name=MyDraggableView}}"
+                                TextColor="Black" />
 
                             <Label
                                 Grid.Row="1"
@@ -192,7 +191,7 @@
                                 FontSize="15"
                                 HorizontalOptions="End"
                                 Text="Orario Ordine: "
-                                TextColor="Black"/>
+                                TextColor="Black" />
 
                             <Label
                                 Grid.Row="1"
@@ -200,9 +199,8 @@
                                 FontAttributes="Italic,Bold"
                                 FontSize="15"
                                 HorizontalOptions="Start"
-                                Text="{Binding BindingContext.CurrentOrder.DeliveryDate, StringFormat='{}{0:hh\\:mm}',
-                                               Mode=TwoWay, Source={Reference Name=MyDraggableView}}"
-                                TextColor="Black"/>
+                                Text="{Binding BindingContext.CurrentOrder.DeliveryDate, StringFormat='{}{0:hh\\:mm}', Mode=TwoWay, Source={Reference Name=MyDraggableView}}"
+                                TextColor="Black" />
 
                             <Label
                                 Grid.Row="2"
@@ -211,7 +209,7 @@
                                 FontSize="15"
                                 HorizontalOptions="End"
                                 Text="Tavolo: "
-                                TextColor="Black"/>
+                                TextColor="Black" />
 
                             <Label
                                 Grid.Row="2"
@@ -219,10 +217,9 @@
                                 FontAttributes="Italic,Bold"
                                 FontSize="15"
                                 HorizontalOptions="Start"
-                                Text="{Binding BindingContext.CurrentOrder.ComandaTavolo,
-                                               Mode=TwoWay, Source={Reference Name=MyDraggableView}}"
-                                TextColor="Black"/>
-                            
+                                Text="{Binding BindingContext.CurrentOrder.ComandaTavolo, Mode=TwoWay, Source={Reference Name=MyDraggableView}}"
+                                TextColor="Black" />
+
                             <Label
                                 Grid.Row="3"
                                 Grid.Column="0"
@@ -230,7 +227,7 @@
                                 FontSize="15"
                                 HorizontalOptions="End"
                                 Text="Nota Ordine: "
-                                TextColor="Black"/>
+                                TextColor="Black" />
 
                             <Label
                                 Grid.Row="3"
@@ -238,9 +235,8 @@
                                 FontAttributes="Italic,Bold"
                                 FontSize="15"
                                 HorizontalOptions="Start"
-                                Text="{Binding BindingContext.CurrentOrder.Note,
-                                               Mode=TwoWay, Source={Reference Name=MyDraggableView}}"
-                                TextColor="Black"/>
+                                Text="{Binding BindingContext.CurrentOrder.Note, Mode=TwoWay, Source={Reference Name=MyDraggableView}}"
+                                TextColor="Black" />
 
                         </Grid>
 
@@ -260,25 +256,25 @@
                                             BackgroundColor="Transparent"
                                             HeightRequest="10">
                                             <Grid>
-                                            
+
                                                 <Label
                                                     Grid.Row="0"
                                                     Grid.Column="0"
                                                     FontAttributes="Italic"
                                                     FontSize="20"
-                                                    Text="{Binding Quantity}"
-                                                    VerticalOptions="End"
                                                     HorizontalOptions="End"
-                                                    TextColor="Black"/>
+                                                    Text="{Binding Quantity}"
+                                                    TextColor="Black"
+                                                    VerticalOptions="End" />
                                                 <Label
                                                     Grid.Row="0"
                                                     Grid.Column="1"
                                                     FontAttributes="Italic"
                                                     FontSize="20"
-                                                    Text="{Binding ProductName}"
-                                                    VerticalOptions="End"
                                                     HorizontalOptions="Start"
-                                                    TextColor="Black" />
+                                                    Text="{Binding ProductName}"
+                                                    TextColor="Black"
+                                                    VerticalOptions="End" />
 
                                             </Grid>
                                         </pancake:PancakeView>
@@ -296,7 +292,7 @@
                                 FontSize="Large"
                                 HorizontalOptions="End"
                                 Text="Totale : "
-                                TextColor="Black"/>
+                                TextColor="Black" />
 
                             <Label
                                 Grid.Row="0"
@@ -304,8 +300,7 @@
                                 FontAttributes="Bold,Italic"
                                 FontSize="Large"
                                 HorizontalOptions="End"
-                                Text="{Binding BindingContext.CurrentOrder.TotalCost, StringFormat='{}{0:C}', 
-                                               Mode=TwoWay, Source={Reference Name=MyDraggableView}}"
+                                Text="{Binding BindingContext.CurrentOrder.TotalCost, StringFormat='{}{0:C}', Mode=TwoWay, Source={Reference Name=MyDraggableView}}"
                                 TextColor="Black" />
 
                         </Grid>
