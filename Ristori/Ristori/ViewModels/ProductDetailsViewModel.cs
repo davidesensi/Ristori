@@ -57,12 +57,6 @@ namespace Ristori.ViewModels
             DecrementOrderCommand = new Command(() => DecrementOrder());
             AddToCartCommand = new Command(() => AddToCart());
             ViewCartCommand = new Command(async () => await ViewCartAsync());
-            HomeCommand = new Command(async () => await HomeAsync());
-        }
-
-        private async Task HomeAsync()
-        {
-            await Application.Current.MainPage.Navigation.PushModalAsync(new ProductsView());
         }
 
         private async Task ViewCartAsync()
