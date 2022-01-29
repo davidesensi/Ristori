@@ -83,7 +83,6 @@
                 HorizontalScrollBarVisibility="Never"
                 ItemsLayout="HorizontalList"
                 ItemsSource="{Binding Categories}"
-                SelectionChanged="CollectionView_SelectionChanged"
                 SelectionMode="Single"
                 VerticalOptions="FillAndExpand"
                 WidthRequest="120">

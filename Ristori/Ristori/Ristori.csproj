@@ -24,9 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\CategoryView.xaml.cs">
-      <DependentUpon>CategoryView.xaml</DependentUpon>
-    </Compile>
     <Compile Update="Views\CategoryViewFolder\Bevande.xaml.cs">
       <DependentUpon>Bevande.xaml</DependentUpon>
     </Compile>
@@ -52,9 +49,6 @@
 
   <ItemGroup>
     <EmbeddedResource Update="Views\CartView.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\CategoryView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\CategoryViewFolder\Fritti.xaml">
