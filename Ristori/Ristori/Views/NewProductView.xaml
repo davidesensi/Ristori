@@ -22,6 +22,7 @@
                 TextColor="Black"
                 VerticalOptions="Center" />
 
+
             <StackLayout
                 Grid.Row="1"
                 HorizontalOptions="Center"
@@ -43,9 +44,8 @@
                     FontSize="25"
                     Placeholder="Prezzo"
                     PlaceholderColor="Black"
-                    Text="{Binding Product.Price}"
+                    Text="{Binding Product.Price, StringFormat='{}{0:C}'}"
                     TextColor="Black" />
-
 
                 <Picker
                     Title="Seleziona Categoria"
@@ -54,7 +54,6 @@
                     ItemsSource="{Binding Categories}"
                     SelectedItem="{Binding CategorySelected}"
                     TextColor="Black" />
-
 
             </StackLayout>
 

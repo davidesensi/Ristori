@@ -7,7 +7,7 @@
              xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
              ios:Page.UseSafeArea="True"
              Visual="Material"
-             BackgroundColor="#931A25"
+             BackgroundColor="#FFFEEF"
              xmlns:vm="clr-namespace:Ristori.ViewModels"
              Title="Logout">
     
@@ -18,26 +18,41 @@
                 <RowDefinition Height="500" />
             </Grid.RowDefinitions>
 
+            <Label
+                Grid.Row="0"
+                Margin="0,10"
+                FontAttributes="Bold"
+                FontSize="35"
+                HorizontalOptions="Center"
+                Text="Logout"
+                TextColor="Black"
+                VerticalOptions="Center" />
 
-                <Label Text="Logout" FontSize="40" TextColor="#F5EFEF"
-                   FontFamily="SourceSansPro" HorizontalOptions="Center" VerticalOptions="Start" />
-
-
-
-
-            <pancake:PancakeView CornerRadius="20,20,0,0" 
-                                 Grid.Row="1" BackgroundColor="Transparent" Margin="10,-40">
+            <pancake:PancakeView 
+                Grid.Row="1" >
                 <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
                     <StackLayout IsVisible="{Binding IsCartExist}" >
-                        <Label Text="Il carrello non è vuoto!!" />
-                        <Label Text="{Binding OperatorCartItemsCount, StringFormat='Il carrello contiene {0} prodotti'}" />
+                        <Label 
+                            Text="Il carrello non è vuoto!!"
+                            FontSize="20"
+                            FontAttributes="Italic"
+                            TextColor="Black" />
+                        <Label 
+                            Text="{Binding OperatorCartItemsCount, StringFormat='Il carrello contiene {0} prodotti'}" 
+                            FontSize="20"
+                            FontAttributes="Italic"
+                            TextColor="Black"/>
                     </StackLayout>
 
                     <StackLayout>
-                        <Label Text="Sei sicuro di voler uscire?" FontAttributes="Bold"
-                               FontSize="30"/>
+                        <Label 
+                            Text="Sei sicuro di voler uscire?" 
+                            FontAttributes="Bold,Italic"
+                            TextColor="Black"
+                            FontSize="30"/>
                         <StackLayout Orientation="Horizontal" Spacing="10" HorizontalOptions="Center">
-                            <Button Text="Si, Logout"
+                            <Button 
+                                Text="Si, Logout"
                                 WidthRequest="200"
                                 BackgroundColor="#F44336"
                                 HorizontalOptions="Center"
