@@ -25,7 +25,7 @@ namespace Ristori.Views.CategoryViewFolder
             this.BindingContext = cvm;
         }
 
-        async void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var selectedProduct = e.CurrentSelection.FirstOrDefault() as Product;
             if (selectedProduct == null)

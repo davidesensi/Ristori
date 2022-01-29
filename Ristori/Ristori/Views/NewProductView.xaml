@@ -44,7 +44,7 @@
                     FontSize="25"
                     Placeholder="Prezzo"
                     PlaceholderColor="Black"
-                    Text="{Binding Product.Price, StringFormat='{}{0:C}'}"
+                    Text="{Binding Product.Price}"
                     TextColor="Black" />
 
                 <Picker

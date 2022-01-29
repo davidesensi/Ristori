@@ -48,7 +48,7 @@ namespace Ristori.ViewModels
             Product = new Product();
             CategorySelected = new Category();
             Categories = new ObservableCollection<Category>();
-            GetCategoriesAsync();
+            _ = GetCategoriesAsync();
             AddProductCommand = new Command(async () => await AddNewProduct());
         }
 
@@ -62,14 +62,14 @@ namespace Ristori.ViewModels
             {
                 await Application.Current.MainPage.DisplayAlert("Errore", "Devi Inserire la descrizione!", "OK");
             }
-            else if (Product.Price == null)
+            else if (Product.Price == 0)
             {
                 await Application.Current.MainPage.DisplayAlert("Errore", "Devi Inserire il prezzo!", "OK");
             }
             else
             {
                 Product.CategoryID = CategorySelected.CategoryID;
-                new ProductService().AddNewProduct(Product);
+                _ = new ProductService().AddNewProduct(Product);
                 await Shell.Current.Navigation.PopAsync();
             }
         }

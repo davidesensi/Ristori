@@ -70,7 +70,7 @@ namespace Ristori.ViewModels
         {
             SelectedCategory = category;
             ProductsByCategory = new ObservableCollection<Product>();
-            GetProductsAsync(category.CategoryID);
+            _ = GetProductsAsync(category.CategoryID);
             IncrementOrderCommand = new Command(IncrementOrder);
             
         }
@@ -79,7 +79,7 @@ namespace Ristori.ViewModels
         {
             SelectedCategoryID = categoryID;
             ProductsByCategory = new ObservableCollection<Product>();
-            GetProductsAsync(categoryID);
+            _ = GetProductsAsync(categoryID);
             IncrementOrderCommand = new Command(IncrementOrder);
             
 
