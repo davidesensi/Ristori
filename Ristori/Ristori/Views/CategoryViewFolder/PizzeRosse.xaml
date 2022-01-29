@@ -58,7 +58,7 @@
                                             Grid.Column="0"
                                             Grid.ColumnSpan="2"
                                             FontAttributes="Bold"
-                                            FontSize="25"
+                                            FontSize="24"
                                             Text="{Binding Name}"
                                             TextColor="Black"
                                             VerticalOptions="Center" />
