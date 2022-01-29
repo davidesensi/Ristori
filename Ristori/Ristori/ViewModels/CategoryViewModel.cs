@@ -72,7 +72,6 @@ namespace Ristori.ViewModels
             ProductsByCategory = new ObservableCollection<Product>();
             GetProductsAsync(category.CategoryID);
             IncrementOrderCommand = new Command(IncrementOrder);
-            InfoProductCommand = new Command(InfoProduct);
             
         }
 
@@ -82,7 +81,6 @@ namespace Ristori.ViewModels
             ProductsByCategory = new ObservableCollection<Product>();
             GetProductsAsync(categoryID);
             IncrementOrderCommand = new Command(IncrementOrder);
-            InfoProductCommand = new Command(InfoProduct);
             
 
         }
@@ -97,14 +95,6 @@ namespace Ristori.ViewModels
         }
 
         
-
-        private void InfoProduct(Object obj)
-        {
-            var product = obj as Product;
-            //Application.Current.MainPage.Navigation.PushModalAsync(new ProductDetailsView(product));
-            Shell.Current.Navigation.PushAsync(new ProductDetailsView(product));
-        }
-
         private void IncrementOrder(Object obj)
         {
             SQLite.SQLiteConnection cn = DependencyService.Get<ISQLite>().GetConnection();

@@ -30,7 +30,6 @@ namespace Ristori.Views.CategoryViewFolder
             var selectedProduct = e.CurrentSelection.FirstOrDefault() as Product;
             if (selectedProduct == null)
                 return;
-            await Navigation.PushModalAsync(new ProductDetailsView(selectedProduct));
             ((CollectionView)sender).SelectedItem = null;
         }
     }
