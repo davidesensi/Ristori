@@ -54,13 +54,23 @@
                 Margin="10,10"
                 Padding="20"
                 BackgroundColor="#F44336"
+                Command="{Binding ModifyProductCommand}"
+                CornerRadius="20"
+                Text="Modifica Prodotto"
+                TextColor="#FFFEEF" />
+
+            <Button
+                Grid.Row="4"
+                Margin="10,10"
+                Padding="20"
+                BackgroundColor="#F44336"
                 Command="{Binding AllDeliveryCommand}"
                 CornerRadius="20"
                 Text="Ordini Delivery"
                 TextColor="#FFFEEF" />
 
             <Button
-                Grid.Row="4"
+                Grid.Row="5"
                 Margin="10,10"
                 Padding="20"
                 BackgroundColor="#F44336"

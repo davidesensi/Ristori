@@ -7,12 +7,16 @@ using System.Threading.Tasks;
 using System.Linq;
 using Firebase.Database.Query;
 using System.Collections.ObjectModel;
+using FireSharp.Config;
+using FireSharp.Response;
+using FireSharp.Interfaces;
 
 namespace Ristori.Services
 {
     class ProductService
     {
         FirebaseClient client;
+
         public ProductService()
         {
             client = new FirebaseClient("https://ristori-1955c-default-rtdb.europe-west1.firebasedatabase.app/");
@@ -45,6 +49,18 @@ namespace Ristori.Services
             return productsByCategory;
         }
 
+        public async Task<ObservableCollection<Product>> GetAllProducts()
+        {
+            var allProducts = new ObservableCollection<Product>();
+            var products = (await GetProductAsync()).ToList();
+
+            foreach (var product in products)
+            {
+                allProducts.Add(product);
+            }
+            return allProducts;
+        }
+
         public async Task AddNewProduct(Product product)
         {
             var prodID = (await GetProductAsync()).Count;
@@ -58,5 +74,20 @@ namespace Ristori.Services
             });
         }
 
+        public async Task UpdateProduct(Product product)
+        {
+            var toUpdateProduct = (await client.Child("Products").OnceAsync<Product>())
+                .Where(a => a.Object.ProductID == product.ProductID).FirstOrDefault();
+
+            await client.Child("Products").Child(toUpdateProduct.Key)
+                .PutAsync(new Product()
+                {
+                    CategoryID = product.CategoryID,
+                    ProductID = product.ProductID,
+                    Description = product.Description,
+                    Price = product.Price,
+                    Name = product.Name
+                });
+        }
     }
 }

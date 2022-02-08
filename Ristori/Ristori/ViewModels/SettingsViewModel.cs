@@ -13,6 +13,7 @@ namespace Ristori.ViewModels
     {
         public Command LogoutCommand { get; set; }
         public Command NewProductCommand { get; set; }
+        public Command ModifyProductCommand { get; set; }
         public Command AllDeliveryCommand { get; set; }
         public Command AllTavoloCommand { get; set; }
 
@@ -20,6 +21,7 @@ namespace Ristori.ViewModels
         {
             LogoutCommand = new Command(async () => await LogoutViewCall());
             NewProductCommand = new Command(async () => await NewProductCall());
+            ModifyProductCommand = new Command(async () => await ModifyProductCall());
             AllDeliveryCommand = new Command(async () => await AllDeliveryCall());
             AllTavoloCommand = new Command(async () => await AllTavoloCall());
         }
@@ -27,6 +29,11 @@ namespace Ristori.ViewModels
         private async Task NewProductCall()
         {
             await Shell.Current.Navigation.PushAsync(new NewProductView());
+        }
+
+        private async Task ModifyProductCall()
+        {
+            await Shell.Current.Navigation.PushAsync(new ModifyProductView());
         }
 
         private async Task LogoutViewCall()

@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Ristori.Views.ModifyProductView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="#FFFEEF">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Label
+                Grid.Row="0"
+                Margin="0,10"
+                FontAttributes="Bold"
+                FontSize="35"
+                HorizontalOptions="Center"
+                Text="Modifica Prodotto"
+                TextColor="Black"
+                VerticalOptions="Center" />
+
+            <Picker
+                Title="Seleziona Prodotto"
+                Grid.Row="1"
+                FontSize="25"
+                ItemDisplayBinding="{Binding Name}"
+                ItemsSource="{Binding AllProducts}"
+                SelectedItem="{Binding Product}"
+                TextColor="Black" />
+
+            <StackLayout
+                Grid.Row="2"
+                HorizontalOptions="Center"
+                Spacing="10">
+                <Entry
+                    FontSize="25"
+                    Placeholder="Nome Prodotto"
+                    PlaceholderColor="Black"
+                    Text="{Binding Product.Name}"
+                    TextColor="Black" />
+                <Entry
+                    FontSize="25"
+                    Placeholder="Descrizione"
+                    PlaceholderColor="Black"
+                    Text="{Binding Product.Description}"
+                    TextColor="Black" />
+
+                <Entry
+                    FontSize="25"
+                    Placeholder="Prezzo"
+                    PlaceholderColor="Black"
+                    Text="{Binding Product.Price}"
+                    TextColor="Black" />
+
+                <Picker
+                    Title="Seleziona Categoria"
+                    FontSize="25"
+                    ItemDisplayBinding="{Binding CategoryName}"
+                    ItemsSource="{Binding Categories}"
+                    SelectedItem="{Binding Product.CategoryID}"
+                    TextColor="Black" />
+
+            </StackLayout>
+
+            <Button
+                Grid.Row="3"
+                BackgroundColor="#F44336"
+                Command="{Binding UpdateProductCommand}"
+                CornerRadius="20"
+                HorizontalOptions="Center"
+                Text="Aggiorna Prodotto"
+                TextColor="#FFFEEF" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
