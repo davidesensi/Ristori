@@ -75,9 +75,7 @@ namespace Ristori.ViewModels
         }
 
         public Command PlaceOrdersCommand { get; set; }
-
         public Command PlaceOrdersCommand2 { get; set; }
-
         public Command IncrementOrderCommand { get; set; }
         public Command DecrementOrderCommand { get; set; }
         public Command DeleteRowCommand { get; set; }
